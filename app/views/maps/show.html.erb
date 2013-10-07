@@ -1,2 +1,14 @@
-<h1>Maps#show</h1>
-<p>Find me in app/views/maps/show.html.erb</p>
+<h1><%= @map.title %></h1>
+<p><%= @map.description %></p>
+
+<%= render "map" %>
+
+<ul>
+  <% @map.restaurants.each do |restaurant| %>
+    <li><%= restaurant.name %><br>
+      Source: <%= restaurant.source_url %><br>
+      Address: <%= restaurant.address %><br>
+      Notes: <%= restaurant.note %><br>
+    </li>
+  <% end %>
+</ul>

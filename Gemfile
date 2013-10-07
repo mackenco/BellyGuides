@@ -28,6 +28,13 @@ gem 'pry-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'jquery-rails'
 
+gem 'rest-client'
+gem 'json'
+gem 'nokogiri'
+gem 'addressable'
+gem 'figaro'
+gem 'gmaps4rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

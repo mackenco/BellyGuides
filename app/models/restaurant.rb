@@ -1,5 +1,7 @@
 class Restaurant < ActiveRecord::Base
-  attr_accessible :completed, :lat, :long, :map_id, :name, :note, :source_url
+  attr_accessible :completed, :lat, :long, :map_id, :name, :note, :source_url, :address
+
+  validates :name, :address, presence: true
 
   belongs_to(
     :map,

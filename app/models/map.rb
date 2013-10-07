@@ -1,5 +1,7 @@
 class Map < ActiveRecord::Base
-  attr_accessible :owner_id, :title
+  attr_accessible :owner_id, :title, :description
+
+  validates :title, :description, presence: true
 
   belongs_to(
     :owner,

@@ -1,2 +1,40 @@
-<h1>Maps#new</h1>
-<p>Find me in app/views/maps/new.html.erb</p>
+<h1>Create a new map</h1>
+
+<form action="<%= maps_url %>" method="POST">
+
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <label>Title
+    <input
+      type="text"
+      name="map[title]"
+      value="<%= @map.title %>"><br>
+  </label>
+
+  <label>Description
+    <textarea
+      rows="2"
+      cols="40"
+      name="map[description]"><%= @map.description %></textarea></label><br>
+
+  <h2>Add Restaurants</h2>
+    <% @map.restaurants.each_with_index do |restaurant, i| %>
+    <% name = "restaurant#{i}" %>
+
+      <p><label>Name
+        <input type="text" name="<%= name %>[name]"></label></p>
+
+      <p><label>Source URL
+        <input type="text" name="<%= name %>[source_url]"></label></p>
+
+      <p><label>Address
+        <input type="text" name="<%= name %>[address]"></label></p>
+
+      <p>Notes
+        <textarea rows="5" cols="20" name="<%= name %>[note]"></textarea></p><br>
+    <% end %>
+
+    <input type="submit" value="Create Map">
+</form>

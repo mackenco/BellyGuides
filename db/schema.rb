@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007140107) do
+ActiveRecord::Schema.define(:version => 20131007155859) do
 
   create_table "maps", :force => true do |t|
-    t.integer  "owner_id",   :null => false
-    t.string   "title",      :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "owner_id",    :null => false
+    t.string   "title",       :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
   add_index "maps", ["owner_id"], :name => "index_maps_on_owner_id"
@@ -28,10 +29,11 @@ ActiveRecord::Schema.define(:version => 20131007140107) do
     t.text     "note"
     t.string   "source_url"
     t.integer  "map_id"
-    t.integer  "lat"
-    t.integer  "long"
+    t.float    "lat"
+    t.float    "long"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "address"
   end
 
   add_index "restaurants", ["map_id"], :name => "index_restaurants_on_map_id"
