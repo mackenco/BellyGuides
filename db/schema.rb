@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007155859) do
+ActiveRecord::Schema.define(:version => 20131007174456) do
 
   create_table "maps", :force => true do |t|
     t.integer  "owner_id",    :null => false
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(:version => 20131007155859) do
     t.text     "note"
     t.string   "source_url"
     t.integer  "map_id"
-    t.float    "lat"
-    t.float    "long"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "address"

@@ -50,6 +50,7 @@ class MapsController < ApplicationController
   end
 
   def show
-    @map = Map.find(params[:id])
+    @map = Map.includes(:restaurants).find(params[:id])
+    @restaurant = @map.restaurants.first
   end
 end

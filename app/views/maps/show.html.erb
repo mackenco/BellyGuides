@@ -1,14 +1,49 @@
-<h1><%= @map.title %></h1>
-<p><%= @map.description %></p>
+<html class="map">
+  <head class="map">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
-<%= render "map" %>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDczIweZNRezDTZwvKUup4lCfaNKsQkDAI&sensor=false">
+    </script>
 
-<ul>
-  <% @map.restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %><br>
-      Source: <%= restaurant.source_url %><br>
-      Address: <%= restaurant.address %><br>
-      Notes: <%= restaurant.note %><br>
-    </li>
-  <% end %>
-</ul>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(<%= @restaurant.latitude %>, <%= @restaurant.longitude %>),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+      <% @map.restaurants.each do |restaurant| %>
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(<%= restaurant.latitude %>, <%= restaurant.longitude %>),
+          map: map,
+          title: <%= restaurant.name %>
+        });
+      <% end %>
+
+    </script>
+  </head>
+
+  <body class="map">
+    <h1><%= @map.title %></h1>
+    <p><%= @map.description %></p>
+
+    <div id="map-canvas"></div>
+
+    <ul>
+      <% @map.restaurants.each do |restaurant| %>
+        <li><%= restaurant.name %><br>
+          Source: <%= restaurant.source_url %><br>
+          Address: <%= restaurant.address %><br>
+          Notes: <%= restaurant.note %><br>
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>

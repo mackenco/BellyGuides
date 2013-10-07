@@ -3,6 +3,8 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, :address, presence: true
 
+  acts_as_gmappable
+
   belongs_to(
     :map,
     class_name: "Map",
