@@ -1,3 +1,11 @@
-Hello <%= current_user.username %>!
+<h1>Hello <%= current_user.username %>!</h1>
+
+<p>Your maps:
+  <ul>
+    <% current_user.maps.each do |map| %>
+      <li><%= link_to map.title, map_url(map) %></li>
+    <% end %>
+  </ul>
+<p>
 
 <%= link_to "Create a map", new_map_url %>
