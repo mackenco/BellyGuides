@@ -52,5 +52,9 @@ class MapsController < ApplicationController
   def show
     @map = Map.includes(:restaurants).find(params[:id])
     @restaurant = @map.restaurants.first
+    @finished, @unfinished = [], []
+    @map.restaurants.each do |rest|
+      rest.completed ? @finished << rest : @unfinished << rest
+    end
   end
 end
