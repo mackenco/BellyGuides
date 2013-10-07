@@ -5,11 +5,10 @@ class SessionController < ApplicationController
   def create
     user = User.find_by_credentials(
       params[:user][:username],
-      params[:user][:password]
-    )
+      params[:user][:password])
 
     if user.nil?
-      render json: "Incorrect username or password"
+      render :json => "Incorrect username or password"
     else
       self.current_user = user
       redirect_to user_url(user)

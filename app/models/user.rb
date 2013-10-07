@@ -9,11 +9,13 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many
+  has_many(
     :maps,
     class_name: "Map",
     foreign_key: :owner_id,
-    primary_key: :id
+    primary_key: :id)
+
+  has_many :restaurants, through: :maps, source: :restaurants
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
