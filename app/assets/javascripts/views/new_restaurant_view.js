@@ -12,6 +12,12 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
   },
 
   submit: function () {
+    var that = this;
 
+    var formData = $(event.currentTarget).serializeJSON();
+    var task = new BellyGuide.Models.Restaurant(formData.restaurant);
+
+    that.collection.add(task);
+    Backbone.history.navigate("#/");
   }
 });

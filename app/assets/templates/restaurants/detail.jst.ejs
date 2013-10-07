@@ -1,8 +1,8 @@
-<h2><%= restaurant.name %></h2>
+<h2><%= restaurant.escape("name") %></h2>
 <p>
-  Source: <a href="<%= restaurant.source_url %>"><br>
-  Address: <%= restaurant.address %><br>
-  Notes: <%= restaurant.note %><br>
+  Source: <a href="<%= restaurant.escape("source_url") %>"><br>
+  Address: <%= restaurant.escape("address") %><br>
+  Notes: <%= restaurant.esca[e]("note") %><br>
 </p>
 
 <a href="#/">Back</a>

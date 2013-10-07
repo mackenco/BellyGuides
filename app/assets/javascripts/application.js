@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require jquery.serializeJSON
 //= require belly_guide
 //= require_tree ../templates
 //= require_tree ./models
