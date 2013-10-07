@@ -3,8 +3,8 @@ window.BellyGuide = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function($rootEl, restaurants) {
+  initialize: function($rootEl, restaurants, mapID) {
     new BellyGuide.Routers.RestaurantsRouter($rootEl, restaurants);
-    Backbone.history.start();
+    Backbone.history.start({ root: "/maps/"+mapID });
   }
 };

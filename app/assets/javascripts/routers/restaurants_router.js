@@ -6,6 +6,7 @@ BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
 
   routes: {
     "": "index",
+    "restaurants/new": "new",
     "restaurants/:id": "show"
   },
 
@@ -20,6 +21,20 @@ BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
   },
 
   show: function (id) {
+    var that = this;
 
+    var restaurant = (that.restaurants).findWhere({ id: parseInt(id) });
+    var restaurantDetailView = new BellyGuide.Views.RestaurantDetailView({
+      mode: restaurant
+    });
+
+    that.$rootEl.html(restaurantDetailView.render().$el)
+  },
+
+  new: function () {
+    var that = this;
+
+    var newRestaurantView = new BellyGuide.Views.NewRestaurantView();
+    that.$rootEl.html(newRestaurantView.render().$el);
   }
 });
