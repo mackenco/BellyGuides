@@ -1,3 +1,3 @@
-BellyGuide.Models.Taks = Backbone.Model.extend({
-
+BellyGuide.Models.Restaurant = Backbone.Model.extend({
+  urlRoot: "/maps/"+BellyGuide.MapID
 })

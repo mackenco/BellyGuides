@@ -1,8 +1,10 @@
 BellyGuide.Views.RestaurantListView = Backbone.View.extend({
+  template: JST["restaurants/list"],
+
    render: function () {
     var that = this;
 
-    var renderedContent = JST["restaurants/list"]({
+    var renderedContent = this.template({
       restaurants: that.collection
     });
 

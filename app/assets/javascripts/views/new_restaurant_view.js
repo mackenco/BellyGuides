@@ -1,4 +1,6 @@
 BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
+  template: JST["restaurants/new"],
+
   events: {
     "click button.submit": "submit"
   },
@@ -6,7 +8,7 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
   render: function () {
     var that = this;
 
-    var renderedContent = JST["restaurants/new"]();
+    var renderedContent = this.template();
     that.$el.html(renderedContent);
     return that;
   },
@@ -15,9 +17,10 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
     var that = this;
 
     var formData = $(event.currentTarget).serializeJSON();
-    var task = new BellyGuide.Models.Restaurant(formData.restaurant);
+    var restaurant = new BellyGuide.Models.Restaurant(formData.restaurant);
 
-    that.collection.add(task);
+    that.collection.add(restaurant);
+    restaurant.save();
     Backbone.history.navigate("#/");
   }
 });

@@ -1,3 +1,3 @@
-BellyGuide.Collections.Tasks = Backbone.Collection.extend({
-  model: BellyGuide.Models.Task
+BellyGuide.Collections.Restaurants = Backbone.Collection.extend({
+  model: BellyGuide.Models.Restaurant
 })

@@ -4,9 +4,10 @@ window.BellyGuide = {
   Views: {},
   Routers: {},
   initialize: function($rootEl, restaurantData, mapID) {
-    var restaurants = new BellyGuide.Collections.Restaurants(restaurantData)
+    BellyGuide.restaurants = new BellyGuide.Collections.Restaurants(restaurantData)
+    BellyGuide.mapID = mapID;
 
-    new BellyGuide.Routers.RestaurantsRouter($rootEl, restaurants);
-    Backbone.history.start({ root: "/maps/"+mapID });
+    new BellyGuide.Routers.RestaurantsRouter($rootEl);
+    Backbone.history.start();
   }
 };

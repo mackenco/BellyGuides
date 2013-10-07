@@ -1,4 +1,4 @@
-
+<body>
 <script type="application/json" id="bootstrapped_restaurants_json">
   <%= @restaurants.to_json.html_safe %>
 </script>
@@ -10,7 +10,7 @@
 <script type="application/javascript">
   $(function () {
     var restaurants = JSON.parse($("#bootstrapped_restaurants_json").html());
-
-    window.BellyGuide.initialize($("body"), restaurants, <%=@map.id%>);
+    window.BellyGuide.initialize($("body"), restaurants, <%= @map.id %>);
   });
 </script>
+</body>

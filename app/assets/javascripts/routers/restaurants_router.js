@@ -1,7 +1,6 @@
 BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
-  initialize: function ($rootEl, restaurants) {
+  initialize: function ($rootEl) {
     this.$rootEl = $rootEl;
-    this.restaurants = restaurants;
   },
 
   routes: {
@@ -14,30 +13,36 @@ BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
     var that = this;
 
     var restaurantsListView = new BellyGuide.Views.RestaurantListView({
-      collection: that.restaurants
+      collection: BellyGuide.restaurants
     });
 
-    that.$rootEl.html(restaurantsListView.render().$el);
+    that._swapView(restaurantsListView)
   },
 
   show: function (id) {
     var that = this;
 
-    var restaurant = that.restaurants.get(id);
+    var restaurant = BellyGuide.restaurants.get(id);
     var restaurantDetailView = new BellyGuide.Views.RestaurantDetailView({
       model: restaurant
     });
 
-    that.$rootEl.html(restaurantDetailView.render().$el)
+    that._swapView(restaurantDetailView)
   },
 
   new: function () {
     var that = this;
 
     var newRestaurantView = new BellyGuide.Views.NewRestaurantView({
-      collection: that.restaurants
+      collection: BellyGuide.restaurants
     });
 
-    that.$rootEl.html(newRestaurantView.render().$el);
+    that._swapView(newRestaurantView)
+  },
+
+  _swapView: function (view) {
+    this._currentView && this._currentView.remove();
+    this._currentView = view;
+    this.$rootEl.html(view.render().$el);
   }
 });
