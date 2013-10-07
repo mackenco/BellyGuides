@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  completed: false
+  note: MyText
+  source_url: MyString
+  map_id: 1
+  lat: 1
+  long: 1
+
+two:
+  name: MyString
+  completed: false
+  note: MyText
+  source_url: MyString
+  map_id: 1
+  lat: 1
+  long: 1
