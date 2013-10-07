@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
   def new
     @map = Map.new
-    1.times { @map.restaurants.build }
+    5.times { @map.restaurants.build }
   end
 
   def edit
@@ -14,7 +14,7 @@ class MapsController < ApplicationController
         @map = Map.new(params[:map])
         @restaurants = []
 
-        1.times do |i|
+        5.times do |i|
           address = params["restaurant#{i}"]["address"]
           coords = convert_address(address)
 
@@ -33,6 +33,7 @@ class MapsController < ApplicationController
         end
 
         raise "invalid" unless @map.valid? && @restaurants.all? { |obj| obj.valid? }
+
       end
     rescue
       # fail
@@ -52,9 +53,15 @@ class MapsController < ApplicationController
   def show
     @map = Map.includes(:restaurants).find(params[:id])
     @restaurant = @map.restaurants.first
+    @restaurants = @map.restaurants
     @finished, @unfinished = [], []
     @map.restaurants.each do |rest|
       rest.completed ? @finished << rest : @unfinished << rest
+    end
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @restaurants }
     end
   end
 end

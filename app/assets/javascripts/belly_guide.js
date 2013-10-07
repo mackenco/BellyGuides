@@ -3,11 +3,8 @@ window.BellyGuide = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    // alert('Hello from Backbone!');
+  initialize: function($rootEl, restaurants) {
+    new BellyGuide.Routers.RestaurantsRouter($rootEl, restaurants);
+    Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  BellyGuide.initialize();
-});

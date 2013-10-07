@@ -1,0 +1,9 @@
+<ul>
+  <% _(restaurants).each(function (restaurant) { %>
+    <li class="restaurant">
+      <a href="#/restaurant/<%=restaurant.id %>">
+        <%= restaurant.name %>
+      </a>
+    </li>
+  <% }); %>
+</ul>

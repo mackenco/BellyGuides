@@ -1,0 +1,65 @@
+<html class="map">
+  <head class="map">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDczIweZNRezDTZwvKUup4lCfaNKsQkDAI&sensor=false">
+    </script>
+
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(<%= @restaurant.latitude %>, <%= @restaurant.longitude %>),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+        <% @map.restaurants.each do |restaurant| %>
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(<%= restaurant.latitude %>, <%= restaurant.longitude %>),
+            map: map,
+            title: "<%= restaurant.name %>"
+          });
+        <% end %>
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+
+  <body class="map">
+    <h1><%= @map.title %></h1>
+    <p><%= @map.description %></p>
+
+    <div id="map-canvas"></div>
+
+    <section class="unfinished">
+      <p>Where to eat:</p>
+      <ul>
+        <% @unfinished.each do |restaurant| %>
+          <li><%= restaurant.name %><br>
+            Source: <%= restaurant.source_url %><br>
+            Address: <%= restaurant.address %><br>
+            Notes: <%= restaurant.note %><br>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="unfinished">
+      <p>Already eaten:</p>
+      <ul>
+        <% @finished.each do |restaurant| %>
+          <li><%= restaurant.name %><br>
+            Source: <%= restaurant.source_url %><br>
+            Address: <%= restaurant.address %><br>
+            Notes: <%= restaurant.note %><br>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+    <%=link_to "Back to All Maps", user_url(current_user)%>
+  </body>
+</html>
