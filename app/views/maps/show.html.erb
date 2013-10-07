@@ -1,21 +1,54 @@
-<script type="application/json" id="bootstrapped_restaurants_json">
-  <%= @restaurants.to_json.html_safe %>
-</script>
+<html class="map">
+  <head class="map">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
-<h1><%= @map.title %></h1>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDczIweZNRezDTZwvKUup4lCfaNKsQkDAI&sensor=false">
+    </script>
 
-<body>
-  <p><%= @map.description %></p>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(<%= @restaurant.latitude %>, <%= @restaurant.longitude %>),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
 
-  <section class="restaurant-list">
-  </section>
+        <% @map.restaurants.each do |restaurant| %>
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(<%= restaurant.latitude %>, <%= restaurant.longitude %>),
+            map: map,
+            title: "<%= restaurant.name %>"
+          });
+        <% end %>
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 
-  <script type="application/javascript">
-    $(function () {
+    <script type="application/json" id="bootstrapped_restaurants_json">
       <%= @restaurants.to_json.html_safe %>
-      var restaurants = JSON.parse($("#bootstrapped_restaurants_json").html());
-      window.BellyGuide.initialize($(".restaurant-list"), restaurants, <%= @map.id %>);
-    });
-  </script>
+    </script>
+  </head>
 
-</body>
+  <h1><%= @map.title %></h1>
+
+  <body>
+    <p><%= @map.description %></p>
+
+    <div id="map-canvas"></div>
+
+    <section class="restaurant-list">
+    </section>
+
+    <script type="application/javascript">
+      $(function () {
+        <%= @restaurants.to_json.html_safe %>
+        var restaurants = JSON.parse($("#bootstrapped_restaurants_json").html());
+        window.BellyGuide.initialize($(".restaurant-list"), restaurants, <%= @map.id %>);
+      });
+    </script>
+
+  </body>
+</html>
