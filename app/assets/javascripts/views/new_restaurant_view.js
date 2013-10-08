@@ -18,10 +18,11 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
     var that = this;
 
     var formData = $(event.currentTarget.form).serializeJSON();
-    var restaurant = new BellyGuide.Models.Restaurant(formData.restaurant);
-
-    that.collection.add(restaurant);
+    var restaurant = new BellyGuide.Models.Restaurant(formData.restaurant)
+    restaurant.set("map_id", BellyGuide.mapID);
     restaurant.save();
+
     Backbone.history.navigate("#/");
+    window.location.reload();
   }
 });

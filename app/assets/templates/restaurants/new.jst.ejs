@@ -1,15 +1,15 @@
 <h1>New Restaurant</h1>
 <form>
   <label>Name
-    <input name="restaurant[title]" id="restaurant_title">
+    <input name="restaurant[name]">
   </label><br>
 
   <label>Source
-    <input name="restaurant[source_url]" id="restaurant_source_url">
+    <input name="restaurant[source_url]">
   </label><br>
 
   <label>Address
-    <input name="restaurant[address]" id="restaurant_address">
+    <input name="restaurant[address]">
   </label><br>
 
   <label>Note
@@ -17,6 +17,8 @@
               id="restaurant_note"
               rows=5 cols=20></textarea>
   </label><br>
+
+  <input type="hidden" name="restaurant[map_id]" value="<%= BellyGuide.MapID%>">
 
   <input type="submit" value="Submit">
 </form>
