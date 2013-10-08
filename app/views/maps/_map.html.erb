@@ -1,7 +1,7 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
 <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDczIweZNRezDTZwvKUup4lCfaNKsQkDAI&sensor=false">
+ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_API_KEY'] %>&sensor=false">
 </script>
 
 <script type="text/javascript">
@@ -22,7 +22,6 @@
         title: "<%= restaurant.name %>"
       });
     <% end %>
-
   }
   google.maps.event.addDomListener(window, 'load', initialize);
 
