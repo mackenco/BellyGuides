@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
   def new
     @map = Map.new
-    5.times { @map.restaurants.build }
+    3.times { @map.restaurants.build }
   end
 
   def edit
@@ -14,19 +14,19 @@ class MapsController < ApplicationController
         @map = Map.new(params[:map])
         @restaurants = []
 
-        5.times do |i|
+        3.times do |i|
           address = params["restaurant#{i}"]["address"]
           coords = convert_address(address)
 
           restaurant = Restaurant.new(params["restaurant#{i}".to_sym])
-          restaurant.lat = coords[0]
-          restaurant.long = coords[1]
+          restaurant.latitude = coords[0]
+          restaurant.longitude = coords[1]
           @restaurants << restaurant
         end
 
         @map.owner = current_user
         @map.save
-
+        #fail
         @restaurants.each do |restaurant|
           restaurant.map = @map
           restaurant.save
@@ -36,10 +36,10 @@ class MapsController < ApplicationController
 
       end
     rescue
-      # fail
+     #  fail
       redirect_to new_map_url
     else
-      # fail
+    #   fail
       redirect_to map_url(@map)
     end
   end
