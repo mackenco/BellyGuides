@@ -27,11 +27,10 @@
   </div>
 
   <div class="notes">
-    <span class="show">Notes: <%= restaurant.escape("notes") %></span><br>
+    <span class="show">Notes: <%= restaurant.escape("note") %></span><br>
     <form class="hide edit">
-      Notes:<input name="restaurant[notes]"
-        id="restaurant_notes"
-        value="<%= restaurant.escape("notes") %>">
+      Notes:<textarea name="restaurant[note]" rows=5 cols=20
+        id="restaurant_note"><%= restaurant.escape("note") %></textarea>
     </form>
   </div>
 </p>

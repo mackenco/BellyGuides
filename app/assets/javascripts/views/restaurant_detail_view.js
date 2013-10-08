@@ -32,6 +32,8 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     var restaurant = that.model;
+    console.log(restaurant);
+    console.log(restaurant.url)
     restaurant.set(formData.restaurant);
     restaurant.save();
     $parent.children().toggleClass("hide");

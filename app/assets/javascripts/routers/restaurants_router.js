@@ -11,7 +11,6 @@ BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
 
   index: function () {
     var that = this;
-
     var restaurantsListView = new BellyGuide.Views.RestaurantListView({
       collection: BellyGuide.restaurants
     });
