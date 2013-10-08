@@ -6,6 +6,12 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
     "dblclick .edit": "edit"
   },
 
+  initialize: function () {
+    var that = this;
+    var renderCallback = that.render.bind(that);
+    that.listenTo(that.model, 'change', renderCallback);
+  },
+
   render: function () {
     var that = this;
 
@@ -32,8 +38,6 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     var restaurant = that.model;
-    console.log(restaurant);
-    console.log(restaurant.url)
     restaurant.set(formData.restaurant);
     restaurant.save();
     $parent.children().toggleClass("hide");

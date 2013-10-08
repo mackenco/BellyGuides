@@ -2,7 +2,8 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
   template: JST["restaurants/list"],
 
   events: {
-    "click .restaurant": "detail"
+    "click .list": "detail",
+    "click .detail": "removeDetail"
   },
 
   initialize: function () {
@@ -26,14 +27,25 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
     return that;
   },
 
-
   detail: function (event) {
-    var id = $(event.currentTarget).attr("data-id");
+    var $li = $(event.currentTarget.parentElement)
+    var id = $li.attr("data-id");
+
     var restaurant = BellyGuide.restaurants.get(id);
     var restaurantDetailView = new BellyGuide.Views.RestaurantDetailView({
       model: restaurant
     });
-    var $li = $(event.currentTarget)
+    $(event.currentTarget).addClass("detail")
+    $(event.currentTarget).removeClass("list")
+
     $li.append(restaurantDetailView.render().$el)
+  },
+
+  removeDetail: function (event) {
+    $(event.currentTarget).addClass("list");
+    $(event.currentTarget).removeClass("detail");
+    var $li = $(event.currentTarget.parentElement);
+    var $detail = $li.find('.detail-view');
+    $detail.remove();
   }
 });

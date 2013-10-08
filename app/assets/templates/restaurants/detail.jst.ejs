@@ -1,38 +1,39 @@
-<div class="name">
-  <h2 class="show"><%= restaurant.escape("name") %></h2>
-  <form class="hide edit">
-    <input name="restaurant[name]"
-      id="restaurant_name"
-      value="<%= restaurant.escape("name") %>">
-  </form>
-</div>
-
-<p>
-  <div class="source">
-    <a class ="show" href="<%= restaurant.escape("source_url") %>">Source</a><br>
+<section class="detail-view">
+  <div class="name">
+    <h2 class="show"><%= restaurant.escape("name") %></h2>
     <form class="hide edit">
-      <input name="restaurant[source]"
-        id="restaurant_source"
-        value="<%= restaurant.escape("source") %>">
+      <input name="restaurant[name]"
+        id="restaurant_name"
+        value="<%= restaurant.escape("name") %>">
     </form>
   </div>
 
-  <div class="address">
-    <span class="show">Address: <%= restaurant.escape("address") %></span><br>
-    <form class="hide edit">
-      Address:<input name="restaurant[address]"
-        id="restaurant_address"
-        value="<%= restaurant.escape("address") %>">
-    </form>
-  </div>
+  <p>
+    <div class="source">
+      <a class ="show" href="<%= restaurant.escape("source_url") %>">Source</a><br>
+      <form class="hide edit">
+        <input name="restaurant[source]"
+          id="restaurant_source"
+          value="<%= restaurant.escape("source") %>">
+      </form>
+    </div>
 
-  <div class="notes">
-    <span class="show">Notes: <%= restaurant.escape("note") %></span><br>
-    <form class="hide edit">
-      Notes:<textarea name="restaurant[note]" rows=5 cols=20
-        id="restaurant_note"><%= restaurant.escape("note") %></textarea>
-    </form>
-  </div>
-</p>
+    <div class="address">
+      <span class="show">Address: <%= restaurant.escape("address") %></span><br>
+      <form class="hide edit">
+        Address:<input name="restaurant[address]"
+          id="restaurant_address"
+          value="<%= restaurant.escape("address") %>">
+      </form>
+    </div>
 
-<a href="#/">Back</a>
+    <div class="notes">
+      <span class="show">Notes: <%= restaurant.escape("note") %></span><br>
+      <form class="hide edit">
+        Notes:<textarea name="restaurant[note]" rows=5 cols=20
+          id="restaurant_note"><%= restaurant.escape("note") %></textarea>
+      </form>
+    </div>
+  </p>
+  <a href="#/">Back</a>
+</section>
