@@ -1,30 +1,28 @@
-<html class="map">
-  <head class="map">
-    <script type="application/json" id="bootstrapped_restaurants_json">
+<head class="map">
+  <script type="application/json" id="bootstrapped_restaurants_json">
+    <%= @restaurants.to_json.html_safe %>
+  </script>
+
+  <%= render "map", restaurants: @restaurants, restaurant: @restaurants.first %>
+
+</head>
+
+<h1><%= @map.title %></h1>
+
+<body>
+  <p><%= @map.description %></p>
+
+  <div id="map-canvas"></div>
+
+  <section class="restaurant-list">
+  </section>
+
+  <script type="application/javascript">
+    $(function () {
       <%= @restaurants.to_json.html_safe %>
-    </script>
+      var restaurants = JSON.parse($("#bootstrapped_restaurants_json").html());
+      window.BellyGuide.initialize($(".restaurant-list"), restaurants, <%= @map.id %>);
+    });
+  </script>
 
-    <%= render "map", restaurants: @restaurants, restaurant: @restaurants.first %>
-
-  </head>
-
-  <h1><%= @map.title %></h1>
-
-  <body>
-    <p><%= @map.description %></p>
-
-    <div id="map-canvas"></div>
-
-    <section class="restaurant-list">
-    </section>
-
-    <script type="application/javascript">
-      $(function () {
-        <%= @restaurants.to_json.html_safe %>
-        var restaurants = JSON.parse($("#bootstrapped_restaurants_json").html());
-        window.BellyGuide.initialize($(".restaurant-list"), restaurants, <%= @map.id %>);
-      });
-    </script>
-
-  </body>
-</html>
+</body>

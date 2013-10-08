@@ -12,21 +12,82 @@
  *= require_tree .
  */
 
-ul, li {
+html, body, header, h1, h2, nav, ul, li, a, footer, small {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-h1, h2, p {
-  font-size : 100%;
-  margin: 0;
-  padding: 0;
+body {
+  font-family: sans-serif;
+  background: #eee;
+  color: #333;
 }
-/*
+
+a {
+  color: #f00;
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
-}*/
+}
 
-.hide {
-  display: none;
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+}
+
+header {
+  background: #F2DC99;
+  border-bottom: 3px solid #333;
+}
+
+.header-wrap {
+  width: 900px;
+  margin: auto;
+  border-left: 2px solid #333;
+  border-right: 3px solid #333;
+}
+
+.header a {
+  color: #fff;
+}
+
+.header-logo {
+  float: left;
+}
+
+.header-logo > a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.header-logo > a:hover {
+  background: #333;
+}
+
+.header-nav {
+  float: right;
+}
+
+.header-nav > ul > li {
+  position: relative;
+  float: left;
+  border-left: 3px solid #333;
+}
+
+.header-nav > ul > li > a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.header-nav > ul > li:hover > a{
+  background: #333;
 }

@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-colin = User.create({username: "Colin", password: "pw"})
+colin = User.create({ username: "Colin", password: "pw" })
 map = Map.create({ title: "App Academy Lunch Spots", owner: colin,
       description: "Some places to eat around App Academy"})
 
