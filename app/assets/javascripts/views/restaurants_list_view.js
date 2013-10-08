@@ -1,6 +1,10 @@
 BellyGuide.Views.RestaurantListView = Backbone.View.extend({
   template: JST["restaurants/list"],
 
+  events: {
+    "click .restaurant": "detail"
+  },
+
   initialize: function () {
     var that = this;
 
@@ -20,5 +24,16 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
 
     that.$el.html(renderedContent);
     return that;
+  },
+
+
+  detail: function (event) {
+    var id = $(event.currentTarget).attr("data-id");
+    var restaurant = BellyGuide.restaurants.get(id);
+    var restaurantDetailView = new BellyGuide.Views.RestaurantDetailView({
+      model: restaurant
+    });
+    var $li = $(event.currentTarget)
+    $li.append(restaurantDetailView.render().$el)
   }
 });

@@ -1,0 +1,9 @@
+<ul>Restaurants to Try:
+  <% _(restaurants).each(function (restaurant) { %>
+    <li class="restaurant" data-id="<%=restaurant.escape("id") %>">
+      <a href="#/">
+        <%= restaurant.escape("name") %>
+      </a>
+    </li>
+  <% }); %>
+</ul>
