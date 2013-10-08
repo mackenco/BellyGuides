@@ -3,13 +3,14 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
 
   events: {
     "click .list": "detail",
-    "click .detail": "removeDetail"
+    "click .detail": "removeDetail",
+    "click input[type=checkbox]": "status"
   },
 
   initialize: function () {
     var that = this;
 
-    var events = ["add", "change", "remove", "reset"];
+    var events = ["add", "change:completed", "remove", "reset"];
     _(events).each(function (event) {
       that.listenTo(that.collection, event, that.render);
     });
@@ -47,5 +48,14 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
     var $li = $(event.currentTarget.parentElement);
     var $detail = $li.find('.detail-view');
     $detail.remove();
+  },
+
+  status: function (event) {
+    var $li = $(event.currentTarget.parentElement)
+    var id = $li.attr("data-id");
+    var checked = $(event.currentTarget).is(":checked")
+    event.preventDefault();
+    var restaurant = BellyGuide.restaurants.get(id);
+    restaurant.save({ completed: checked })
   }
 });
