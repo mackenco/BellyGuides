@@ -1,8 +1,39 @@
-<h2><%= restaurant.escape("name") %></h2>
+<div class="name">
+  <h2 class="show"><%= restaurant.escape("name") %></h2>
+  <form class="hide edit">
+    <input name="restaurant[name]"
+      id="restaurant_name"
+      value="<%= restaurant.escape("name") %>">
+  </form>
+</div>
+
 <p>
-  <a href="<%= restaurant.escape("source_url") %>">Source</a><br>
-  Address: <%= restaurant.escape("address") %><br>
-  Notes: <%= restaurant.escape("note") %><br>
+  <div class="source">
+    <a class ="show" href="<%= restaurant.escape("source_url") %>">Source</a><br>
+    <form class="hide edit">
+      <input name="restaurant[source]"
+        id="restaurant_source"
+        value="<%= restaurant.escape("source") %>">
+    </form>
+  </div>
+
+  <div class="address">
+    <span class="show">Address: <%= restaurant.escape("address") %></span><br>
+    <form class="hide edit">
+      Address:<input name="restaurant[address]"
+        id="restaurant_address"
+        value="<%= restaurant.escape("address") %>">
+    </form>
+  </div>
+
+  <div class="notes">
+    <span class="show">Notes: <%= restaurant.escape("notes") %></span><br>
+    <form class="hide edit">
+      Notes:<input name="restaurant[notes]"
+        id="restaurant_notes"
+        value="<%= restaurant.escape("notes") %>">
+    </form>
+  </div>
 </p>
 
 <a href="#/">Back</a>
