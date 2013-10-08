@@ -21,6 +21,7 @@ class MapsController < ApplicationController
           restaurant = Restaurant.new(params["restaurant#{i}".to_sym])
           restaurant.latitude = coords[0]
           restaurant.longitude = coords[1]
+          restaurant.completed = false
           @restaurants << restaurant
         end
 

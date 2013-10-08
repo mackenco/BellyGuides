@@ -14,14 +14,11 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
     var that = this;
 
     var renderedContent = this.template({
-      restaurants: that.collection
+      unfinished: that.collection.where({ completed: false }),
+      finished: that.collection.where({ completed: true })
     });
 
     that.$el.html(renderedContent);
     return that;
-  }// ,
-//
-//   showRestaurant: function (event) {
-//     console.log("I was clicked")
-//   }
+  }
 });
