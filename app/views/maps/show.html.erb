@@ -4,44 +4,8 @@
       <%= @restaurants.to_json.html_safe %>
     </script>
 
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <%= render "map", restaurants: @restaurants, restaurant: @restaurants.first %>
 
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDczIweZNRezDTZwvKUup4lCfaNKsQkDAI&sensor=false">
-    </script>
-
-    <style>
-      html, body, #map-canvas {
-        margin: 0;
-        padding: 10px;
-        height: 70%;
-        width: 98%;
-      }
-    </style>
-
-    <script type="text/javascript">
-      function initialize() {
-
-        var mapOptions = {
-          center: new google.maps.LatLng(<%= @restaurant.latitude %>, <%= @restaurant.longitude %>),
-          zoom: 13,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-
-        <% @map.restaurants.each do |restaurant| %>
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(<%= restaurant.latitude %>, <%= restaurant.longitude %>),
-            map: map,
-            title: "<%= restaurant.name %>"
-          });
-        <% end %>
-
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
   </head>
 
   <h1><%= @map.title %></h1>
