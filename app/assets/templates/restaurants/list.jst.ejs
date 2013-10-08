@@ -1,6 +1,6 @@
 <ul>Restaurants to Try:
   <% _(unfinished).each(function (restaurant) { %>
-    <li class="restaurant">
+    <li class="restaurant" data-id="<%=restaurant.escape("id") %>">
       <a href="#/restaurants/<%=restaurant.escape("id") %>">
         <%= restaurant.escape("name") %>
       </a>
@@ -12,7 +12,7 @@
 
 <ul>Visited Restaurants:
   <% _(finished).each(function (restaurant) { %>
-    <li class="restaurant">
+    <li class="restaurant" data-id="<%=restaurant.escape("id") %>">
       <a href="#/restaurants/<%=restaurant.escape("id") %>">
         <%= restaurant.escape("name") %>
       </a>

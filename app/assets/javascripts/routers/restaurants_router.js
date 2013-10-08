@@ -27,7 +27,8 @@ BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
       model: restaurant
     });
 
-    that._swapView(restaurantDetailView)
+    var $li = that.$rootEl.find("[data-id="+id+"]")
+    $li.append(restaurantDetailView.render().$el)
   },
 
   new: function () {
@@ -44,9 +45,5 @@ BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
-  },
-
-  _appendView: function (view) {
-
   }
 });
