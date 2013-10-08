@@ -45,17 +45,17 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
   removeDetail: function (event) {
     $(event.currentTarget).addClass("list");
     $(event.currentTarget).removeClass("detail");
-    var $li = $(event.currentTarget.parentElement);
-    var $detail = $li.find('.detail-view');
-    $detail.remove();
+
+    $(event.currentTarget.parentElement)
+      .find('.detail-view')
+      .remove();
   },
 
   status: function (event) {
-    var $li = $(event.currentTarget.parentElement)
-    var id = $li.attr("data-id");
-    var checked = $(event.currentTarget).is(":checked")
     event.preventDefault();
+
+    var id = $(event.currentTarget.parentElement).attr("data-id");
     var restaurant = BellyGuide.restaurants.get(id);
-    restaurant.save({ completed: checked })
+    restaurant.save({ completed: $(event.currentTarget).is(":checked") })
   }
 });
