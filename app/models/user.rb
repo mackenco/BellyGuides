@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
 
   has_many :restaurants, through: :maps, source: :restaurants
 
+  has_many :favorites
+
+  has_many :favorited_maps, through: :favorites, source: :map
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
 

@@ -17,6 +17,10 @@ class Map < ActiveRecord::Base
     dependent: :destroy
   )
 
+  has_many :favorites
+
+  has_many :favorited_users, through: :favorites, source: :user
+
   accepts_nested_attributes_for :restaurants,
   :reject_if => lambda { |a| a[:content].blank? }, allow_destroy: true
 end

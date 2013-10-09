@@ -17,6 +17,7 @@ class MapsController < ApplicationController
   end
 
   def index
+    @maps = Map.all
   end
 
   def new
