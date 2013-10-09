@@ -20,21 +20,13 @@
       name="map[description]"><%= @map.description %></textarea></label><br>
 
   <h2>Add Restaurants</h2>
-    <% @map.restaurants.each_with_index do |restaurant, i| %>
-    <% name = "restaurant#{i}" %>
+  <div id="restaurants">
+      <% @map.restaurants.each do |restaurant| %>
 
-      <p><label>Name
-        <input type="text" name="<%= name %>[name]"></label></p>
+        <%= render 'restaurant'%>
 
-      <p><label>Source URL
-        <input type="text" name="<%= name %>[source_url]"></label></p>
-
-      <p><label>Address
-        <input type="text" name="<%= name %>[address]"></label></p>
-
-      <p>Notes
-        <textarea rows="5" cols="20" name="<%= name %>[note]"></textarea></p><br>
-    <% end %>
+      <% end %>
+  </div>
 
     <input type="submit" value="Create Map">
 </form>

@@ -13,5 +13,10 @@ class Map < ActiveRecord::Base
     :restaurants,
     class_name: "Restaurant",
     foreign_key: :map_id,
-    primary_key: :id)
+    primary_key: :id,
+    dependent: :destroy
+  )
+
+  accepts_nested_attributes_for :restaurants,
+  :reject_if => lambda { |a| a[:content].blank? }, allow_destroy: true
 end

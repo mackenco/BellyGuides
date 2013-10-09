@@ -65,4 +65,5 @@ class MapsController < ApplicationController
       format.json { render json: @restaurants }
     end
   end
+
 end

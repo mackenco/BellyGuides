@@ -1,0 +1,14 @@
+<% i = Time.now.to_s %>
+<% name = "restaurant#{i}" %>
+
+<p><label>Name
+  <input type="text" name="<%= name %>[name]"></label></p>
+
+<p><label>Source URL
+  <input type="text" name="<%= name %>[source_url]"></label></p>
+
+<p><label>Address
+  <input type="text" name="<%= name %>[address]"></label></p>
+
+<p>Notes
+  <textarea rows="5" cols="20" name="<%= name %>[note]"></textarea></p><br>
