@@ -20,7 +20,7 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
     var formData = $(event.currentTarget.form).serializeJSON();
     var restaurant = new BellyGuide.Models.Restaurant(formData.restaurant)
     restaurant.set("map_id", BellyGuide.mapID);
-    restaurant.save();
+    restaurant.save({ wait: true });
 
     Backbone.history.navigate("#/");
     window.location.reload();

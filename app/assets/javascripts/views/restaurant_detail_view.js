@@ -3,7 +3,8 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
 
   events: {
     "dblclick .show": "toggle",
-    "dblclick .edit": "edit"
+    "dblclick .edit": "edit",
+    "click .delete": "remove"
   },
 
   initialize: function () {
@@ -41,5 +42,11 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
     restaurant.set(formData.restaurant);
     restaurant.save();
     $parent.children().toggleClass("hide");
+  },
+
+  remove: function (event) {
+    event.preventDefault();
+    this.model.destroy( {wait: true} );
+    window.location.reload();
   }
 })
