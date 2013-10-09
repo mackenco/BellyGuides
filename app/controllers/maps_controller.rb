@@ -1,4 +1,6 @@
 class MapsController < ApplicationController
+  before_filter :require_owner!, only: [:edit, :update, :destroy]
+
   def show
     @map = Map.includes(:restaurants).find(params[:id])
     @restaurants = @map.restaurants
@@ -103,4 +105,13 @@ class MapsController < ApplicationController
     redirect_to user_url(current_user)
   end
 
+  def require_owner!
+    @map = Map.find(params[:id])
+
+    return if @map.nil?
+
+    unless @map.owner == current_user
+      render :text => "Unauthorized", :status => 403
+    end
+  end
 end

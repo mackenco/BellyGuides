@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007174456) do
+ActiveRecord::Schema.define(:version => 20131009203005) do
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "map_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "favorites", ["map_id"], :name => "index_favorites_on_map_id"
+  add_index "favorites", ["user_id", "map_id"], :name => "index_favorites_on_user_id_and_map_id"
+  add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
 
   create_table "maps", :force => true do |t|
     t.integer  "owner_id",    :null => false
@@ -44,8 +55,10 @@ ActiveRecord::Schema.define(:version => 20131007174456) do
     t.string   "session_token"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "email"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["session_token"], :name => "index_users_on_session_token"
   add_index "users", ["username"], :name => "index_users_on_username"
 
