@@ -1,0 +1,11 @@
+  <%= f.label :source_url %><br>
+  <%= f.text_field :source_url %>
+
+  <%= f.label :address %><br>
+  <%= f.text_field :address %>
+
+  <%= f.label :notes %><br>
+  <%= f.text_area :notes, rows: 3 %>
+
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Restaurant" %>
