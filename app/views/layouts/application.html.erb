@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<header>
-  <div class="header-wrap">
+<header class="header">
+  <div class="header-wrap group">
 
     <h1 class="header-logo">
       <a href="<%= user_url(current_user) %>">Belly Guide</a>
@@ -17,13 +17,10 @@
 
     <nav class="header-nav">
       <ul class="group">
-        <li><% if !current_user.nil? %>
-            <ul>
-              <li> Hello <%= current_user.username %>!
-              <%= button_to "Logout", session_url, method: :delete %></li>
-            </ul>
-            <% end %>
-        </li>
+        <% if !current_user.nil? %>
+          <li> Hello <%= current_user.username %>!</li>
+          <li><%= button_to "Logout", session_url, method: :delete, class: "sign-in" %></li>
+        <% end %>
         <li><a href="#">Favorites</a></li>
         <li><a href="<%= user_url(current_user) %>">My Maps</a></li>
         <li><a href="<%= new_map_url %>">Create a Map</a></li>
