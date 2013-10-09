@@ -20,7 +20,7 @@
       <ul class="group">
           <li class="first"> Hello <%= current_user.username %>!</li>
           <li><a href="<%= user_url(current_user) %>">My Maps</a></li>
-          <li><a href="#">Favorites</a></li>
+          <li><a href="<%= favorites_url %>">Favorites</a></li>
           <li><a href="<%= new_map_url %>">Create a Map</a></li>
           <li><a href="<%= maps_url %>">Explore</a></li>
           <li><%= button_to "Logout", session_url, method: :delete, class: "sign-in" %></li>

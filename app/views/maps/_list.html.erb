@@ -1,0 +1,6 @@
+<ul>
+  <% maps.each do |map| %>
+  <li><a href="<%= map_url(map) %>"><%= map.title %></a> |
+    <%= map.owner.username %></li>
+  <% end %>
+</ul>

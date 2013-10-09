@@ -1,7 +1,3 @@
 <h1>Explore</h1>
-<ul>
-  <% @maps.each do |map| %>
-  <li><a href="<%= map_url(map) %>"><%= map.title %></a> |
-    <%= map.owner.username %></li>
-  <% end %>
-</ul>
+
+<%= render 'list', maps: @maps %>

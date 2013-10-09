@@ -19,4 +19,9 @@ class FavoritesController < ApplicationController
     end
     redirect_to map_url(params[:map_id])
   end
+
+  def index
+    @current_favorites = Favorite.includes(:map).where(user_id:current_user.id)
+    @maps = @current_favorites.map { |f| f.map }
+  end
 end
