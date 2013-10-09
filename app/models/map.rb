@@ -1,5 +1,5 @@
 class Map < ActiveRecord::Base
-  attr_accessible :owner_id, :title, :description, :owner
+  attr_accessible :owner_id, :title, :description, :owner, :restaurants_attributes
 
   validates :title, :description, presence: true
 

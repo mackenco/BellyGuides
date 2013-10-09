@@ -11,13 +11,12 @@
   </p>
 
   <%= f.fields_for :restaurants do |builder| %>
-  <hr>
 
      <%= render "restaurant_fields", f: builder %>
   <% end %>
 
+  <p><%= link_to_add_fields "Add Restaurant", f, :restaurants %></p>
   <p><%= f.submit "Submit" %></p>
 
-  <p><%= link_to_add_fields "Add Restaurant", f, :restaurants %></p>
 <% end %>
 

@@ -14,11 +14,14 @@ class MapsController < ApplicationController
         @map = Map.new(params[:map])
         @restaurants = []
 
-        3.times do |i|
-          address = params["restaurant#{i}"]["address"]
+        params[:map][:restaurants_attributes].each do |r, data|
+          next if data[:name] == ""
+
+          address = data[:address]
           coords = convert_address(address)
 
-          restaurant = Restaurant.new(params["restaurant#{i}".to_sym])
+          data.delete_if{ |k| k == "_destroy" }
+          restaurant = Restaurant.new(data)
           restaurant.latitude = coords[0]
           restaurant.longitude = coords[1]
           restaurant.completed = false
@@ -27,7 +30,7 @@ class MapsController < ApplicationController
 
         @map.owner = current_user
         @map.save
-        #fail
+
         @restaurants.each do |restaurant|
           restaurant.map = @map
           restaurant.save
@@ -37,10 +40,8 @@ class MapsController < ApplicationController
 
       end
     rescue
-     #  fail
       redirect_to new_map_url
     else
-    #   fail
       redirect_to map_url(@map)
     end
   end
