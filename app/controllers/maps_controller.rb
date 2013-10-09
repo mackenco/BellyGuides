@@ -4,10 +4,6 @@ class MapsController < ApplicationController
     3.times { @map.restaurants.build }
   end
 
-  def edit
-    @map = Map.find(params[:id])
-  end
-
   def create
     begin
       ActiveRecord::Base.transaction do
@@ -40,10 +36,15 @@ class MapsController < ApplicationController
 
       end
     rescue
-      redirect_to new_map_url
+      render :new
     else
+      flash[:notice] = "Successfully created map."
       redirect_to map_url(@map)
     end
+  end
+
+  def edit
+    @map = Map.find(params[:id])
   end
 
   def update
@@ -65,6 +66,9 @@ class MapsController < ApplicationController
       format.html { render :show }
       format.json { render json: @restaurants }
     end
+  end
+
+  def index
   end
 
 end

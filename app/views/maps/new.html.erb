@@ -1,22 +1,5 @@
-<%= form_for @map do |f| %>
+<h1>New Map</h1>
 
-  <p>
-    <%= f.label :title %>
-    <%= f.text_field :title %><br>
-  </p>
+<%= render partial: 'form' %>
 
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description , rows: 3%><br>
-  </p>
-
-  <%= f.fields_for :restaurants do |builder| %>
-
-     <%= render "restaurant_fields", f: builder %>
-  <% end %>
-
-  <p><%= link_to_add_fields "Add Restaurant", f, :restaurants %></p>
-  <p><%= f.submit "Submit" %></p>
-
-<% end %>
-
+<p><%= link_to "Back to Maps", users_url(current_user) %></p>

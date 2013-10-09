@@ -1,2 +1,8 @@
-<h1>Maps#edit</h1>
-<p>Find me in app/views/maps/edit.html.erb</p>
+<h1>Edit Map</h1>
+
+<%= render partial: 'form' %>
+
+<p>
+  <%= link_to "Show Map", @map %> |
+  <%= link_to "Back to Maps", users_url(current_user) %>
+</p>

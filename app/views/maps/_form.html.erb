@@ -1,0 +1,22 @@
+<%= form_for @map do |f| %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+  </p>
+
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description , rows: 3%><br>
+  </p>
+
+  <%= f.fields_for :restaurants do |builder| %>
+
+     <%= render "restaurant_fields", f: builder %>
+  <% end %>
+
+  <p><%= link_to_add_fields "Add Restaurant", f, :restaurants %></p>
+  <p><%= f.submit "Submit" %></p>
+
+<% end %>
+
