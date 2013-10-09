@@ -51,6 +51,10 @@ class MapsController < ApplicationController
   end
 
   def destroy
+    @map = Map.find(params[:id])
+    @map.destroy
+    flash[:notice] = "Successfully deleted map"
+    redirect_to user_url(current_user)
   end
 
   def show
