@@ -6,7 +6,7 @@ BellyGuide::Application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
   resources :restaurants, only: [:create, :update, :destroy]
-
+  resources :favorites, only: :index
 
   root :to => "users#show"
 end

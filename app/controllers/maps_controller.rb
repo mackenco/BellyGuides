@@ -2,13 +2,14 @@ class MapsController < ApplicationController
   before_filter :require_owner!, only: [:edit, :update, :destroy]
 
   def show
-    @map = Map.includes(:restaurants).find(params[:id])
+    @map = Map.includes(:restaurants, :favorites).find(params[:id])
     @restaurants = @map.restaurants
     @restaurant = @restaurants.first
     @finished, @unfinished = [], []
     @map.restaurants.each do |rest|
       rest.completed ? @finished << rest : @unfinished << rest
     end
+    @favorite = @map.favorites.where(user_id:current_user.id).length == 0 ? true : false
 
     respond_to do |format|
       format.html { render :show }
