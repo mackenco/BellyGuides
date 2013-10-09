@@ -18,12 +18,12 @@
     <nav class="header-nav">
       <ul class="group">
         <% if !current_user.nil? %>
-          <li> Hello <%= current_user.username %>!</li>
+          <li class="first"> Hello <%= current_user.username %>!</li>
+          <li><a href="<%= user_url(current_user) %>">My Maps</a></li>
+          <li><a href="#">Favorites</a></li>
+          <li><a href="<%= new_map_url %>">Create a Map</a></li>
           <li><%= button_to "Logout", session_url, method: :delete, class: "sign-in" %></li>
         <% end %>
-        <li><a href="#">Favorites</a></li>
-        <li><a href="<%= user_url(current_user) %>">My Maps</a></li>
-        <li><a href="<%= new_map_url %>">Create a Map</a></li>
       </ul>
     </nav>
 

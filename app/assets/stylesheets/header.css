@@ -1,0 +1,90 @@
+.header-wrap, .header-logo, .header-nav, .group, .header-logo > a,
+ .group > li > a, .sign-in {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: Verdana, Arial, sans-serif;
+  vertical-align: baseline;
+  text-decoration: none;
+  color: black;
+}
+
+.group {
+  list-style: none;
+}
+
+.group:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.header {
+  background-color: #F9F9F9;
+}
+
+.header-wrap {
+  width: 900px;
+  margin: auto;
+  border-bottom: 4px double #3D59AB;
+}
+
+.header a {
+  color: #348412;
+}
+
+.header-logo {
+  float: left;
+  display: block;
+  width: 700px;
+}
+
+.header-logo > a {
+  display: block;
+  padding: 5px 3px 3px 3px;
+  color: #3D59AB;
+  font-size: 18px;
+}
+
+.header-logo > a:hover {
+  font-weight: bold;
+}
+
+.header-nav {
+  float:left;
+  font-size: 12px;
+}
+
+.header-nav > ul > li {
+  position: relative;
+  float:left;
+  border-left: 1px solid #333;
+  display: block;
+  padding: 0px 5px;
+  margin: 3px 0px;
+}
+
+.header-nav > ul > li:first-child {
+  border-left: 0px;
+}
+
+.header-nav > ul > li > a:hover{
+  font-weight: bold;
+}
+
+.sign-in {
+  background: transparent;
+  cursor: pointer;
+}
+
+.sign-in:hover {
+  font-weight: bold;
+}
+
+.page {
+  width: auto;
+  padding: 10px;
+  background-color: #F9F9F9;
+}
