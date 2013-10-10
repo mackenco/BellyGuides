@@ -6,7 +6,7 @@ BellyGuide.Views.AddRestaurantView = Backbone.View.extend({
   render: function () {
     var that = this;
     var renderedContent = this.template({
-      this.model
+      restaurant: this.model
     });
 
     that.$el.html(renderedContent);

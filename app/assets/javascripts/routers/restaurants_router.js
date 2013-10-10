@@ -5,7 +5,8 @@ BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "restaurants/new": "new"
+    "restaurants/new": "new",
+    "restaurants/:id/add": "addRestaurant"
   },
 
   index: function () {
@@ -25,6 +26,15 @@ BellyGuide.Routers.RestaurantsRouter = Backbone.Router.extend({
     });
 
     that._swapView(newRestaurantView)
+  },
+
+  addRestaurant: function (id) {
+
+    var addRestaurantView = new BellyGuide.Views.AddRestaurantView({
+      model: BellyGuide.restaurants.get(parseInt(id))
+    });
+
+    this._swapView(addRestaurantView);
   },
 
   _swapView: function (view) {
