@@ -4,7 +4,7 @@
       <a class="list" href="#/">
         <%= restaurant.escape("name") %>
       </a>
-      <input type="checkbox">
+      <input type="checkbox" <%= BellyGuide.owner ? "" : "disabled" %>>
     </li>
   <% }); %>
 </ul>
@@ -17,7 +17,7 @@
       <a class="list" href="#/">
         <%= restaurant.escape("name") %>
       </a>
-      <input type="checkbox" checked>
+      <input type="checkbox" checked <%= BellyGuide.owner ? "" : "disabled" %>>
     </li>
   <% }); %>
 </ul>
