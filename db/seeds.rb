@@ -9,6 +9,8 @@ map1 = Map.create({ title: "App Academy Lunch Spots", owner: colin,
       description: "Some places to eat around App Academy."})
 map2 = Map.create({ title: "Where to eat in Williamsburg", owner: colin,
       description: "Here are some places to eat in Williamsburg." })
+map3 = Map.create({ title: "Woody Allen Hot Spots", owner: laura,
+      description: "Spots from diff. movies"})
 
 Restaurant.create([
   { name: "Russ & Daughters", completed: false, note: "Delicious bagels",
@@ -50,5 +52,15 @@ Restaurant.create([
   { name: "Radegast Hall and Biergarten", completed: true, note: "Delicious beer",
     source_url: "http://www.yelp.com/biz/radegast-hall-and-biergarte...",
     map: map2, latitude: 40.7165, longitude: -73.9616,
-    address: "113 N 3rd St Brooklyn, NY 11249" }
+    address: "113 N 3rd St Brooklyn, NY 11249" },
+  { name: "Hayden Planetarium", completed: false, note: "Manhattan - In
+    Manhattan the planetarium serves as a much needed source of shelter for
+    Woody Allen and Diane Keaton from the down pour outside.",
+    source_url: "http://www.amnh.org/our-research/hayden-planetarium",
+    map: map3, latitude: 40.782032, longitude: -73.9717188,
+    address: "Central Park West at 79th Street, New York, NY 1002..."},
+  { name: "Pomander Walk", completed: false, note: "",
+    source_url: "http://en.wikipedia.org/wiki/Pomander_Walk",
+    map: map3, latitude: 40.7936606, longitude: -73.97344,
+    address: "260 W 94 Street, New York, NY 10025 "}
    ])
