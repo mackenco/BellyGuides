@@ -36,7 +36,9 @@
       </form>
     </li>
 
-    <li><a href="#/" class="delete">Delete</a></li>
+    <% if(BellyGuide.owner) { %>
+     <li><a href="#/" class="delete">Delete</a></li>
+    <% } %>
   </p>
   <br>
 </ul>

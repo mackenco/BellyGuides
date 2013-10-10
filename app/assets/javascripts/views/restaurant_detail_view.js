@@ -25,23 +25,27 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
   },
 
   toggle: function (event) {
-    var that = this;
-    $clicked_element = $(event.currentTarget);
-    $parent = $clicked_element.parent();
-    $parent.children().toggleClass("hide");
+    if (BellyGuide.owner) {
+      var that = this;
+      $clicked_element = $(event.currentTarget);
+      $parent = $clicked_element.parent();
+      $parent.children().toggleClass("hide");
+    }
   },
 
   edit: function (event) {
-    var that = this;
-    $clicked_element = $(event.currentTarget);
-    $parent = $clicked_element.parent();
+    if (BellyGuide.owner) {
+      var that = this;
+      $clicked_element = $(event.currentTarget);
+      $parent = $clicked_element.parent();
 
-    event.preventDefault();
-    var formData = $(event.currentTarget).serializeJSON();
-    var restaurant = that.model;
-    restaurant.set(formData.restaurant);
-    restaurant.save();
-    $parent.children().toggleClass("hide");
+      event.preventDefault();
+      var formData = $(event.currentTarget).serializeJSON();
+      var restaurant = that.model;
+      restaurant.set(formData.restaurant);
+      restaurant.save();
+      $parent.children().toggleClass("hide");
+    }
   },
 
   remove: function (event) {
