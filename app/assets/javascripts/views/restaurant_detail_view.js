@@ -4,7 +4,8 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
   events: {
     "dblclick .show": "toggle",
     "dblclick .edit": "edit",
-    "click .delete": "remove"
+    "click .delete": "remove",
+    "click .add": "addRestaurant"
   },
 
   initialize: function () {
@@ -15,7 +16,6 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
 
   render: function () {
     var that = this;
-
     var renderedContent = this.template({
       restaurant: that.model
     });
@@ -52,5 +52,11 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
     event.preventDefault();
     this.model.destroy( {wait: true} );
     window.location.reload();
+  },
+
+  addRestaurant: function (event) {
+    event.preventDefault();
+    var that = this;
+    console.log($(event.currentTarget).attr("data-id"));
   }
 })

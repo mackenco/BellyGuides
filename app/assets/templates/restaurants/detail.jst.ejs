@@ -39,7 +39,8 @@
     <% if(BellyGuide.owner) { %>
      <li><a href="#/" class="delete">Delete</a></li>
     <% } else { %>
-      <li><a href="#/">Add to My Maps</a></li>
+      <li><a href="#/add/" class="add" data-id="<%= restaurant.escape("id") %>">
+        Add to My Maps</a></li>
     <% } %>
   </p>
   <br>
