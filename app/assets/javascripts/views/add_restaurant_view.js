@@ -17,7 +17,6 @@ BellyGuide.Views.AddRestaurantView = Backbone.View.extend({
     return that;
   },
 
-
   add: function (event) {
     event.preventDefault();
     var new_rest = this.model.clone()
@@ -27,19 +26,4 @@ BellyGuide.Views.AddRestaurantView = Backbone.View.extend({
     alert("Added!");
     Backbone.history.navigate("#/");
   }
-
 })
-
-
-// addRestaurant: function (event) {
-//   event.preventDefault();
-//   var $li = $(event.currentTarget.parentElement)
-//   var id = $li.attr("data-id");
-//
-//   var restaurant = BellyGuide.restaurants.get(id);
-//   var addRestaurantView = new BellyGuide.Views.AddRestaurantView({
-//     model: restaurant
-//   });
-//
-//   $li.html(addRestaurantView.render().$el)
-// }

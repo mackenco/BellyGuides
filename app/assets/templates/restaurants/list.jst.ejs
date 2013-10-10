@@ -1,4 +1,4 @@
-<ul>Restaurants to Try:
+<ul class="todo">Restaurants to Try:
   <% _(unfinished).each(function (restaurant) { %>
     <li class="restaurant" data-id="<%=restaurant.escape("id") %>">
       <a class="list" href="#/">
@@ -9,9 +9,7 @@
   <% }); %>
 </ul>
 
-<br>
-
-<ul>Visited Restaurants:
+<ul class="todo">Visited Restaurants:
   <% _(finished).each(function (restaurant) { %>
     <li class="restaurant" data-id="<%=restaurant.escape("id") %>">
       <a class="list" href="#/">
