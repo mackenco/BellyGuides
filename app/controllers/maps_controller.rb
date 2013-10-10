@@ -91,7 +91,6 @@ class MapsController < ApplicationController
           end
 
           @map.update_attributes(params[:map])
-
           raise "invalid" unless @map.valid? && @restaurants.all? { |obj| obj.valid? }
         end
       rescue
