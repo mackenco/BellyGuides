@@ -1,7 +1,7 @@
 BellyGuide.Views.AddRestaurantView = Backbone.View.extend({
   template: JST["restaurants/add"],
   events: {
-    "click input[type=submit]": "add"
+    "click .add": "add"
   },
 
   initialize: function() {},
