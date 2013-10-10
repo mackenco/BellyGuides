@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .map, #map-canvas {
-  margin: 0;
+  margin: auto;
   padding: 10px;
   height: 250px;
-  width: 98%;
+  width: 95%;
 }
 
 #map-canvas {
   border: 2px solid black;
+  box-shadow: 5px 5px 2px #999;
 }
 
 .hide {
