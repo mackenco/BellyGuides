@@ -7,21 +7,16 @@
 
 </head>
 
+<body class="map">
   <%= render "header", map: @map, favorite: @favorite %>
 
   <div id="map-canvas"></div>
 
   <section class="restaurant-list"></section>
 
-  <section class="comment-new-form">
-    <%= form_for(@comment, remote: true, html: {id: "comment-form"}) do |f| %>
-      <%= f.label :text, "Write a new comment..." %><br>
-      <%= f.text_area :text, rows: 3%><br>
-      <%= f.submit %>
-    <% end %>
-  </section>
+  <hr>
 
-  <section class="comment"></section>
+  <%= render "comments", map: @map, comment: @comment, comments: @comments%>
 
   <script type="application/javascript">
     $(function () {
@@ -29,6 +24,15 @@
       var restaurants = JSON.parse($("#bootstrapped_restaurants_json").html());
       window.BellyGuide.initialize($(".restaurant-list"), restaurants, <%= @map.id %>);
     });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $("#comment-form").on("ajax:success", function(event data){
+        $(".comments").prepend(data);
+        $("#comment-form textarea").val("");
+      })
+    })
   </script>
 
 </body>
