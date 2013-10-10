@@ -6,9 +6,9 @@ laura = User.create({ username: "Laura", password: "pw",
                       email: "colinwmackenzie@gmail.com" })
 
 map1 = Map.create({ title: "App Academy Lunch Spots", owner: colin,
-      description: "Some places to eat around App Academy"})
+      description: "Some places to eat around App Academy."})
 map2 = Map.create({ title: "Where to eat in Williamsburg", owner: colin,
-      description: "Here are some places to eat in Williamsburg" })
+      description: "Here are some places to eat in Williamsburg." })
 
 Restaurant.create([
   { name: "Russ & Daughters", completed: false, note: "Delicious bagels",

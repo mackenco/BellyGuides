@@ -17,6 +17,7 @@
       <%= link_to "Unlike this Map", map_favorite_url(map), method: :delete %>
 
     <% end %>
-      | <%= link_to "Clone Map", "#" %>
+      | <%= link_to "Clone Map", clone_map_url(map),
+         confirm: "This will create a new map for you with all current restaurants." %>
   <% end %>
   </p>

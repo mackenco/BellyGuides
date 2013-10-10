@@ -102,6 +102,25 @@ class MapsController < ApplicationController
       end
     end
 
+  def clone
+    @map = Map.find(params[:id])
+    @clone = @map.dup
+    @restaurants = []
+    @clone.owner = current_user
+    @clone.description += " Cloned from user #{@map.owner.username}"
+    @clone.save
+
+    @restaurants = @map.restaurants.map{ |r| r.dup }
+
+    @restaurants.each do |restaurant|
+      restaurant.completed = false
+      restaurant.note = ""
+      restaurant.map = @clone
+      restaurant.save
+    end
+    redirect_to @clone
+  end
+
   def destroy
     @map = Map.find(params[:id])
     @map.destroy
