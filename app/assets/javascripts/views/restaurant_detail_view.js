@@ -54,16 +54,4 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
     window.location.reload();
   }
 
-  // addRestaurant: function (event) {
-  //   event.preventDefault();
-  //   var $li = $(event.currentTarget.parentElement)
-  //   var id = $li.attr("data-id");
-  //
-  //   var restaurant = BellyGuide.restaurants.get(id);
-  //   var addRestaurantView = new BellyGuide.Views.AddRestaurantView({
-  //     model: restaurant
-  //   });
-  //
-  //   $li.html(addRestaurantView.render().$el)
-  // }
 })

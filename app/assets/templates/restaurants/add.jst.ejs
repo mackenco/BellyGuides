@@ -1,12 +1,14 @@
-<ul>Add to which map(s):
+<ul>Add to which map:
 
   <form>
     <% maps.forEach(function (map) { %>
-      <li><input type="radio" data-id="<%=map.escape("id")%>">
-      | <%=map.escape("title")%></li>
+      <li><label><%=map.escape("title")%> |
+        <input type="radio" name="map_id"
+          value="<%=map.escape("id")%>"></label></li>
     <% }); %>
+    <br>
 
-    <input type="submit"
+    <input type="submit" value="Submit">
   </form>
 </ul>
 
