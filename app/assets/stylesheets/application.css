@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+a {
+  color: #99B3C3;
+}
+
+a:visited {
+  color: #64757F;
+}

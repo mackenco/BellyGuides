@@ -28,7 +28,7 @@
 .header-wrap {
   width: 900px;
   margin: auto;
-  border-bottom: 4px double #3D59AB;
+  border-bottom: 4px double #99B3C3;
 }
 
 .header a {
@@ -44,12 +44,8 @@
 .header-logo > a {
   display: block;
   padding: 5px 3px 3px 3px;
-  color: #3D59AB;
+  color: #64757F;
   font-size: 18px;
-}
-
-.header-logo > a:hover {
-  font-weight: bold;
 }
 
 .header-nav {
