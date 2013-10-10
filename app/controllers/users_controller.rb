@@ -7,8 +7,7 @@ class UsersController < ApplicationController
 
     if @user.save
       self.current_user = @user
-      welcome = UserMailer.welcome_email(@user)
-      welcome.deliver!
+      UserMailer.welcome_email(@user).deliver!
       redirect_to user_url(@user)
     else
       render :json => @user.errors.full_messages
