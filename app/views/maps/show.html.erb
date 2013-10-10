@@ -1,11 +1,4 @@
 <head class="map">
-  <script type="application/json" id="bootstrapped_restaurants_json">
-    <%= @restaurants.to_json.html_safe %>
-  </script>
-
-  <script type="application/json" id="bootstrapped_maps_json">
-    <%= current_user.maps.to_json.html_safe %>
-  </script>
 
   <%= render "map", restaurants: @restaurants, restaurant: @restaurants.first %>
 
@@ -24,11 +17,11 @@
 
   <script type="application/javascript">
     $(function () {
-      <%= @restaurants.to_json.html_safe %>
-      var restaurants = JSON.parse($("#bootstrapped_restaurants_json").html());
-      var current_maps = JSON.parse($("#bootstrapped_maps_json").html())
-      window.BellyGuide.initialize($(".restaurant-list"),
-        restaurants, <%= @map.id %>, <%= @map.owner == current_user %>);
+      var restaurants = <%= @restaurants.to_json.html_safe %>
+      var current_maps = <%= current_user.maps.to_json.html_safe %>
+
+      window.BellyGuide.initialize($(".restaurant-list"),restaurants,
+      current_maps, <%= @map.id %>, <%= @map.owner == current_user %>);
     });
   </script>
 

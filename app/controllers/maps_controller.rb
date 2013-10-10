@@ -106,7 +106,7 @@ class MapsController < ApplicationController
     @clone = @map.dup
     @restaurants = []
     @clone.owner = current_user
-    @clone.description += " Cloned from user #{@map.owner.username}"
+    @clone.description += " Cloned from #{@map.owner.username}"
     @clone.save
 
     @restaurants = @map.restaurants.map{ |r| r.dup }
