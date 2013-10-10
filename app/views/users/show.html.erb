@@ -1,5 +1,10 @@
 <h1>Hello <%= current_user.username %>!</h1>
 
+   <%= render "maps/map", restaurants: current_user.restaurants,
+     restaurant: current_user.restaurants.first, zoom:13 %>
+
+<div id="map-canvas"></div>
+
 <p>Your maps:
   <ul>
     <% current_user.maps.each do |map| %>
