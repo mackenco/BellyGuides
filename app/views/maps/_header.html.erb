@@ -1,5 +1,5 @@
-<h1 class="map-header"><%= @map.title %> by <%= @map.owner.username %></h1>
-
+<section class="map-header">
+  <h1><%= @map.title %> by <%= @map.owner.username %></h1>
 
   <p><%= map.description %> </p>
   <p> <%=pluralize(map.favorites.count, 'Like')%> |
@@ -21,3 +21,4 @@
          confirm: "This will create a new map for you with all current restaurants." %>
   <% end %>
   </p>
+</section>

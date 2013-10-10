@@ -1,5 +1,5 @@
 .header-wrap, .header-logo, .header-nav, .group, .header-logo > a,
- .group > li > a, .sign-in {
+ .group > li > a, .sign-in, h1, h2, p {
   margin: 0;
   padding: 0;
   border: 0;
