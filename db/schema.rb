@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009203005) do
+ActiveRecord::Schema.define(:version => 20131010131210) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "map_id"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["map_id"], :name => "index_comments_on_map_id"
+  add_index "comments", ["owner_id"], :name => "index_comments_on_owner_id"
 
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"

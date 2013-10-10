@@ -10,6 +10,8 @@ class MapsController < ApplicationController
       rest.completed ? @finished << rest : @unfinished << rest
     end
     @favorite = @map.favorites.where(user_id:current_user.id).length == 0 ? true : false
+    @comment = Comment.new
+    @comments = Comment.order("id DESC").where(map_id: params[:id])
 
     respond_to do |format|
       format.html { render :show }

@@ -10,8 +10,8 @@
 <h1><%= @map.title %></h1>
 
 <body class="map">
-  <p><%= @map.description %> |
-    <%=pluralize(@map.favorites.count, 'Like')%> |
+  <p><%= @map.description %> </p>
+  <p> <%=pluralize(@map.favorites.count, 'Like')%> |
 
   <% if @map.owner == current_user%>
     <%= link_to "Edit Map", edit_map_url(@map) %> |
@@ -26,15 +26,22 @@
       <%= link_to "Unlike this Map", map_favorite_url(@map), method: :delete %>
 
     <% end %>
+      | <%= link_to "Clone Map", "#" %>
   <% end %>
   </p>
 
   <div id="map-canvas"></div>
 
-  <section class="restaurant-list">
+  <section class="restaurant-list"></section>
+
+  <section class="comment-new-form">
+    <%= form_for(@comment, remote: true, html: {id: "comment-form"}) do |f| %>
+      <%= f.label :text, "Write a new comment..." %><br>
+      <%= f.text_area :text %><br>
+      <%= f.submit %>
+    <% end %>
   </section>
 
-  <section class="comment-new-form"></section
   <section class="comment"></section>
 
   <script type="application/javascript">
@@ -47,26 +54,4 @@
 
 </body>
 
-<!-- Use ajax without backbone to add comments. in the comment form,
-form <id="whatever" data-remote="true">. on the page have a script:
-  <script>
-  $(document).ready(function() { //what does this do to backbone?
-    $(".comment-new-form").on("ajax.success", function(event, data){
-      $(".comment").append(data);
-      var $form = $(this);
-      $form[0].reset
-    })
-  })
-  </script>
-In the comment controller:
-  def create
-  if request.xhr?
-    render partial: "comments", locals: {comment: @comment }
-  else
-    redirect_to wherever
-  end
-end
-Make a _comment.html.erb to render each comment. on the show page:
-render partial: "comments", collection: @comments
-Check jonathan's personal github, cat ajax branch ujs-->
 

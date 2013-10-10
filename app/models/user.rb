@@ -21,6 +21,13 @@ class User < ActiveRecord::Base
 
   has_many :favorited_maps, through: :favorites, source: :map
 
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :owner_id,
+    primary_key: :id
+  )
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
 
