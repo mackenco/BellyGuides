@@ -1,0 +1,22 @@
+<h1><%= @map.title %></h1>
+
+<body class="map">
+  <p><%= map.description %> </p>
+  <p> <%=pluralize(map.favorites.count, 'Like')%> |
+
+  <% if map.owner == current_user%>
+    <%= link_to "Edit Map", edit_map_url(map) %> |
+    <%= link_to "Delete Map", map_url(map), :method => :delete, :class => "delete",
+      :confirm => "Are you sure you want to delete this map?" %>
+  <% else %>
+
+    <% if favorite%>
+      <%= link_to "Like this Map", map_favorites_url(map), method: :post %>
+
+    <% else %>
+      <%= link_to "Unlike this Map", map_favorite_url(map), method: :delete %>
+
+    <% end %>
+      | <%= link_to "Clone Map", "#" %>
+  <% end %>
+  </p>
