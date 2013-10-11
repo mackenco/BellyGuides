@@ -11,10 +11,8 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
   initialize: function () {
     var that = this;
     var renderCallback = that.render.bind(that);
-    var zoomCallback = that.zoom.bind(that);
-
     that.listenTo(that.model, 'change', renderCallback);
-  }
+  },
 
   render: function () {
     var that = this;
