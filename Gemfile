@@ -33,6 +33,7 @@ gem 'json'
 gem 'nokogiri'
 gem 'addressable'
 gem 'figaro'
+gem 'geocoder'
 
 gem 'jquery-rails'
 gem 'backbone-on-rails'

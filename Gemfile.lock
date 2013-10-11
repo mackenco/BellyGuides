@@ -62,6 +62,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    geocoder (1.1.8)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -150,6 +151,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   ejs
   figaro
+  geocoder
   jquery-rails
   json
   letter_opener

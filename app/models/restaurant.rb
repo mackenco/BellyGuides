@@ -4,6 +4,9 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, :address, presence: true
 
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
+
   belongs_to(
     :map,
     class_name: "Map",
