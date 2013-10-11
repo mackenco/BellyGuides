@@ -45,6 +45,29 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
     BellyGuide.map.setCenter(
        new google.maps.LatLng(restaurant.get("latitude"), restaurant.get("longitude"))
      )
+   this.createMarker(id)
+  },
+
+  createMarker: function (id) {
+    var rest = BellyGuide.restaurants.get(id)
+    var map = BellyGuide.map
+
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(rest.get("latitude"), rest.get("longitude")),
+      map: BellyGuide.map,
+      title: rest.get("name")
+    });
+
+    var contentString =
+        '<div id="info"><h1>'+rest.get("name")+
+        '</h1><p>'+rest.get("address")+'</p></div>'
+
+    if (!map._infoWindow){
+      map._infoWindow = new google.maps.InfoWindow();
+    }
+    map._infoWindow.close();
+    map._infoWindow.setContent(contentString);
+    map._infoWindow.open(map, marker);
   },
 
   removeDetail: function (event) {

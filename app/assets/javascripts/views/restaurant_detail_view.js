@@ -51,6 +51,7 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
 
   editEnter: function (event) {
     if (event.keyCode != 13) { return };
+    event.preventDefault();
     this.edit(event);
   },
 
