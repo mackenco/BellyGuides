@@ -5,22 +5,24 @@
      long: current_user.restaurants.average('longitude'), zoom:13 %>
 
 <div id="map-canvas"></div>
-
+<br>
 <p>Your maps:
   <ul>
     <% current_user.maps.each do |map| %>
       <li><%= link_to map.title, map_url(map) %></li>
     <% end %>
   </ul>
-<p>
+</p>
+  <hr>
 
-<%= render "nearby", restaurants: @restaurants %>
-
+<p>Find Near Me:
+  <%= render "nearby", restaurants: @restaurants %>
+</p>
 <script type="application/javascript">
   $(document).ready(function () {
     $("#nearby-form").on("ajax:success", function(event, data){
-      $(".nearby").html(data);
-      $("#nearby-form input").val("");
+      $(".nearby-list").html(data);
+      $("#nearby-form input[type=text]").val("");
     })
   })
 </script>
