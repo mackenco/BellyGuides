@@ -41,7 +41,7 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
 
     $li.append(restaurantDetailView.render().$el)
 
-    BellyGuide.map.setZoom(16);
+    BellyGuide.map.setZoom(15);
     BellyGuide.map.setCenter(
        new google.maps.LatLng(restaurant.get("latitude"), restaurant.get("longitude"))
      )
