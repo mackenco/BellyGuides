@@ -55,9 +55,8 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(rest.get("latitude"), rest.get("longitude")),
       map: BellyGuide.map,
-      title: rest.get("name")
+      title: rest.get("name"),
     });
-
     var contentString =
         '<div id="info"><h1>'+rest.get("name")+
         '</h1><p>'+rest.get("address")+'</p></div>'

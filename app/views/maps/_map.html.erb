@@ -28,11 +28,7 @@
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
         map: map,
-        title: title,
-        icon: {
-          path: completed ? google.maps.SymbolPath.CIRCLE : google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-          scale: 5
-        }
+        title: title
       });
 
       google.maps.event.addListener(marker, 'click', function() {
@@ -46,6 +42,7 @@
         this.getMap()._infoWindow.setContent(contentString);
         this.getMap()._infoWindow.open(this.getMap(), this);
       });
+
     };
   }
 
