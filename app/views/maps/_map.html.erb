@@ -19,16 +19,20 @@
     BellyGuide.map = map
     BellyGuide.start = map.center
 
-    <% restaurants.each do |restaurant| %>
-      createMarker(<%= restaurant.latitude %>, <%= restaurant.longitude %>,
-        "<%= restaurant.name %>", "<%= restaurant.address %>" )
+    <% restaurants.each do |r| %>
+      createMarker(<%= r.latitude %>, <%= r.longitude %>,
+        "<%= r.name %>", "<%= r.address %>", <%= r.completed %> )
     <% end %>
 
-    function createMarker(lat, long, title, addy) {
+    function createMarker(lat, long, title, addy, completed) {
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
         map: map,
-        title: title
+        title: title,
+        icon: {
+          path: completed ? google.maps.SymbolPath.CIRCLE : google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+          scale: 5
+        }
       });
 
       google.maps.event.addListener(marker, 'click', function() {
@@ -42,9 +46,7 @@
         this.getMap()._infoWindow.setContent(contentString);
         this.getMap()._infoWindow.open(this.getMap(), this);
       });
-
     };
-
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
