@@ -40,6 +40,12 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
     $(event.currentTarget).removeClass("list")
 
     $li.append(restaurantDetailView.render().$el)
+    console.log(restaurant)
+
+    BellyGuide.map.setZoom(15);
+    BellyGuide.map.setCenter(
+       new google.maps.LatLng(restaurant.get("latitude"), restaurant.get("longitude"))
+     )
   },
 
   removeDetail: function (event) {

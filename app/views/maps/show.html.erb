@@ -9,12 +9,6 @@
 
   <div id="map-canvas"></div>
 
-  <section class="restaurant-list group"></section>
-
-  <hr>
-
-  <%= render "comments", map: @map, comment: @comment, comments: @comments%>
-
   <script type="application/javascript">
     $(function () {
       var restaurants = <%= @restaurants.to_json.html_safe %>
@@ -25,7 +19,14 @@
     });
   </script>
 
-  <script>
+  <section class="restaurant-list group"></section>
+
+  <hr>
+
+  <%= render "comments", map: @map, comment: @comment, comments: @comments%>
+
+  <script type="application/javascript">
+   // how to do src="./comments" ?
     $(document).ready(function () {
       $("#comment-form").on("ajax:success", function(event, data){
         $(".comments").prepend(data);
