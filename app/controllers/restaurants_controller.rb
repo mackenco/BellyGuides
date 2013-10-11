@@ -38,8 +38,12 @@ class RestaurantsController < ApplicationController
   end
 
   def nearby
-    @restaurants = current_user.restaurants.near(params[:restaurant][:address], params[:distance])
+    @restaurants = current_user.restaurants.near(params[:address], params[:distance])
 
-    fail
+    if request.xhr?
+      render partial: "nearby", locals: {restaurants: @restaurants}
+    else
+      redirect_to user_url(current_user)
+    end
   end
 end

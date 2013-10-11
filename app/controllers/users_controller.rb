@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def show
     if params.include?(:id)
       @user = User.find(params[:id])
+      @restaurants = []
     else
       redirect_to user_url(current_user)
     end

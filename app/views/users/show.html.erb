@@ -14,4 +14,13 @@
   </ul>
 <p>
 
-<%= render "nearby" %>
+<%= render "nearby", restaurants: @restaurants %>
+
+<script type="application/javascript">
+  $(document).ready(function () {
+    $("#nearby-form").on("ajax:success", function(event, data){
+      $(".nearby").html(data);
+      $("#nearby-form input").val("");
+    })
+  })
+</script>
