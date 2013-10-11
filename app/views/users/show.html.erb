@@ -1,8 +1,6 @@
-<h1>Hello <%= current_user.username %>!</h1>
-
-   <%= render "maps/map", restaurants: current_user.restaurants,
-     lat: current_user.restaurants.average('latitude'),
-     long: current_user.restaurants.average('longitude'), zoom:13 %>
+<%= render "maps/map", restaurants: current_user.restaurants,
+ lat: current_user.restaurants.average('latitude'),
+ long: current_user.restaurants.average('longitude'), zoom:13 %>
 
 <div id="map-canvas"></div>
 <br>
