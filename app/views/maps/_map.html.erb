@@ -18,27 +18,30 @@
 
     <% restaurants.each do |restaurant| %>
       createMarker(<%= restaurant.latitude %>, <%= restaurant.longitude %>,
-        "<%= restaurant.name %>" )
+        "<%= restaurant.name %>", "<%= restaurant.address %>" )
     <% end %>
 
-    function createMarker(lat, long, title) {
+    function createMarker(lat, long, title, addy) {
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
         map: map,
         title: title
       });
       google.maps.event.addListener(marker, 'click', function() {
+
+        var contentString =
+          '<div id="info"><h1>'+title+'</h1><p>'+addy+'</p></div>'
+
         if (!this.getMap()._infoWindow){
           this.getMap()._infoWindow = new google.maps.InfoWindow();
-        }//if statement
+        }
         this.getMap()._infoWindow.close();
-        this.getMap()._infoWindow.setContent("Clicked");
+        this.getMap()._infoWindow.setContent(contentString);
         this.getMap()._infoWindow.open(this.getMap(), this);
-      });//addListener marker
+      });
+    };
 
-    };//create marker
-
-  }//initialize
+  }
   google.maps.event.addDomListener(window, 'load', initialize);
 
 </script>
