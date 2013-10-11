@@ -80,6 +80,7 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
 
     BellyGuide.map.setZoom(13);
     BellyGuide.map.setCenter(BellyGuide.start)
+    BellyGuide.map._infoWindow.close();
   },
 
   status: function (event) {
