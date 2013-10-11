@@ -36,4 +36,10 @@ class RestaurantsController < ApplicationController
       render json: restaurant.errors, status: 422
     end
   end
+
+  def nearby
+    @restaurants = current_user.restaurants.near(params[:restaurant][:address], params[:distance])
+
+    fail
+  end
 end

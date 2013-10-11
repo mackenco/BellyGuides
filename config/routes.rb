@@ -8,7 +8,7 @@ BellyGuide::Application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   resources :restaurants, only: [:create, :update, :destroy] do
-    get 'clone', on: :member
+    get 'nearby', on: :collection
   end
   resources :favorites, only: :index
   resources :comments, only: :index
