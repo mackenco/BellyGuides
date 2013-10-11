@@ -8,7 +8,8 @@
   function initialize() {
 
     var mapOptions = {
-      center: new google.maps.LatLng(<%= restaurant.latitude %>, <%= restaurant.longitude %>),
+      center: new google.maps.LatLng(<%=lat ? lat : 40.7577%>,
+        <%=long ? long : -73.9857%>),
       zoom: <%=zoom%>,
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };

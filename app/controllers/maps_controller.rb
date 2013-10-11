@@ -4,7 +4,9 @@ class MapsController < ApplicationController
   def show
     @map = Map.includes(:restaurants, :favorites).find(params[:id])
     @restaurants = @map.restaurants
-    @restaurant = @restaurants.first
+    @lat = @restaurants.average('latitude')
+    @long = @restaurants.average('longitude')
+
     @finished, @unfinished = [], []
     @map.restaurants.each do |rest|
       rest.completed ? @finished << rest : @unfinished << rest
