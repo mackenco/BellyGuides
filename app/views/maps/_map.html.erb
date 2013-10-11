@@ -17,12 +17,30 @@
         mapOptions);
 
     <% restaurants.each do |restaurant| %>
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(<%= restaurant.latitude %>, <%= restaurant.longitude %>),
-        map: map,
-        title: "<%= restaurant.name %>"
-      });
+      createMarker(<%= restaurant.latitude %>, <%= restaurant.longitude %>,
+        "<%= restaurant.name %>" )
     <% end %>
+
+    function createMarker(lat, long, title) {
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, long),
+        map: map,
+        title: title
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        //console.log("I am marker "+marker.title)
+
+        if (marker.infowindow){
+          marker.infowindow.close();
+        }
+
+        marker.infowindow = new google.maps.InfoWindow({
+          content: marker.title
+        });
+        marker.infowindow.open(map, marker);
+      });
+    };
+
   }
   google.maps.event.addDomListener(window, 'load', initialize);
 
