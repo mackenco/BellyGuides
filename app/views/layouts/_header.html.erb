@@ -1,0 +1,33 @@
+<header class="header">
+  <div class="header-wrap group">
+
+    <% if !current_user.nil? %>
+      <h1 class="header-logo">
+        <a href="<%= user_url(current_user) %>"><span>B</span>elly <span>G</span>uide</a>
+      </h1>
+
+      <nav class="header-nav">
+      <ul class="group">
+          <li class="first"><a href="<%= user_url(current_user) %>"> Hello <%= current_user.username %>!</a></li>
+          <li>My Maps
+            <ul class="drop-down">
+              <% current_user.maps.each do |map| %>
+                <li><%= link_to map.title, map_url(map) %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li>Favorites
+            <ul class="drop-down">
+              <% current_user.favorited_maps.each do |map| %>
+                <li><%= link_to map.title, map_url(map) %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li><a href="<%= new_map_url %>">Create a Map</a></li>
+          <li><a href="<%= maps_url %>">Explore</a></li>
+          <li><%= button_to "Logout", session_url, method: :delete, class: "sign-in" %></li>
+      </ul>
+    </nav>
+    <% end %>
+  </div>
+</header>

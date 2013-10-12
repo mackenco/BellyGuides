@@ -2,16 +2,8 @@
  lat: current_user.restaurants.average('latitude'),
  long: current_user.restaurants.average('longitude'), zoom:13 %>
 
-<div id="map-canvas"></div>
+<div class="user-show" id="map-canvas"></div>
 <br>
-<p>Your maps:
-  <ul>
-    <% current_user.maps.each do |map| %>
-      <li><%= link_to map.title, map_url(map) %></li>
-    <% end %>
-  </ul>
-</p>
-  <hr>
 
 <p>Find Near Me:
   <%= render "nearby", restaurants: @restaurants %>

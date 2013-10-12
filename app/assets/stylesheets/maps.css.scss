@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .map, #map-canvas {
-  margin: auto;
-  padding: 10px;
   height: 250px;
-  width: 95%;
+}
+
+.user-show {
+  height: 500px;
 }
 
 #map-canvas {

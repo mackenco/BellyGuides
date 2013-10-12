@@ -44,11 +44,15 @@
 
 .header-logo > a {
   display: block;
-  padding: 5px 3px 3px 3px;
+  padding: 5px 3px 3px 0px;
   color: #64757F;
-  font-size: 24px;
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+
+.header-logo > a > span {
+  font-size: 26px;
 }
 
 .header-nav {
@@ -65,12 +69,24 @@
   margin: 3px 0px;
 }
 
+.drop-down {
+  display: none;
+}
+
+li:hover > .drop-down{
+  display: block;
+}
+
+.header-nav > ul > li:hover {
+  font-weight: bold;
+}
+
 .header-nav > ul > li:first-child {
   border-left: 0px;
 }
 
-.header-nav > ul > li > a:hover{
-  font-weight: bold;
+.header-nav > ul > li:first-child > a:hover {
+  font-weight: normal;
 }
 
 .sign-in {

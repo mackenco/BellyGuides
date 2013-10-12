@@ -17,27 +17,7 @@
 <body>
   <p class="flash"><%= flash.notice %><p/>
 
-  <header class="header">
-    <div class="header-wrap group">
-
-      <% if !current_user.nil? %>
-        <h1 class="header-logo">
-          <a href="<%= user_url(current_user) %>">Belly Guide</a>
-        </h1>
-
-        <nav class="header-nav">
-        <ul class="group">
-            <li class="first"> Hello <%= current_user.username %>!</li>
-            <li><a href="<%= user_url(current_user) %>">My Maps</a></li>
-            <li><a href="<%= favorites_url %>">Favorites</a></li>
-            <li><a href="<%= new_map_url %>">Create a Map</a></li>
-            <li><a href="<%= maps_url %>">Explore</a></li>
-            <li><%= button_to "Logout", session_url, method: :delete, class: "sign-in" %></li>
-        </ul>
-      </nav>
-      <% end %>
-    </div>
-  </header>
+  <%= render "layouts/header" %>
 
   <div class="page group">
 
