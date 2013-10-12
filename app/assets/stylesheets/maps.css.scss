@@ -1,17 +1,18 @@
 // Place all the styles related to the maps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.map, #map-canvas {
-  height: 250px;
-}
 
-.user-show {
-  height: 500px;
-}
-
-#map-canvas {
+#map-canvas{
   border: 2px solid black;
   box-shadow: 5px 5px 5px #888;
+}
+
+.global-map > #map-canvas {
+  height: 400px;
+}
+
+.show-map > #map-canvas {
+  height: 250px;
 }
 
 .hide {
