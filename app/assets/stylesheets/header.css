@@ -69,16 +69,12 @@
   margin: 3px 0px;
 }
 
-.drop-down {
-  display: none;
-}
-
-li:hover > .drop-down{
-  display: block;
-}
-
 .header-nav > ul > li:hover {
   font-weight: bold;
+}
+
+.header-nav > ul > li:hover > ul {
+  font-weight: normal;
 }
 
 .header-nav > ul > li:first-child {
@@ -87,6 +83,44 @@ li:hover > .drop-down{
 
 .header-nav > ul > li:first-child > a:hover {
   font-weight: normal;
+}
+
+.drop-down {
+  display: none;
+  position: absolute;
+  left: -1px;
+  top: 16px;
+  border-left: 1px solid #333;
+  border-bottom: 1px solid #333;
+  background-color: #F9F9F9;
+  width: 200px;
+  z-index: 2;
+  list-style: none;
+  padding: 2px 3px 0px 3px;
+}
+
+li:hover > .drop-down{
+  display: block;
+}
+
+.drop-down > li {
+  border-top: 1px solid #333;
+  padding: 5px 2px;
+}
+
+.drop-down > li:first-child{
+  border-top: 0;
+}
+
+.drop-down > li > a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.drop-down > li > a:hover{
+  font-weight: bold;
+  color: #64757F;
 }
 
 .sign-in {
