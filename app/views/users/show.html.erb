@@ -7,14 +7,17 @@
 </section>
 <br>
 
-<p>Find Near Me:
-  <%= render "nearby", restaurants: @restaurants %>
-</p>
+<section class="nearby">
+    <%= render "nearby", restaurants: @restaurants %>
+</section>
+
 <script type="application/javascript">
   $(document).ready(function () {
     $("#nearby-form").on("ajax:success", function(event, data){
       $(".nearby-list").html(data);
       $("#nearby-form input[type=text]").val("");
     })
+
+    $("")
   })
 </script>

@@ -1,5 +1,5 @@
-<section class="nearby">
-
+<h2>Find Near Me</h2>
+<p>
   <form
     id="nearby-form"
     action="<%= nearby_restaurants_url %>"
@@ -14,7 +14,7 @@
     <input type="hidden" name="authenticity_token"
           value="<%= form_authenticity_token %>">
   </form>
-</section>
+</p>
 
 <section class="nearby-list">
   <%= render restaurants %>

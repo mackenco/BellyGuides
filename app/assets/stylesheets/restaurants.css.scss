@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .restaurant-list {
-  width: 97%;
   margin: auto;
   padding-top: 10px;
 }
@@ -28,4 +27,48 @@
   content: "";
   display: table;
   clear: both;
+}
+
+.restaurant > input[type=checkbox] {
+    position: relative;
+    visibility: hidden;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.restaurant > input[type=checkbox]:after {
+    display: block;
+    position: absolute;
+    content:"";
+    width: 20px;
+    height: 20px;
+    top: -6px;
+    border: 1px solid black;
+    visibility: visible;
+    text-align: center;
+    background: #C8EAFF;
+    cursor: pointer;
+}
+
+.restaurant > input[type=checkbox]:checked:after {
+    background: #C8EAFF;
+    content: "\d7";
+    position: relative;
+    font-size: 18px;
+    color: #64757F;
+    font-weight: bold;
+
+}
+
+.detail-view {
+  list-style: none;
+}
+
+.detail-view > li > h2 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.detail-view > li {
+  font-size: 14px;
 }
