@@ -28,10 +28,9 @@
   <%= render "comments", map: @map, comment: @comment, comments: @comments%>
 
   <script type="application/javascript">
-   // how to do src="./comments" ?
     $(document).ready(function () {
       $("#comment-form").on("ajax:success", function(event, data){
-        $(".comments").prepend(data);
+        //$(".comments").prepend(data);
         $("#comment-form textarea").val("");
       })
     })
