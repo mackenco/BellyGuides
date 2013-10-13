@@ -11,15 +11,23 @@
           <li class="first"><a href="<%= user_url(current_user) %>"> Hello <%= current_user.username %>!</a></li>
           <li>My Maps
             <ul class="drop-down">
-              <% current_user.maps.each do |map| %>
-                <li><%= link_to map.title, map_url(map) %></li>
+              <% if current_user.maps.length == 0  %>
+                <li>You don't have any maps!</li>
+              <% else %>
+                <% current_user.maps.each do |map| %>
+                  <li><%= link_to map.title, map_url(map) %></li>
+                <% end %>
               <% end %>
             </ul>
           </li>
           <li>Favorites
             <ul class="drop-down">
-              <% current_user.favorited_maps.each do |map| %>
-                <li><%= link_to map.title, map_url(map) %></li>
+              <% if current_user.favorited_maps.length == 0  %>
+                <li>You don't have any favorites!</li>
+              <% else %>
+                <% current_user.favorited_maps.each do |map| %>
+                  <li><%= link_to map.title, map_url(map) %></li>
+                <% end %>
               <% end %>
             </ul>
           </li>
