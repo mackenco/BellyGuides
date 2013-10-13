@@ -46,6 +46,7 @@
 
 .finished:after {
   content: "\d7";
+  color: #323A40;
   font-weight: bold;
   position: absolute;
   font-size: 38px;
@@ -64,11 +65,19 @@
 
 .detail-view {
   list-style: none;
+  padding: 0 5px;
+  margin: 0 20px;
+  border-left: 1px solid #ccc;
 }
 
 .detail-view > li > h2 {
   font-weight: bold;
   font-size: 16px;
+  margin-top: 8px;
+}
+
+.detail-view > li:last-child {
+  margin-bottom: 8px;
 }
 
 .detail-view > li {

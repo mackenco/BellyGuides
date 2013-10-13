@@ -8,41 +8,38 @@
     </form>
   </li>
 
-  <p>
-    <li class="source">
-      <a class ="show" href="<%= restaurant.escape("source_url") %>"
-        target="_blank" >Source</a><br>
-      <form class="hide edit">
-        <input name="restaurant[source]"
-          id="restaurant_source"
-          value="<%= restaurant.escape("source") %>">
-      </form>
-    </li>
+  <li class="source">
+    <a class ="show" href="<%= restaurant.escape("source_url") %>"
+      target="_blank" >Source</a><br>
+    <form class="hide edit">
+      <input name="restaurant[source]"
+        id="restaurant_source"
+        value="<%= restaurant.escape("source") %>">
+    </form>
+  </li>
 
-    <li class="address">
-      <span class="show">Address: <%= restaurant.escape("address") %></span><br>
-      <form class="hide edit">
-        Address:<input name="restaurant[address]"
-          id="restaurant_address"
-          value="<%= restaurant.escape("address") %>">
-      </form>
-    </li>
+  <li class="address">
+    <span class="show">Address: <%= restaurant.escape("address") %></span><br>
+    <form class="hide edit">
+      Address:<input name="restaurant[address]"
+        id="restaurant_address"
+        value="<%= restaurant.escape("address") %>">
+    </form>
+  </li>
 
-    <li class="notes">
-      <span class="show">Notes: <%= restaurant.escape("note") %></span><br>
-      <form class="hide edit">
-        Notes:<textarea name="restaurant[note]" rows=5 cols=20
-          id="restaurant_note"><%= restaurant.escape("note") %></textarea>
-      </form>
-    </li>
+  <li class="notes">
+    <span class="show">Notes: <%= restaurant.escape("note") %></span><br>
+    <form class="hide edit">
+      Notes:<textarea name="restaurant[note]" rows=5 cols=20
+        id="restaurant_note"><%= restaurant.escape("note") %></textarea>
+    </form>
+  </li>
 
-    <% if(BellyGuide.owner) { %>
-     <li><a href="#/" class="delete">Delete</a></li>
-    <% } else { %>
-      <li><a href="#/restaurants/<%= restaurant.escape("id") %>/add"
-      class="add" data-id="<%= restaurant.escape("id") %>">
-        Add to My Maps</a></li>
-    <% } %>
-  </p>
-  <br>
+  <% if(BellyGuide.owner) { %>
+   <li><a href="#/" class="delete">Delete</a></li>
+  <% } else { %>
+    <li><a href="#/restaurants/<%= restaurant.escape("id") %>/add"
+    class="add" data-id="<%= restaurant.escape("id") %>">
+      Add to My Maps</a></li>
+  <% } %>
 </ul>
