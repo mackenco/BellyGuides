@@ -1,7 +1,7 @@
 <ul class="todo">Restaurants to Try:
   <% _(unfinished).each(function (restaurant) { %>
     <li class="restaurant" data-id="<%=restaurant.escape("id") %>">
-      <input type="checkbox" <%= BellyGuide.owner ? "" : "disabled" %>>
+      <div class="checkbox unfinished <%= BellyGuide.owner ? "owner" : "" %>"></div>
       <a class="list" href="#/">
         <%= restaurant.escape("name") %>
       </a>
@@ -12,7 +12,7 @@
 <ul class="todo">Visited Restaurants:
   <% _(finished).each(function (restaurant) { %>
     <li class="restaurant" data-id="<%=restaurant.escape("id") %>">
-      <input type="checkbox" checked <%= BellyGuide.owner ? "" : "disabled" %>>
+      <div class="checkbox finished <%= BellyGuide.owner ? "owner" : "" %>"></div>
       <a class="list" href="#/">
         <%= restaurant.escape("name") %>
       </a>

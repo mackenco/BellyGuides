@@ -22,42 +22,44 @@
   border-right: 1px solid #CCC;
 }
 
-
 .restaurant-list > div > a {
   content: "";
   display: table;
   clear: both;
 }
 
-.restaurant > input[type=checkbox] {
-    position: relative;
-    visibility: hidden;
-    cursor: pointer;
-    margin: 10px;
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  display: inline-block;
+  background: #C8EAFF;
+  cursor: pointer;
 }
 
-.restaurant > input[type=checkbox]:after {
-    display: block;
-    position: absolute;
-    content:"";
-    width: 20px;
-    height: 20px;
-    top: -6px;
-    border: 1px solid black;
-    visibility: visible;
-    text-align: center;
-    background: #C8EAFF;
-    cursor: pointer;
+.unfinished {
 }
 
-.restaurant > input[type=checkbox]:checked:after {
-    background: #C8EAFF;
-    content: "\d7";
-    position: relative;
-    font-size: 18px;
-    color: #64757F;
-    font-weight: bold;
+.finished {
+  position: relative;
+}
 
+.finished:after {
+  content: "\d7";
+  font-weight: bold;
+  position: absolute;
+  font-size: 38px;
+  top: -9px;
+  left: -2px;
+};
+
+.restaurant {
+  position: relative;
+}
+.list {
+  position: absolute;
+  top: 3px;
+  padding-left: 5px;
 }
 
 .detail-view {

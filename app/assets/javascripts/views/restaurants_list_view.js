@@ -4,7 +4,7 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
   events: {
     "click .list": "detail",
     "click .detail": "removeDetail",
-    "click input[type=checkbox]": "status"
+    "click .checkbox": "status"
   },
 
   initialize: function () {
@@ -84,9 +84,10 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
 
   status: function (event) {
     event.preventDefault();
+    if (!$(event.currentTarget).hasClass("owner")) { return }
 
     var id = $(event.currentTarget.parentElement).attr("data-id");
     var restaurant = BellyGuide.restaurants.get(id);
-    restaurant.save({ completed: $(event.currentTarget).is(":checked") })
+    restaurant.save({ completed: $(event.currentTarget).hasClass("unfinished") })
   }
 });
