@@ -1,16 +1,15 @@
-<h2>Find Near Me</h2>
 <p>
-  <form
+  <form class="nearby-form hide"
     id="nearby-form"
     action="<%= nearby_restaurants_url %>"
     method="post"
     data-remote="true">
 
-    Enter your location
-    <label><input type="text" name="address"></label>
+    <label>Enter your location:
+      <input type="text" name="address"></label>
     <label>Mile radius?
       <input type="text" name="distance"></label>
-    <input type="submit" value="Find Near Me!">
+    <label><input type="submit" value="Find Near Me!"></label>
     <input type="hidden" name="authenticity_token"
           value="<%= form_authenticity_token %>">
   </form>

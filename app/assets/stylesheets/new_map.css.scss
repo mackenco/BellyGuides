@@ -89,3 +89,8 @@
   background: #fff;
   color: #5F84CB;
 };
+
+.new-restaurant > label > input:focus, .new-restaurant > label > textarea:focus {
+  outline: none;
+  border: 2px solid #5F84CB;
+}

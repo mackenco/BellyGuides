@@ -1,0 +1,47 @@
+.nearby-form {
+  width: 60%;
+  float: left;
+  position:relative;
+  line-height: 26px;
+  color: #5F84CB;
+  text-decoration: none;
+  padding:5px 0;
+}
+
+.nearby-form > label {
+  font-size: 20px;
+  display: block;
+  padding-top: 5px;
+}
+
+.nearby-form > label > input {
+  width:460px;
+  display:block;
+  border: 1px solid #999;
+  height: 25px;
+  font-size: 18px;
+  margin-left: 8px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.nearby-form > label > input[type=submit] {
+  width:120px;
+  background:#5F84CB;
+  color:#fff;
+  height:30px;
+  border-radius: 12px;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  margin: 5px 0px ;
+}
+
+.nearby-form > label > input[type=submit]:hover {
+  background: #fff;
+  color: #5F84CB;
+};
+
+.nearby-form > label > input:focus {
+  outline: none;
+  border: 2px solid #5F84CB;
+}

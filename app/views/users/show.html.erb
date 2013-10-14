@@ -7,9 +7,8 @@
 </section>
 <br>
 
-<input type="text" id="myinput">
-
 <section class="nearby">
+  <a href="#">Find Near Me</a>
     <%= render "nearby", restaurants: @restaurants %>
 </section>
 
@@ -20,6 +19,8 @@
       $("#nearby-form input[type=text]").val("");
     })
 
-    $("")
+    $(".nearby").children().filter('a').on("click", function(event){
+      $(event.currentTarget).siblings().filter('form').toggleClass("hide");
+    });
   })
 </script>
