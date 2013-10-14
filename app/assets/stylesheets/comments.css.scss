@@ -1,3 +1,61 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-new-form > form > input[type=submit] {
+  position:absolute;
+  background:#5F84CB;
+  color:#fff;
+  height:30px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: 1p solid #999;
+  font-size: 14px;
+  top: 62px;
+  left: 475px;
+  width: 65px;
+  cursor: pointer;
+}
+
+.comment-new-form > form > label {
+}
+
+.comment-new-form > form {
+//  padding: 5px;
+}
+
+.comment-new-form {
+  width: 500px;
+  position: relative;
+  padding: 5px 5px 5px 0;
+}
+
+#comment_text {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+#comment-header {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.comments > article {
+  padding-left: 5px;
+}
+
+.comments > article > div {
+  border-left: 1px solid #64757F;
+  padding-left: 5px;
+
+}
+
+.comments > hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #ddd;
+    padding:0;
+    margin: 10px auto;
+}
