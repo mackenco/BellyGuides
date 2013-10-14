@@ -1,8 +1,6 @@
-<h1>Edit Map</h1>
-
+<section class="title group">
+  <h1>Edit Map</h1><%= link_to "Show Map", @map %>
+  <%= link_to "Back Home", user_url(current_user) %>
+</section>
 <%= render partial: 'form' %>
 
-<p>
-  <%= link_to "Show Map", @map %> |
-  <%= link_to "Back to Maps", users_url(current_user) %>
-</p>

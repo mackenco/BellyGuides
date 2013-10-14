@@ -1,16 +1,16 @@
 .title > h1 {
   font-size: 24px;
   display: inline;
-  border-right: 1px solid #999;
   padding-right: 5px;
 }
 
 .title > a {
   font-size: 16px;
-  padding-left: 2px;
+  padding: 4px 4px;
+  border-left: 1px solid #999;
 }
 
-.new_map {
+.new_map, .edit_map {
   font-size: 18px;
   margin: 10px 0px;
   width: 60%;
@@ -70,7 +70,7 @@
   padding: 5px 0;
 }
 
-.new_map > input[type=submit] {
+.new_map > input[type=submit], .edit_map > input[type=submit] {
   width:100px;
   position:absolute;
   right:20px;
@@ -85,7 +85,7 @@
   font-size: 14px;
 }
 
-.new_map > input[type=submit]:hover {
+.new_map > input[type=submit]:hover, .edit_map > input[type=submit]:hover {
   background: #fff;
   color: #5F84CB;
 };
