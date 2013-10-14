@@ -1,17 +1,17 @@
 <div class="fields">
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
 
-    <%= f.label :source_url, "Source URL" %>
-    <%= f.text_field :source_url %><br>
+  <%= f.label :name, "Restaurant Name" %>
+  <%= f.text_field :name %>
 
-    <%= f.label :address %>
-    <%= f.text_field :address %><br>
+  <%= f.label :source_url, "Source URL" %>
+  <%= f.text_field :source_url %>
 
-    <%= f.label :note %>
-    <%= f.text_area :note, rows: 3 %><br>
+  <%= f.label :address, "Restaurant Address" %>
+  <%= f.text_field :address %>
 
-    <%= link_to_remove_fields "Remove", f %><br>
-  </p>
+  <%= f.label :note, "Notes" %>
+  <%= f.text_area :note, rows: 3 %>
+
+  <%= link_to_remove_fields "Remove", f %>
+
 </div>
