@@ -8,6 +8,8 @@
   function initialize() {
 
     var mapOptions = {
+      zoom: 12,
+      center: new google.maps.LatLng(40.7577, -73.9857),
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };
 
@@ -21,7 +23,9 @@
         bounds.extend(new google.maps.LatLng(<%= r.latitude %>, <%= r.longitude %>))
     <% end %>
 
-    map.fitBounds(bounds);
+    <% if current_user.restaurants.length > 0  %>
+      map.fitBounds(bounds);
+    <% end %>
 
     BellyGuide.map = map
     BellyGuide.bounds = bounds

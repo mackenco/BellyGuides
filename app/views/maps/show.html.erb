@@ -1,15 +1,16 @@
 <head class="map">
 
-  <%= render "map", restaurants: @restaurants, lat: @lat, long: @long, zoom: 13 %>
+  <%= render "map", restaurants: @restaurants %>
 
 </head>
 
 <body class="map">
   <%= render "header", map: @map, favorite: @favorite %>
 
-  <section class="show-map">
-    <div id="map-canvas"></div>
-  </section>
+
+    <section class="show-map">
+      <div id="map-canvas"></div>
+    </section>
 
   <script type="application/javascript">
     $(function () {

@@ -87,6 +87,19 @@ form.sign-in:hover{
 }
 
 .forms > form > input {
+  width:375px;
+  display:block;
+  border: 1px solid #999;
+  height: 25px;
+  font-size: 18px;
+}
+
+.forms > form > input:focus {
+  outline: none;
+  border: 2px solid #5F84CB;
+}
+
+.forms > form > input[type=submit] {
   width:100px;
   position:absolute;
   right:20px;
@@ -101,20 +114,7 @@ form.sign-in:hover{
   font-size: 14px;
 }
 
-.forms > form > input:hover {
+.forms > form > input[type=submit]:hover {
   background: #fff;
   color: #5F84CB;
 };
-
-.forms > form > label > input {
-  width:375px;
-  display:block;
-  border: 1px solid #999;
-  height: 25px;
-  font-size: 18px;
-}
-
-.forms > form > label > input:focus {
-  outline: none;
-  border: 2px solid #5F84CB;
-}
