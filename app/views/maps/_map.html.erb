@@ -8,18 +8,12 @@
   function initialize() {
 
     var mapOptions = {
-      center: new google.maps.LatLng(<%=lat ? lat : 40.7577%>,
-        <%=long ? long : -73.9857%>),
-      zoom: <%=zoom%>,
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };
 
     var map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
     var bounds = new google.maps.LatLngBounds();
-
-    BellyGuide.map = map
-    BellyGuide.start = map.center
 
     <% restaurants.each do |r| %>
       createMarker(<%= r.latitude %>, <%= r.longitude %>,
@@ -28,6 +22,9 @@
     <% end %>
 
     map.fitBounds(bounds);
+
+    BellyGuide.map = map
+    BellyGuide.bounds = bounds
 
     function createMarker(lat, long, title, addy, completed) {
       var marker = new google.maps.Marker({
