@@ -16,13 +16,18 @@
 
     var map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
+    var bounds = new google.maps.LatLngBounds();
+
     BellyGuide.map = map
     BellyGuide.start = map.center
 
     <% restaurants.each do |r| %>
       createMarker(<%= r.latitude %>, <%= r.longitude %>,
         "<%= r.name %>", "<%= r.address %>", <%= r.completed %> )
+        bounds.extend(new google.maps.LatLng(<%= r.latitude %>, <%= r.longitude %>))
     <% end %>
+
+    map.fitBounds(bounds);
 
     function createMarker(lat, long, title, addy, completed) {
       var marker = new google.maps.Marker({

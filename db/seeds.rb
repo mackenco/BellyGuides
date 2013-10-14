@@ -4,6 +4,8 @@ colin2 = User.create({ username: "Colin2", password: "pw",
                        email: "colinwmackenzie@gmail.com" })
 laura = User.create({ username: "Laura", password: "pw",
                       email: "colinwmackenzie@gmail.com" })
+michelin = User.create({ username: "Michelin", password: "pw",
+                       email: "colinwmackenzie@gmail.com" })
 
 map1 = Map.create({ title: "App Academy Lunch Spots", owner: colin,
       description: "Some places to eat around App Academy."})
@@ -11,6 +13,8 @@ map2 = Map.create({ title: "Where to eat in Williamsburg", owner: colin,
       description: "Here are some places to eat in Williamsburg." })
 map3 = Map.create({ title: "Woody Allen Hot Spots", owner: laura,
       description: "Spots from diff. movies"})
+map4 = Map.create({ title: "New York Michelin Restaurants", owner: michelin,
+      description: "These New York restaurants received 3 stars in the upcoming 2014 Michelin Guide. Wow!"})
 
 Restaurant.create([
   { name: "Russ & Daughters", completed: false, note: "Delicious bagels",
@@ -62,5 +66,35 @@ Restaurant.create([
   { name: "Pomander Walk", completed: false, note: "",
     source_url: "http://en.wikipedia.org/wiki/Pomander_Walk",
     map: map3, latitude: 40.7936606, longitude: -73.97344,
-    address: "260 W 94 Street, New York, NY 10025 "}
-   ])
+    address: "260 W 94 Street, New York, NY 10025 "},
+  { name: "Chef's Table at Brooklyn Fare", completed: false,
+    note: "24 course set menu\r\n No cellphones allowed!",
+    source_url: "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
+    map: map4, latitude: 40.6886328, longitude: -73.9851684,
+    address: "200 Schermerhorn Street, Brooklyn, NY 11201, USA"},
+  { name: "Masa", completed: true,
+    note: "One of the most expensive restaurants in the world...",
+    source_url: "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
+    map: map4, latitude: 40.7684153, longitude: -73.9827069,
+    address: "10 Columbus Circle, New York, NY 10019, USA"},
+  { name: "Le Bernardin", completed: true, note: "Gotta try the tuna ",
+    source_url: "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
+    map: map4, latitude: 40.7615091, longitude: -73.9818845,
+    address: "155 West 51st Street, New York, NY 10019, USA"},
+  { name: "Eleven Madison Park", completed: false, note: "Molecular gastronomy\r\n",
+    source_url: "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
+    map: map4, latitude: 40.7389765, longitude: -73.993259,
+    address: "11 Madison Avenue, New York, NY 10010, USA"},
+  { name: "Per Se", completed: true, note: "-Thomas Keller\r\n-A big deal!!",
+    source_url: "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
+    map: map4, latitude: 40.7684153, longitude: -73.9827069,
+    address: "10 Columbus Circle, New York, NY 10019, USA"},
+  { name: "Jean Georges", completed: false, note: "Swanky!",
+    source_url: "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
+    map: map4, latitude: 40.769302, longitude: -73.981363,
+    address: "1 Central Park West, New York, NY 10023, USA"},
+  { name: "Daniel", completed: false, note: "-Daniel Boulud",
+    source_url: "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
+    map: map4, latitude: 40.7669119, longitude: -73.9676797,
+    address: "48-98 East 65th Street, New York, NY 10065, USA"},
+])
