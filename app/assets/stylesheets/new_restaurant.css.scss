@@ -1,0 +1,70 @@
+.new-restaurant {
+  font-size: 18px;
+  margin:10px auto;
+  width: 60%;
+  float: left;
+  position:relative;
+  line-height: 26px;
+  font-weight: bold;
+  color: #5F84CB;
+  text-decoration: none;
+  border-radius: 10px;
+  padding:10px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+}
+
+.new-restaurant > h1 {
+  font-size: 22px;
+  display: inline;
+  margin-right: 5px;
+}
+
+.new-restaurant > a {
+  font-size: 16px;
+  border-left: 1px solid black;
+  padding-left: 5px;
+}
+
+.new-restaurant > label, .new-restaurant > label > input, .new-restaurant > label > textarea {
+  margin-left: 10px;
+}
+
+.new-restaurant > label > input {
+  width:375px;
+  display:block;
+  border: 1px solid #999;
+  height: 25px;
+  font-size: 18px;
+}
+
+.new-restaurant > label > textarea {
+  display: block;
+  font-size: 18px;
+}
+
+.new-restaurant > label > input:focus, .new-restaurant > label > textarea:focus {
+  outline: none;
+  border: 2px solid #5F84CB;
+}
+
+.new-restaurant > input[type=submit] {
+  width:100px;
+  position:absolute;
+  right:20px;
+  bottom:20px;
+  background:#5F84CB;
+  color:#fff;
+  height:30px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: 1p solid #999;
+  font-size: 14px;
+}
+
+.new-restaurant > input[type=submit]:hover {
+  background: #fff;
+  color: #5F84CB;
+};

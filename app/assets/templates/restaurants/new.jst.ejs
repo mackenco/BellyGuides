@@ -1,5 +1,6 @@
-<h1>New Restaurant</h1>
-<form>
+
+<form class="new-restaurant">
+<h1>New Restaurant</h1><a href="#/">Back</a><br>
   <label>Name
     <input name="restaurant[name]">
   </label><br>
@@ -15,12 +16,13 @@
   <label>Note
     <textarea name="restaurant[note]"
               id="restaurant_note"
-              rows=5 cols=20></textarea>
+              rows=4 cols=33></textarea>
   </label><br>
 
   <input type="hidden" name="restaurant[map_id]" value="<%= BellyGuide.MapID%>">
 
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit"><br>
+
+
 </form>
 
-<a href="#/">Back</a>
