@@ -10,4 +10,9 @@ class CommentsController < ApplicationController
       redirect_to map_url(params[:map_id])
     end
   end
+
+  def destroy
+    fail
+  end
 end
+
