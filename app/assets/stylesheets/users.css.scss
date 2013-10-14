@@ -16,7 +16,7 @@
 .banner {
   width: 105%;
   margin: auto;
-  background-color: #BEDEFF;
+  background-color: #5F84CB;
   height: 100px;
   position: absolute;
   top: 245px;
@@ -28,25 +28,28 @@
 
 .banner > h1 {
   font-size: 42px;
-  position: absolute;
   letter-spacing: 7px;
-  left: 350px;
-  top: 1px;
+  color: #fff;
+  padding-top: 2px;
 }
 
 .banner > p {
   font-size: 18px;
   margin: auto;
-  position: absolute;
-  top: 45px;
+  color: #f9f9f9;
 }
 
-.landing > ul {
+.signin {
+}
+
+.signin > ul {
   padding: 0;
-  margin:0;
+  margin: 0 auto;
+  display: block;
+  width: 38%;
 }
 
-.landing > ul > li {
+.signin > ul > li {
   float: left;
   margin: 5px 0;
   padding: 0 7px;
@@ -55,10 +58,10 @@
   border-left: 1px solid #999;
 }
 
-.landing > ul > li:hover{
+.signin > ul > li:hover{
   font-weight: bold;
 }
 
-.landing > ul > li:first-child{
+.signin > ul > li:first-child{
   border-left: none;
 }
