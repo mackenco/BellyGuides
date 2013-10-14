@@ -18,7 +18,7 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
 
    render: function () {
     var that = this;
-
+    that.collection.sort()
     var renderedContent = this.template({
       unfinished: that.collection.where({ completed: false }),
       finished: that.collection.where({ completed: true })

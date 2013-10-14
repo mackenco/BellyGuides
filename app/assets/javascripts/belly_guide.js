@@ -5,6 +5,7 @@ window.BellyGuide = {
   Routers: {},
   initialize: function($rootEl, restaurantData, mapData, mapID, owner) {
     BellyGuide.restaurants = new BellyGuide.Collections.Restaurants(restaurantData)
+
     BellyGuide.current_maps = new BellyGuide.Collections.Maps(mapData)
     BellyGuide.mapID = mapID;
     BellyGuide.owner = owner;
