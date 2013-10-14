@@ -69,3 +69,52 @@
 form.sign-in:hover{
   font-weight: normal;
 }
+
+.forms > form {
+  font-size: 18px;
+  margin:10px auto;
+  width: 600px;
+  position:relative;
+  line-height: 26px;
+  font-weight: bold;
+  color: #5F84CB;
+  text-decoration: none;
+  border-radius: 10px;
+  padding:10px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+}
+
+.forms > form > input {
+  width:100px;
+  position:absolute;
+  right:20px;
+  bottom:20px;
+  background:#5F84CB;
+  color:#fff;
+  height:30px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: 1p solid #999;
+  font-size: 14px;
+}
+
+.forms > form > input:hover {
+  background: #fff;
+  color: #5F84CB;
+};
+
+.forms > form > label > input {
+  width:375px;
+  display:block;
+  border: 1px solid #999;
+  height: 25px;
+  font-size: 18px;
+}
+
+.forms > form > label > input:focus {
+  outline: none;
+  border: 2px solid #5F84CB;
+}
