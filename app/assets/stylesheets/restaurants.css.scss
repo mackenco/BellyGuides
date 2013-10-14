@@ -18,6 +18,11 @@
   width: 47%;
 }
 
+.todo > h1 {
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
 .todo:first-child{
   border-right: 1px solid #CCC;
 }

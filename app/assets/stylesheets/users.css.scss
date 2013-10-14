@@ -1,3 +1,64 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.landing{
+  position: relative;
+  padding: 0px;
+  margin: auto;
+  width: 1000px;
+}
+.landing > img{
+  margin: auto;
+  width: 100%;
+}
+
+.banner {
+  width: 105%;
+  margin: auto;
+  background-color: #BEDEFF;
+  height: 100px;
+  position: absolute;
+  top: 245px;
+  left: -25px;
+  text-align: center;
+  opacity: .97;
+  border-radius: 10px;
+}
+
+.banner > h1 {
+  font-size: 42px;
+  position: absolute;
+  letter-spacing: 7px;
+  left: 350px;
+  top: 1px;
+}
+
+.banner > p {
+  font-size: 18px;
+  margin: auto;
+  position: absolute;
+  top: 45px;
+}
+
+.landing > ul {
+  padding: 0;
+  margin:0;
+}
+
+.landing > ul > li {
+  float: left;
+  margin: 5px 0;
+  padding: 0 7px;
+  font-size: 24px;
+  cursor: pointer;
+  border-left: 1px solid #999;
+}
+
+.landing > ul > li:hover{
+  font-weight: bold;
+}
+
+.landing > ul > li:first-child{
+  border-left: none;
+}

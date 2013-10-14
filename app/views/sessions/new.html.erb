@@ -1,26 +1,47 @@
-<h1>Sign In</h1>
+<section class="landing">
+  <div class="banner">
+    <h1>BELLY GUIDE</h1>
+    <p>Belly Guide is a to do website focused on the restaurants you love and those you
+      want to try. Create maps with restaurants you want to try, and check them off as you visit.
+      Let your belly be your guide and get started today!</p>
+  </div>
+  <%= image_tag("example_map.png") %>
 
-<form action="<%= session_url %>" method="post">
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+<hr>
 
-  <label for="user_username">Username</label>
-  <input
-     id="user_username"
-     name="user[username]"
-     type="text">
-  <br>
 
-  <label for="user_password">Password</label>
-  <input
-     id="user_password"
-     name="user[password]"
-     type="password">
-  <br>
 
-  <input type="submit" value="Log in">
-</form>
 
-<%= link_to "Create an Account", new_user_url %>
+
+<ul class="signin">
+  <li>Sign Up</li>
+  <li>Sign In</li>
+  <li>Enter as Guest</li>
+</ul>
+
+<div class="hide">
+  <form action="<%= session_url %>" method="post">
+    <input
+       name="authenticity_token"
+       type="hidden"
+       value="<%= form_authenticity_token %>">
+
+    <label for="user_username">Username</label>
+    <input
+       id="user_username"
+       name="user[username]"
+       type="text">
+    <br>
+
+    <label for="user_password">Password</label>
+    <input
+       id="user_password"
+       name="user[password]"
+       type="password">
+    <br>
+
+    <input type="submit" value="Log in">
+  </form>
+</div>
+
+</section>
