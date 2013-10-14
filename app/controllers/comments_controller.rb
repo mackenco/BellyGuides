@@ -12,7 +12,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    fail
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      flash[:notice] = "Comment Deleted!"
+    else
+      flash[:errors] = "Something went wrong"
+    end
+    redirect_to map_url(params[:map_id])
   end
 end
-

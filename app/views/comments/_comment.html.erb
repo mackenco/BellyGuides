@@ -6,7 +6,7 @@
       <strong><%= comment.author.username %></strong>
       <time><%= time_ago_in_words(comment.created_at) %> ago</time>
       <% if comment.author == current_user%>
-        <%= link_to "Delete", map_comment_url(comment), method: :delete %>
+        <%= link_to "Delete", map_comment_url(comment.map, comment.id), method: :delete %>
       <% end %>
     </small>
   </footer>
