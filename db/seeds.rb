@@ -4,7 +4,7 @@ colin2 = User.create({ username: "Colin2", password: "pw",
                        email: "colinwmackenzie@gmail.com" })
 laura = User.create({ username: "Laura", password: "pw",
                       email: "colinwmackenzie@gmail.com" })
-michelin = User.create({ username: "Michelin", password: "pw",
+guest = User.create({ username: "Guest", password: "guest_password",
                        email: "colinwmackenzie@gmail.com" })
 
 map1 = Map.create({ title: "App Academy Lunch Spots", owner: colin,
@@ -13,7 +13,7 @@ map2 = Map.create({ title: "Where to eat in Williamsburg", owner: colin,
       description: "Here are some places to eat in Williamsburg." })
 map3 = Map.create({ title: "Woody Allen Hot Spots", owner: laura,
       description: "Spots from diff. movies"})
-map4 = Map.create({ title: "New York Michelin Restaurants", owner: michelin,
+map4 = Map.create({ title: "New York Michelin Restaurants", owner: guest,
       description: "These New York restaurants received 3 stars in the upcoming 2014 Michelin Guide. Wow!"})
 
 Restaurant.create([
