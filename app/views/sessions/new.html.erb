@@ -11,14 +11,14 @@
 
 <nav class="signin">
   <ul class="group">
-    <li>Sign Up</li>
-    <li>Sign In</li>
-    <li>Enter as Guest</li>
+    <li class="sign-up">Sign Up</li>
+    <li class="sign-in">Sign In</li>
+    <li class="guest">Enter as Guest</li>
   </ul>
 </nav>
 
-<div class="hide">
-  <form action="<%= session_url %>" method="post">
+<div class="forms">
+  <form class="hide sign-in" action="<%= session_url %>" method="post">
     <input
        name="authenticity_token"
        type="hidden"
@@ -40,6 +40,20 @@
 
     <input type="submit" value="Log in">
   </form>
+  <form class="hide sign-up">
+    Hello!
+  </form>
+
 </div>
 
 </section>
+
+<script type="application/javascript">
+  $(document).ready(function () {
+    $("li").on("click", function(event, data){
+      var klass = $(event.currentTarget).attr('class')
+      var $form = $('form.'+klass).toggleClass('hide')
+    })
+  })
+</script>
+
