@@ -23,6 +23,9 @@ class Map < ActiveRecord::Base
 
   has_many :comments
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   accepts_nested_attributes_for :comments
   accepts_nested_attributes_for :restaurants,
   :reject_if => lambda { |a| a[:content].blank? }, allow_destroy: true
