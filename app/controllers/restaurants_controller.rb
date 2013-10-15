@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_filter :require_owner!
 
   def create
     restaurant = Restaurant.new(params[:restaurant])
@@ -44,6 +45,13 @@ class RestaurantsController < ApplicationController
       render partial: "nearby", locals: {restaurants: @restaurants}
     else
       redirect_to user_url(current_user)
+    end
+  end
+
+  def require_owner!
+    map = Map.find(params[:map_id] || params[:id])
+    unless map.owner == current_user
+      render :text => "Unauthorized", :status => 403
     end
   end
 end

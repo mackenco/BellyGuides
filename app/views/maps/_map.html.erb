@@ -31,14 +31,14 @@
     BellyGuide.bounds = bounds
 
     function createMarker(lat, long, title, addy, completed) {
-      var redMarker = '../../assets/images/green-marker.png';
-      var greenMarker = '../../assets/images/red-marker.png';
+      // var redMarker = '../../assets/images/green-marker.png';
+ //      var greenMarker = '../../assets/images/red-marker.png';
 
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
         map: map,
-        title: title,
-        icon: completed ? greenMarker : redMarker
+        title: title
+        // icon: completed ? greenMarker : redMarker
       });
 
       google.maps.event.addListener(marker, 'click', function() {

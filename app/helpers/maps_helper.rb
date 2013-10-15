@@ -16,4 +16,5 @@ module MapsHelper
     top_result = response["results"].first
     top_result["geometry"]["location"].values_at("lat", "lng")
   end
+
 end
