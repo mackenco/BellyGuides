@@ -11,6 +11,7 @@
 .landing > img{
   margin: auto;
   width: 100%;
+  z-index: -1;
 }
 
 .banner {
@@ -24,6 +25,7 @@
   text-align: center;
   opacity: .97;
   border-radius: 10px;
+  z-index: 1;
 }
 
 .banner > h1 {
@@ -37,6 +39,12 @@
   font-size: 18px;
   margin: auto;
   color: #f9f9f9;
+}
+
+.behind {
+  z-index: -2;
+  box-shadow: 5px 5px 5px #888;
+  border: 5px solid red;
 }
 
 .signin {

@@ -1,14 +1,16 @@
-<ul>Add to which map:
+<ul class="add">
+  <h1>Add to which map:</h1>
 
   <form>
     <% maps.forEach(function (map) { %>
-      <li><label><%=map.escape("title")%> |
+      <li><label>
         <input type="radio" name="map_id"
-          value="<%=map.escape("id")%>"></label></li>
+          value="<%=map.escape("id")%>">
+          <%=map.escape("title")%></label></li>
     <% }); %>
     <br>
 
-    <input type="submit" class="add" value="Submit">
+    <input type="submit" value="Submit">
   </form>
 </ul>
 

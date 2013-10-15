@@ -92,9 +92,10 @@
   top: 16px;
   border-left: 1px solid #333;
   border-bottom: 1px solid #333;
+  border-right: 1px solid #333;
   background-color: #F9F9F9;
   width: 200px;
-  z-index: 2;
+  z-index: 1;
   list-style: none;
   padding: 2px 3px 0px 3px;
 }

@@ -8,16 +8,6 @@
     </form>
   </li>
 
-  <li class="source">
-    <a class ="show" href="<%= restaurant.escape("source_url") %>"
-      target="_blank" >Source</a><br>
-    <form class="hide edit">
-      <input name="restaurant[source]"
-        id="restaurant_source"
-        value="<%= restaurant.escape("source") %>">
-    </form>
-  </li>
-
   <li class="address">
     <span class="show">Address: <%= restaurant.escape("address") %></span><br>
     <form class="hide edit">
@@ -32,6 +22,16 @@
     <form class="hide edit">
       Notes:<textarea name="restaurant[note]" rows=5 cols=20
         id="restaurant_note"><%= restaurant.escape("note") %></textarea>
+    </form>
+  </li>
+
+  <li class="source">
+    <a class="show" href="<%= restaurant.escape("source_url") %>"
+      target="_blank" >Source</a><br>
+    <form class="hide edit">
+      <input name="restaurant[source]"
+        id="restaurant_source"
+        value="<%= restaurant.escape("source") %>">
     </form>
   </li>
 
