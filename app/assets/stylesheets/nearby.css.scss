@@ -39,9 +39,33 @@
 .nearby-form > label > input[type=submit]:hover {
   background: #fff;
   color: #5F84CB;
-};
+}
 
 .nearby-form > label > input:focus {
   outline: none;
   border: 2px solid #5F84CB;
+}
+
+.nearby-list {
+  display: block;
+  float: left;
+  border-top: 1px solid #ccc;
+}
+.nearby-list > h2 {
+  line-height: 26px;
+  color: #5F84CB;
+  font-size: 20px;
+  display: block;
+  padding-top: 5px;
+}
+
+.nearby-list > ul {
+  padding: 0 5px;
+  margin: 0 5px;
+  border-left: 1px solid #999;
+  font-size: 16px;
+}
+
+.nearby-list > ul > li {
+  padding: 2px;
 }
