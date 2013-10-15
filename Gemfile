@@ -40,7 +40,7 @@ gem 'backbone-on-rails'
 gem 'ejs'
 
 gem 'friendly_id'
-gem 'paperclip'
+gem "paperclip", "~> 2.7"
 gem 'aws-sdk'
 
 # To use ActiveModel has_secure_password
