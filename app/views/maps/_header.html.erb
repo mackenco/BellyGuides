@@ -10,7 +10,7 @@
       :confirm => "Are you sure you want to delete this map?" %>
   <% else %>
 
-    <% if favorite%>
+    <% if favorite %>
       <%= link_to "Like this Map", map_favorites_url(map), method: :post %>
 
     <% else %>
