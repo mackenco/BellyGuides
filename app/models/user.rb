@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: { message: "Password can't be blank" }
   validates :password, length: { minimum: 2, allow_nil: true }
   validates :session_token, presence: true
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 
   after_initialize :ensure_session_token
 
