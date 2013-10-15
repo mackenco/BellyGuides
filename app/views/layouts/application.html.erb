@@ -8,7 +8,20 @@
 
 </head>
 <body>
-  <p class="flash group"><%= flash.notice %><p/>
+  <script>
+  $(document).ready(function () {
+    if ($(".flash-notice p").html() !== "") {
+        $(".flash-notice").slideDown("slow", function() {
+          setTimeout(function() {
+            $(".flash-notice").slideToggle("slow");
+          }, 1500);
+        });
+      }
+    })
+  </script>
+  <div class="flash-notice group">
+    <p><%= flash.notice %></p>
+  </div>
 
   <%= render "layouts/header" %>
 

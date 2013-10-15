@@ -13,7 +13,7 @@ class MapsController < ApplicationController
     end
     @favorite = @map.favorites.where(user_id:current_user.id).length == 0 ? true : false
     @comment = Comment.new
-    @comments = Comment.order("id DESC").where(map_id: params[:id])
+    @comments = @map.comments.order("id DESC")
 
     respond_to do |format|
       format.html { render :show }
@@ -62,6 +62,7 @@ class MapsController < ApplicationController
 
       end
     rescue
+      flash[:error] = @map.errors
       render :new
     else
       flash[:notice] = "Successfully created map."

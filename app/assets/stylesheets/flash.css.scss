@@ -1,55 +1,14 @@
-p.flash
-{
-  -moz-box-shadow:rgba(0,0,0,0.5) 0 1px 3px;
-  -webkit-box-shadow:rgba(0,0,0,0.5) 0 1px 3px;
-  -o-box-shadow:rgba(0,0,0,0.5) 0 1px 3px;
-  box-shadow:rgba(0,0,0,0.5) 0 1px 3px;
-  -moz-border-radius-bottomleft:6px;
-  -webkit-border-bottom-left-radius:6px;
-  -o-border-bottom-left-radius:6px;
-  -ms-border-bottom-left-radius:6px;
-  -khtml-border-bottom-left-radius:6px;
-  border-bottom-left-radius:6px;
-  -moz-border-radius-bottomright:6px;
-  -webkit-border-bottom-right-radius:6px;
-  -o-border-bottom-right-radius:6px;
-  -ms-border-bottom-right-radius:6px;
-  -khtml-border-bottom-right-radius:6px;
-  border-bottom-right-radius:6px;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-  -ms-box-sizing:border-box;
-  box-sizing:border-box;
-  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6));
-  border:3px solid rgba(255,255,255,0.5);
-  -moz-background-clip:padding;
-  -webkit-background-clip:padding;
-  -o-background-clip:padding-box;
-  -ms-background-clip:padding-box;
-  -khtml-background-clip:padding-box;
-  background-clip:padding-box;
-  text-shadow:rgba(0,0,0,0.6) 0 -1px;
-  color:#fff;
-  position:absolute;
-  top:-51px;
-  left:0;
-  width:100%;
-  text-align:center;
-  border-top:0;
-  margin:0 auto;
-  padding:.4em .8em;
-  z-index: 4;
+.flash-notice {
+  background-color: #64639B;
+  height: 34px;
+  opacity: .8;
+  display: none;
 }
 
-p.flash:empty
-{
-  height:0;
-  overflow:hidden;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  -o-box-shadow:none;
-  box-shadow:none;
-  background:none;
-  border-width:0;
-  padding:0;
+.flash-notice > p {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  margin: auto;
+  padding: 5px;
 }
