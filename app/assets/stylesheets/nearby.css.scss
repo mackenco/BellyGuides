@@ -6,6 +6,7 @@
   color: #5F84CB;
   text-decoration: none;
   padding:5px 0;
+  border-bottom: 1px solid #ccc;
 }
 
 .nearby-form > label {
@@ -49,7 +50,8 @@
 .nearby-list {
   display: block;
   float: left;
-  border-top: 1px solid #ccc;
+
+  width: 60%;
 }
 .nearby-list > h2 {
   line-height: 26px;

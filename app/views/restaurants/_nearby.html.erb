@@ -1,6 +1,11 @@
-<h2>Nearby places:</h2>
-<ul>
-<% restaurants.each do |restaurant| %>
-  <li><%= restaurant.name %> | <%= restaurant.address %></li>
+<% if restaurants.length > 0 %>
+
+  <h2>Nearby places:</h2>
+  <ul>
+  <% restaurants.each do |restaurant| %>
+    <li><%= restaurant.name %> | <%= restaurant.address %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <h2>No locations found</h2>
 <% end %>
-</ul>
