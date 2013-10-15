@@ -1,7 +1,8 @@
 class Map < ActiveRecord::Base
   attr_accessible :owner_id, :title, :description, :owner, :restaurants_attributes
 
-  validates :title, :description, presence: true
+  validates :title, presence: { message: "Map title can't be blank" }
+  validates :description, presence: { message: "Map description can't be blank" }
 
   belongs_to(
     :owner,

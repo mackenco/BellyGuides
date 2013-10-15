@@ -27,7 +27,7 @@ class MapsController < ApplicationController
 
   def new
     @map = Map.new
-    3.times { @map.restaurants.build }
+    1.times { @map.restaurants.build }
   end
 
   def create
@@ -37,16 +37,16 @@ class MapsController < ApplicationController
         @restaurants = []
 
         params[:map][:restaurants_attributes].each do |r, data|
-          next if data[:name] == ""
-
-          address = data[:address]
-          coords = convert_address(address)
-
           data.delete_if{ |k| k == "_destroy" }
           restaurant = Restaurant.new(data)
-          restaurant.latitude = coords[0]
-          restaurant.longitude = coords[1]
-          restaurant.completed = false
+
+          unless data[:address].empty?
+            coords = convert_address(data[:address])
+            restaurant.latitude = coords[0]
+            restaurant.longitude = coords[1]
+            restaurant.completed = false
+          end
+
           @restaurants << restaurant
         end
 
@@ -57,12 +57,12 @@ class MapsController < ApplicationController
           restaurant.map = @map
           restaurant.save
         end
-
         raise "invalid" unless @map.valid? && @restaurants.all? { |obj| obj.valid? }
 
       end
     rescue
-      flash[:error] = @map.errors
+      flash[:notice] = @map.errors.values.join(". ")
+      @restaurants.each { |r| flash[:notice] << r.errors.values.join(". ")}
       render :new
     else
       flash[:notice] = "Successfully created map."
@@ -97,6 +97,8 @@ class MapsController < ApplicationController
           raise "invalid" unless @map.valid? && @restaurants.all? { |obj| obj.valid? }
         end
       rescue
+        flash[:notice] = @map.errors.values.join(". ")
+        @restaurants.each { |r| flash[:notice] << r.errors.values.join(". ")}
         render :edit
       else
         flash[:notice] = "Successfully updated map."
@@ -120,6 +122,7 @@ class MapsController < ApplicationController
       restaurant.map = @clone
       restaurant.save
     end
+    flash[:notice] = "Successfully cloned map."
     redirect_to @clone
   end
 

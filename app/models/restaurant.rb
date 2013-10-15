@@ -4,6 +4,9 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, :address, presence: true
 
+  validates :name, presence: { message: "Restaurant name can't be blank" }
+  validates :address, presence: { message: "Restaurant address can't be blank" }
+
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
 
