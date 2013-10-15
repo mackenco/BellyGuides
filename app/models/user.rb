@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :email
+  attr_accessible :username, :password, :email, :profile_pic
   attr_reader :password
 
   validates :password_digest, presence: { message: "Password can't be blank" }
@@ -30,6 +30,12 @@ class User < ActiveRecord::Base
     foreign_key: :owner_id,
     primary_key: :id
   )
+
+  has_attached_file :profile_pic, styles: {
+    big: "600x600>",
+    small: "50x50#",
+    very_small: "30x30#"
+  }
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

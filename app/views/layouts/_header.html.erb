@@ -8,7 +8,8 @@
 
       <nav class="header-nav">
       <ul class="group">
-          <li class="first"><a href="<%= user_url(current_user) %>"> Hello <%= current_user.username %>!</a></li>
+          <li class="first"><a href="<%= user_url(current_user) %>"> Hello <%= current_user.username %>!
+          </a></li>
           <li>My Maps
             <ul class="drop-down">
               <% if current_user.maps.length == 0  %>

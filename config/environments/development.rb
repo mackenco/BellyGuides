@@ -36,4 +36,13 @@ BellyGuide::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.delivery_method = :letter_opener
+
+  config.paperclip_defaults = {
+        :storage => :s3,
+        :s3_credentials => {
+          :bucket => "bellyguide_development",
+          :access_key_id => ENV["AWS_KEY"],
+          :secret_access_key => ENV["AWS_SECRET_KEY"]
+    }
+  }
 end

@@ -1,11 +1,14 @@
 colin = User.create({ username: "Colin", password: "pw",
-                      email: "colinwmackenzie@gmail.com" })
+                      email: "colinwmackenzie@gmail.com",
+                      profile_pic: File.new("public/images/seeds/colin-mackenzie.jpg") })
 colin2 = User.create({ username: "Colin2", password: "pw",
-                       email: "colinwmackenzie@gmail.com" })
+                       email: "colinwmackenzie@gmail.com",
+                       profile_pic: File.new("public/images/seeds/colin-mackenzie.jpg") })
 laura = User.create({ username: "Laura", password: "pw",
                       email: "colinwmackenzie@gmail.com" })
 guest = User.create({ username: "Guest", password: "guest_password",
-                       email: "colinwmackenzie@gmail.com" })
+                       email: "colinwmackenzie@gmail.com",
+                       profile_pic: File.new("public/images/seeds/Michelin-man.jpg") })
 
 map1 = Map.create({ title: "App Academy Lunch Spots", owner: colin,
       description: "Some places to eat around App Academy."})

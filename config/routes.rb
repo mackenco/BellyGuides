@@ -13,6 +13,5 @@ BellyGuide::Application.routes.draw do
   resources :favorites, only: :index
   resources :comments, only: :index
 
-
   root :to => "users#show"
 end

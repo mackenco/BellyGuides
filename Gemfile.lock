@@ -30,6 +30,10 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.5)
     arel (3.0.2)
+    aws-sdk (1.11.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     backbone-on-rails (1.1.0.0)
       eco
       ejs
@@ -42,6 +46,10 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.2)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -85,6 +93,11 @@ GEM
     multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    paperclip (3.5.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -140,12 +153,14 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   addressable
+  aws-sdk
   backbone-on-rails
   bcrypt-ruby
   better_errors
@@ -159,6 +174,7 @@ DEPENDENCIES
   json
   letter_opener
   nokogiri
+  paperclip
   pg
   pry-rails
   rails (= 3.2.13)
