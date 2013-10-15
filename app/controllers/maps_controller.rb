@@ -12,7 +12,6 @@ class MapsController < ApplicationController
       rest.completed ? @finished << rest : @unfinished << rest
     end
     @favorite = @map.favorites.where(user_id:current_user.id).length == 0 ? true : false
-    # fail
     @comment = Comment.new
     @comments = @map.comments.order("id DESC")
 

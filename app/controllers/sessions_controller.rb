@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       render :json => "Credentials were wrong"
     else
       self.current_user = user
-      flash.notice = "Welcome back, #{current_user.username}!"
+      flash.notice = "Hello #{current_user.username}!"
       redirect_to user_url(user)
     end
   end

@@ -21,5 +21,6 @@
 </ul>
 
 <br>
-<a href="#/restaurants/new">New Restaurant</a>
-
+<% if (BellyGuide.owner) {%>
+  <a href="#/restaurants/new">New Restaurant</a>
+<% } %>
