@@ -39,3 +39,23 @@
 #nearby-form {
   font-size: 14px;
 }
+
+.explore > h1 {
+  font-size: 22px;
+}
+
+.explore > ul {
+  margin: 10px 0;
+  padding: 0 10px;
+  border-left: 1px solid #ccc;
+}
+
+.explore > ul > li > p {
+  font-size: 16px;
+  font-style: normal;
+  padding: 2px 10px;
+}
+
+.explore > ul > li {
+  padding: 2px;
+}

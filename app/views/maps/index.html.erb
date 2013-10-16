@@ -1,5 +1,15 @@
-<h1>Explore:</h1>
-
 <section class="explore">
-  <%= render 'list', maps: @maps %>
+  <h1>Explore:</h1>
+
+  <ul>
+    <% @maps.each do |map| %>
+    <li class=<%= map.owner == current_user ? "owner" : "" %>>
+      <a href="<%= map_url(map) %>"><%= map.title %></a> |
+      <%= map.owner.username %>
+      <p>
+        <%= map.description %>
+      </p>
+    </li>
+    <% end %>
+  </ul>
 </section>
