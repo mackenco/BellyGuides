@@ -46,10 +46,3 @@ test:
   username: appacademy
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: BellyGuide_production
-  pool: 5
-  username: appacademy
-  password:
