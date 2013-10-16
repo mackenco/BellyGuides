@@ -42,7 +42,7 @@ gem 'ejs'
 
 gem 'friendly_id'
 gem "paperclip"#, "~> 2.7"
-gem 'aws-sdk', "~>1.5.8"
+gem 'aws-sdk'#, "~>1.5.8"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
