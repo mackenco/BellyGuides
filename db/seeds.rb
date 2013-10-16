@@ -5,7 +5,8 @@ colin2 = User.create({ username: "Colin2", password: "pw",
                        email: "colinwmackenzie@gmail.com",
                        profile_pic: File.new("public/images/seeds/colin-mackenzie.jpg") })
 laura = User.create({ username: "Laura", password: "pw",
-                      email: "colinwmackenzie@gmail.com" })
+                      email: "colinwmackenzie@gmail.com",
+                      profile_pic: File.new("public/images/seeds/laura.png") })
 guest = User.create({ username: "Guest", password: "guest_password",
                        email: "colinwmackenzie@gmail.com",
                        profile_pic: File.new("public/images/seeds/Michelin-man.jpg") })
