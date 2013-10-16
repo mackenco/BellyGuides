@@ -14,5 +14,9 @@ class Restaurant < ActiveRecord::Base
     :map,
     class_name: "Map",
     foreign_key: :map_id,
-    primary_key: :id)
+    primary_key: :id
+  )
+
+
+
 end

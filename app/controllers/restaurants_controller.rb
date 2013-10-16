@@ -49,8 +49,9 @@ class RestaurantsController < ApplicationController
   end
 
   def require_owner!
-    map = Map.find(params[:map_id] || params[:id])
-    unless map.owner == current_user
+    restaurant = Restaurant.find(params[:id])
+    return if restaurant.nil?
+    unless restaurant.map.owner == current_user
       render :text => "Unauthorized", :status => 403
     end
   end

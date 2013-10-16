@@ -33,6 +33,18 @@
     function createMarker(lat, long, title, addy, completed) {
       // var greenMarker = 'file:assets/green-marker.png';
       // var redMarker = 'file:app/assets/images/red-marker.png';
+      // var redMarker = new google.maps.MarkerImage('app/assets/images/red-marker.png')
+      // var redMarker = '<%= image_tag("red-marker.png") %>'
+      // var redMarker = new google.maps.MarkerImage('<%=image_tag("red-marker.png")%>')
+      // var redMarker = new google.maps.MarkerImage (
+      //   'http://www.clker.com/cliparts/R/g/O/v/U/h/google-maps-marker-for-residencelamontagne-hi.png',
+      //   null,
+      //   null,
+      //   null,
+      //   new google.maps.Size(21,34)
+      // )
+
+
 
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
