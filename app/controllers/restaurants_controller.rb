@@ -4,11 +4,7 @@ class RestaurantsController < ApplicationController
   def create
     restaurant = Restaurant.new(params[:restaurant])
 
-    address = params[:restaurant][:address]
-    coords = convert_address(address)
-    restaurant.latitude = coords[0]
-    restaurant.longitude = coords[1]
-    restaurant.completed = false
+    restaurant.convert_address()
     restaurant.map = Map.find(params[:map_id])
 
     if restaurant.save

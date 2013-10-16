@@ -4,13 +4,6 @@ class MapsController < ApplicationController
   def show
     @map = Map.includes(:restaurants, :favorites).find(params[:id])
     @restaurants = @map.restaurants
-    @lat = @restaurants.average('latitude')
-    @long = @restaurants.average('longitude')
-
-    @finished, @unfinished = [], []
-    @map.restaurants.each do |rest|
-      rest.completed ? @finished << rest : @unfinished << rest
-    end
     @favorite = @map.favorites.where(user_id:current_user.id).length == 0 ? true : false
     @comment = Comment.new
     @comments = @map.comments.order("id DESC")
@@ -38,14 +31,9 @@ class MapsController < ApplicationController
 
         params[:map][:restaurants_attributes].each do |r, data|
           data.delete_if{ |k| k == "_destroy" }
-          restaurant = Restaurant.new(data)
 
-          unless data[:address].empty?
-            coords = convert_address(data[:address])
-            restaurant.latitude = coords[0]
-            restaurant.longitude = coords[1]
-            restaurant.completed = false
-          end
+          restaurant = Restaurant.new(data)
+          restaurant.convert_address() unless data[:address].empty?
 
           @restaurants << restaurant
         end
@@ -57,6 +45,7 @@ class MapsController < ApplicationController
           restaurant.map = @map
           restaurant.save
         end
+
         raise "invalid" unless @map.valid? && @restaurants.all? { |obj| obj.valid? }
 
       end
@@ -81,15 +70,12 @@ class MapsController < ApplicationController
           @restaurants = []
 
           params[:map][:restaurants_attributes].each do |r, data|
-
-            address = data[:address]
-            coords = convert_address(address)
-
             data.delete_if{ |k| k == "_destroy" }
-            data["latitude"] = coords[0]
-            data["longitude"] = coords[1]
 
             restaurant = Restaurant.find(data[:id])
+            restaurant.address = data[:address]
+            restaurant.covert_address()
+
             restaurant.update_attributes(data)
           end
 
@@ -122,6 +108,7 @@ class MapsController < ApplicationController
       restaurant.map = @clone
       restaurant.save
     end
+
     flash[:notice] = "Successfully cloned map."
     redirect_to @clone
   end

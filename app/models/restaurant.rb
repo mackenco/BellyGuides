@@ -1,3 +1,5 @@
+require 'addressable/uri'
+
 class Restaurant < ActiveRecord::Base
   attr_accessible :completed, :latitude, :longitude, :map_id, :name,
                     :note, :source_url, :address, :map
@@ -17,6 +19,21 @@ class Restaurant < ActiveRecord::Base
     primary_key: :id
   )
 
+  def convert_address()
+    url = Addressable::URI.new(
+      scheme: "https",
+      host: "maps.googleapis.com",
+      path: "/maps/api/geocode/json",
+      query_values: {
+        address: self.address,
+        sensor: "false"
+    }).to_s
 
+    response = JSON.parse(RestClient.get(url))
+    top_result = response["results"].first
+    coords = top_result["geometry"]["location"].values_at("lat", "lng")
 
+    self.latitude = coords[0]
+    self.longitude = coords[1]
+  end
 end

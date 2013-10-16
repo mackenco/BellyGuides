@@ -24,6 +24,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
