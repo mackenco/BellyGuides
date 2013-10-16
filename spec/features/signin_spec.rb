@@ -16,6 +16,6 @@ describe "the signin process", type: :feature do
       fill_in 'user_password', with: user.password
     end
     click_button 'sign_in_submit'
-    expect(page).to have_content 'Hello test!'
+    expect(page).to have_content 'Hello '+user.username+'!'
   end
 end

@@ -19,7 +19,6 @@
   width: 105%;
   margin: auto;
   background-color: #5F84CB;
-  height: 100px;
   position: absolute;
   top: 280px;
   left: -25px;
@@ -33,13 +32,14 @@
   font-size: 42px;
   letter-spacing: 7px;
   color: #fff;
-  padding-top: 2px;
+  padding-top: 4px;
 }
 
 .banner > p {
   font-size: 18px;
   margin: auto;
   color: #f9f9f9;
+  padding-bottom: 10px;
 }
 
 .signin {
