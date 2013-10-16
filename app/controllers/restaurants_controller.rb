@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_filter :require_owner!
+  before_filter :require_owner!, only: :destroy
 
   def create
     restaurant = Restaurant.new(params[:restaurant])
@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
     restaurant.latitude = coords[0]
     restaurant.longitude = coords[1]
     restaurant.completed = false
-    restaurant.map_id = params[:map_id]
+    restaurant.map = Map.find(params[:map_id])
 
     if restaurant.save
       render json: restaurant, status: :ok
