@@ -10,6 +10,9 @@ laura = User.create({ username: "Laura", password: "pw",
 guest = User.create({ username: "Guest", password: "guest_password",
                       email: "colinwmackenzie@gmail.com",
                       profile_pic:                                                                    File.new("public/images/seeds/Michelin-man.jpg") })
+triage = User.create({ username: "Triage", password: "triage",
+                      email: "colinwmackenzie@gmail.com",
+                      profile_pic:                                                                    File.new("public/images/seeds/triage.png") })
 
 map1 = Map.create({ title: "App Academy Lunch Spots", owner: colin,
       description: "Some places to eat around App Academy."})
