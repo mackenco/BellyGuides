@@ -20,7 +20,8 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
     var formData = $(event.currentTarget.form).serializeJSON();
     var restaurant = new BellyGuide.Models.Restaurant(formData.restaurant)
     restaurant.set("map_id", BellyGuide.mapID);
-    restaurant.save({ wait: true },
+
+    restaurant.save({wait: true},
       { success: function(model, response) {
 
         var details = {
@@ -44,8 +45,10 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
       BellyGuide.map.markerLayer.setGeoJSON(BellyGuide.geoJson)
       BellyGuide.map.fitBounds(BellyGuide.markers.getBounds())
 
+      that.collection.add(restaurant)
+
+      Backbone.history.navigate("#/");
       }
     });
-    Backbone.history.navigate("#/");
   }
 });
