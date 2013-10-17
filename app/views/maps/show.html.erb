@@ -8,8 +8,38 @@
   <%= render "header", map: @map, favorite: @favorite %>
 
   <section class="show-map">
-    <div id="map-canvas"></div>
+   <div id='map-canvas'></div>
   </section>
+
+  <script type='text/javascript'>
+  var map = L.mapbox.map('map-canvas', 'examples.map-9ijuk24y')
+      .setView([<%= @restaurants.first.latitude %>,
+                <%= @restaurants.first.longitude %>], 14);
+  var markers = new L.featuerGroup();
+
+  <% @restaurants.each do |restaurant| %>
+    L.mapbox.markerLayer({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [<%= restaurant.longitude %>,
+                      <%= restaurant.latitude %>]
+      },
+      properties: {
+        title: '<%= restaurant.name %>',
+        description: '<%= restaurant.address %>',
+        'marker-size': 'medium',
+        'marker-color': '<%= restaurant.completed ? '#009f5c' : '#ff8079' %>'
+      }
+    }).addTo(map)
+
+
+
+  <% end %>
+
+
+
+  </script>
 
   <script type="application/javascript">
     $(function () {

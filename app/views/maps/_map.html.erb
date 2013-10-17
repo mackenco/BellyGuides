@@ -1,74 +1,8 @@
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset=utf-8 />
+<title></title>
+  <script src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+  <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
 
-<script type="text/javascript"
- src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_API_KEY'] %>&sensor=false">
-</script>
-
-<script type="text/javascript">
-  function initialize() {
-
-    var mapOptions = {
-      zoom: 12,
-      center: new google.maps.LatLng(40.7577, -73.9857),
-      mapTypeId: google.maps.MapTypeId.TERRAIN
-    };
-
-    var map = new google.maps.Map(document.getElementById("map-canvas"),
-        mapOptions);
-    var bounds = new google.maps.LatLngBounds();
-
-    <% restaurants.each do |r| %>
-      createMarker(<%= r.latitude %>, <%= r.longitude %>,
-        "<%= r.name %>", "<%= r.address %>", <%= r.completed %> )
-        bounds.extend(new google.maps.LatLng(<%= r.latitude %>, <%= r.longitude %>))
-    <% end %>
-
-    <% if current_user.restaurants.length > 0  %>
-      map.fitBounds(bounds);
-    <% end %>
-
-    BellyGuide.map = map
-    BellyGuide.bounds = bounds
-
-    function createMarker(lat, long, title, addy, completed) {
-      // var greenMarker = 'file:assets/green-marker.png';
-      // var redMarker = 'file:app/assets/images/red-marker.png';
-      // var redMarker = new google.maps.MarkerImage('app/assets/images/red-marker.png')
-      // var redMarker = '<%= image_tag("red-marker.png") %>'
-      // var redMarker = new google.maps.MarkerImage('<%=image_tag("red-marker.png")%>')
-      // var redMarker = new google.maps.MarkerImage (
-      //   'http://www.clker.com/cliparts/R/g/O/v/U/h/google-maps-marker-for-residencelamontagne-hi.png',
-      //   null,
-      //   null,
-      //   null,
-      //   new google.maps.Size(21,34)
-      // )
-
-
-
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, long),
-        map: map,
-        title: title
-        // icon: redMarker
-        // icon: completed ? greenMarker : redMarker
-      });
-
-      google.maps.event.addListener(marker, 'click', function() {
-        var contentString =
-          '<div id="info"><h1>'+title+'</h1><p>'+addy+'</p></div>'
-
-        if (!this.getMap()._infoWindow){
-          this.getMap()._infoWindow = new google.maps.InfoWindow();
-        }
-        this.getMap()._infoWindow.close();
-        this.getMap()._infoWindow.setContent(contentString);
-        this.getMap()._infoWindow.open(this.getMap(), this);
-      });
-
-    };
-  }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
+<style>
+    #map { width:95%; height: 250px; }
+</style>
