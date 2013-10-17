@@ -41,13 +41,20 @@
   map.markerLayer.setGeoJSON(geoJson)
   map.fitBounds(markers.getBounds()).zoomOut()
 
-  function toggleColors() {
-    for (var i=0; i < geoJson.length; i++) {
-      geoJson[i].properties['marker-color'] =                                                   geoJson[i].properties['clicked-color']
-             || geoJson[i].properties['marker-color'];
-    }
-    map.markerLayer.setGeoJSON(geoJson)
-  }
+  BellyGuide.map = map
+  BellyGuide.markers = markers
+  BellyGuide.center = map.getCenter()
+  BellyGuide.zoom = map.getZoom()
+  BellyGuide.geoJson = geoJson
+
+  // function toggleColors() {
+  //   for (var i=0; i < geoJson.length; i++) {
+  //     geoJson[i].properties['marker-color'] =                                                   geoJson[i].properties['clicked-color']
+  //            || geoJson[i].properties['marker-color'];
+  //   }
+  //   map.markerLayer.setGeoJSON(geoJson)
+  // }
+
   //
   // map.markerLayer.on('mouseover', function(e) {
   //   toggleColors();
@@ -57,12 +64,6 @@
   // });
   //
   // map.on('click', toggleColors);
-
-  BellyGuide.map = map
-  BellyGuide.markers = markers
-  BellyGuide.center = map.getCenter()
-  BellyGuide.zoom = map.getZoom()
-
   </script>
 
   <script type="application/javascript">
