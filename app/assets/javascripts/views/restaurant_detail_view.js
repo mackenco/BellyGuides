@@ -62,16 +62,19 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
     var foundIndex = null;
     var foundObj = null;
 
+    BellyGuide.markers.clearLayers()
+
     BellyGuide.geoJson.forEach(function(obj) {
       var coords = [that.model.get('longitude'), that.model.get('latitude')]
       if(obj.geometry.coordinates[0] == coords[0] &&                                     obj.geometry.coordinates[1] == coords[1]) {
         foundIndex = _.indexOf(BellyGuide.geoJson, obj)
         foundObj = obj
+      } else {
+        BellyGuide.markers.addLayer(L.mapbox.markerLayer(obj))
       }
     })
 
     BellyGuide.geoJson.splice(foundIndex, 1)
-    BellyGuide.markers.removeLayer(L.mapbox.markerLayer(foundObj))
 
     BellyGuide.map.markerLayer.setGeoJSON(BellyGuide.geoJson)
     BellyGuide.map.fitBounds(BellyGuide.markers.getBounds()).zoomOut
