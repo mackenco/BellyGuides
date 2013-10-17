@@ -19,6 +19,8 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
 
     var formData = $(event.currentTarget.form).serializeJSON();
     var restaurant = new BellyGuide.Models.Restaurant(formData.restaurant)
+    // console.log(restaurant)
+    // console.log(formData)
     restaurant.set("map_id", BellyGuide.mapID);
 
     restaurant.save({wait: true},
@@ -35,7 +37,7 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
                 description: restaurant.get('address'),
                 'marker-size': 'medium',
                 'marker-color': '#ff8079',
-                'marker-symbol': 'restaurant'
+                'marker-symbol': restaurant.get('place_type')
               }
             }
 
