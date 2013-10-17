@@ -75,12 +75,11 @@ class MapsController < ApplicationController
 
             restaurant = Restaurant.find(data[:id])
             restaurant.address = data[:address]
-            restaurant.covert_address()
+            restaurant.convert_address()
 
             restaurant.update_attributes(data)
             restaurant.place_type_display()
           end
-
           @map.update_attributes(params[:map])
           raise "invalid" unless @map.valid? && @restaurants.all? { |obj| obj.valid? }
         end
