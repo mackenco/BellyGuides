@@ -13,12 +13,11 @@
 
   <script type='text/javascript'>
   var map = L.mapbox.map('map-canvas', 'examples.map-9ijuk24y')
-      .setView([<%= @restaurants.first.latitude %>,
-                <%= @restaurants.first.longitude %>], 14);
-  var markers = new L.featuerGroup();
+      .setView([0, 0], 12);
+  var markers = new L.featureGroup();
 
   <% @restaurants.each do |restaurant| %>
-    L.mapbox.markerLayer({
+    var marker = L.mapbox.markerLayer({
       type: 'Feature',
       geometry: {
         type: 'Point',
@@ -29,15 +28,19 @@
         title: '<%= restaurant.name %>',
         description: '<%= restaurant.address %>',
         'marker-size': 'medium',
-        'marker-color': '<%= restaurant.completed ? '#009f5c' : '#ff8079' %>'
+        'marker-color': '<%= restaurant.completed ? '#009f5c' : '#ff8079' %>',
+        'marker-symbol': 'restaurant'
       }
     }).addTo(map)
+    markers.addLayer(marker)
 
-
-
+    marker.on('click', function(e) {
+      marker.setStyle({'marker-color': '#fff'})
+      console.log(marker.getStyle)
+    })
   <% end %>
 
-
+  map.fitBounds(markers.getBounds()).zoomOut()
 
   </script>
 
