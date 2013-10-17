@@ -7,6 +7,12 @@
 </section>
 <br>
 
+<section class="explore user">
+  <h1>Your Maps</h1>
+  <%= render "maps/list", maps: current_user.maps %>
+</section>
+<br>
+
 <section class="nearby">
   <a href="#">Find Near Me</a>
     <%= render "nearby", restaurants: @restaurants %>
