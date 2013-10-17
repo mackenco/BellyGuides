@@ -38,7 +38,6 @@
     markers.addLayer(L.mapbox.markerLayer(details))
 
   <% end %>
-
   map.markerLayer.setGeoJSON(geoJson)
   map.fitBounds(markers.getBounds()).zoomOut()
 
@@ -58,6 +57,11 @@
   // });
   //
   // map.on('click', toggleColors);
+
+  BellyGuide.map = map
+  BellyGuide.markers = markers
+  BellyGuide.center = map.getCenter()
+  BellyGuide.zoom = map.getZoom()
 
   </script>
 
