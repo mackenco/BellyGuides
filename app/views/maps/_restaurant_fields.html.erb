@@ -3,11 +3,21 @@
   <%= f.label :name, "Restaurant Name" %>
   <%= f.text_field :name %>
 
-  <%= f.label :source_url, "Source URL" %>
+  <%= f.label :source_url, "URL" %>
   <%= f.text_field :source_url %>
 
   <%= f.label :address, "Restaurant Address. NOTE: Make sure the address is in the correct format (Number Street, City, State, Zip)" %>
   <%= f.text_field :address %>
+
+  <%= f.label :place_type, "Type" %>
+  <%= f.select :place_type, options_for_select([['Bakery', 'bakery'],
+                             ['Bar', 'bar'],
+                             ['Brewery', 'alcohol-shop'],
+                             ['Cafe', 'cafe'],
+                             ['Fast Food', 'fast-food'],
+                             ['Grocery', 'grocery'],
+                             ['Restaurant', 'restaurant'],
+                             ['Steakhouse', 'slaughterhouse']], 'restaurant') %>
 
   <%= f.label :note, "Notes" %>
   <%= f.text_area :note, rows: 3 %>

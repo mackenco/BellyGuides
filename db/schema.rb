@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131017201353) do
+ActiveRecord::Schema.define(:version => 20131017211423) do
 
   create_table "comments", :force => true do |t|
     t.integer  "owner_id"
@@ -60,16 +60,17 @@ ActiveRecord::Schema.define(:version => 20131017201353) do
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
-    t.boolean  "completed",  :default => false
+    t.boolean  "completed",          :default => false
     t.text     "note"
     t.string   "source_url"
     t.integer  "map_id"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "address"
     t.string   "place_type"
+    t.string   "place_type_display"
   end
 
   add_index "restaurants", ["map_id"], :name => "index_restaurants_on_map_id"

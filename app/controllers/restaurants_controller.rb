@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.new(params[:restaurant])
 
     restaurant.convert_address()
+    restaurant.place_type_display()
     restaurant.map = Map.find(params[:map_id])
 
     if restaurant.save

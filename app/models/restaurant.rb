@@ -1,8 +1,19 @@
 require 'addressable/uri'
 
 class Restaurant < ActiveRecord::Base
+  PLACE_TYPE_DISPLAY = Hash[
+    'bakery','Bakery',
+    'bar', 'Bar',
+    'alcohol-shop', 'Brewery',
+    'cafe', 'Cafe',
+    'fast-food', 'Fast Food',
+    'grocery', 'Grocery',
+    'restaurant', 'Restaurant',
+    'slaughterhouse', 'Steakhouse'
+  ]
+
   attr_accessible :completed, :latitude, :longitude, :map_id, :name,
-                    :note, :source_url, :address, :map, :place_type
+                    :note, :source_url, :address, :map, :place_type,                                :place_type_display
 
   validates :name, :address, presence: true
 
@@ -35,5 +46,9 @@ class Restaurant < ActiveRecord::Base
 
     self.latitude = coords[0]
     self.longitude = coords[1]
+  end
+
+  def place_type_display()
+    self.place_type_display = PLACE_TYPE_DISPLAY[self.place_type]
   end
 end
