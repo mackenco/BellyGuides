@@ -34,7 +34,8 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
 
     var restaurant = BellyGuide.restaurants.get(id);
     var restaurantDetailView = new BellyGuide.Views.RestaurantDetailView({
-      model: restaurant
+      model: restaurant,
+      collection: this.collection
     });
     $(event.currentTarget).addClass("detail")
     $(event.currentTarget).removeClass("list")
