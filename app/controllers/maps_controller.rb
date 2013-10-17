@@ -34,6 +34,7 @@ class MapsController < ApplicationController
 
           restaurant = Restaurant.new(data)
           restaurant.convert_address() unless data[:address].empty?
+          restaurant.place_type_display()
 
           @restaurants << restaurant
         end
@@ -77,6 +78,7 @@ class MapsController < ApplicationController
             restaurant.covert_address()
 
             restaurant.update_attributes(data)
+            restaurant.place_type_display()
           end
 
           @map.update_attributes(params[:map])

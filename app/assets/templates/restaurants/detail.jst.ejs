@@ -18,22 +18,9 @@
   </li>
 
   <li class="place_type">
-    <span class="show">Type:
+    <span>Type:
       <%= restaurant.escape("place_type_display")%></span><br>
-    <form class="hide edit">
-      Type:
-    <select name="restaurant[place_type]"
-            id="restaurant_place_type">
-      <option value="bakery">Bakery</option>
-      <option value="bar">Bar</option>
-      <option value="alcohol-shop">Brewery</option>
-      <option value="cafe">Cafe</option>
-      <option value="fast-food">Fast Food</option>
-      <option value="grocery">Grocery</option>
-      <option value="restaurant">Restaurant</option>
-      <option value="slaughterhouse">Steakhouse</option>
-    </select>
-  </label><br>
+  </li>
 
   <li class="notes">
     <span class="show">Notes: <%= restaurant.escape("note") %></span><br>

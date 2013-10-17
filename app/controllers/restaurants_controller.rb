@@ -19,6 +19,8 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.find(params[:id])
 
     if restaurant.update_attributes(params[:restaurant])
+      restaurant.place_type_display()
+
       head :ok
     else
       render json: restaurant.errors, status: 422
