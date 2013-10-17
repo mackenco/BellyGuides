@@ -16,8 +16,10 @@
       .setView([0, 0], 12);
   var markers = new L.featureGroup();
 
+  var geoJson = []
+
   <% @restaurants.each do |restaurant| %>
-    var marker = L.mapbox.markerLayer({
+    var details = {
       type: 'Feature',
       geometry: {
         type: 'Point',
@@ -31,20 +33,31 @@
         'marker-color': '<%= restaurant.completed ? '#009f5c' : '#ff8079' %>',
         'marker-symbol': 'restaurant'
       }
-    }).addTo(map)
-    markers.addLayer(marker)
+    }
+    geoJson.push(details)
+    markers.addLayer(L.mapbox.markerLayer(details))
 
-    marker.on('click', function(e) {
-     // marker.setStyle({'marker-color': '#fff'})
-     // console.log(marker.getStyle)
-     console.log(marker)
-     console.log(marker._geojson.properties['marker-color'])
-     marker._geojson.properties['marker-color'] = '#fff'
-     console.log(marker._geojson.properties['marker-color'])
-    })
   <% end %>
 
+  map.markerLayer.setGeoJSON(geoJson)
   map.fitBounds(markers.getBounds()).zoomOut()
+
+  function toggleColors() {
+    for (var i=0; i < geoJson.length; i++) {
+      geoJson[i].properties['marker-color'] =                                                   geoJson[i].properties['clicked-color']
+             || geoJson[i].properties['marker-color'];
+    }
+    map.markerLayer.setGeoJSON(geoJson)
+  }
+  //
+  // map.markerLayer.on('mouseover', function(e) {
+  //   toggleColors();
+  //   e.layer.feature.properties['clicked-color'] =                                    e.layer.feature.properties['marker-color']
+  //   e.layer.feature.properties['marker-color'] = '#000';
+  //   map.markerLayer.setGeoJSON(geoJson)
+  // });
+  //
+  // map.on('click', toggleColors);
 
   </script>
 
