@@ -20,7 +20,7 @@
         description: '<%= restaurant.address %>',
         'marker-size': 'medium',
         'marker-color': '<%= restaurant.completed ? '#009f5c' : '#ff8079' %>',
-        'marker-symbol': 'restaurant'
+        'marker-symbol': '<%= restaurant.place_type %>'
       }
     }
     geoJson.push(details)
