@@ -63,6 +63,18 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
 
     var id = $(event.currentTarget.parentElement).attr("data-id");
     var restaurant = BellyGuide.restaurants.get(id);
-    restaurant.save({ completed: $(event.currentTarget).hasClass("unfinished") })
+    var coords = [restaurant.get('longitude'), restaurant.get('latitude')]
+    var color = restaurant.get('completed') ? '#ff8079' : '#009f5c'
+
+    console.log(BellyGuide.geoJson)
+
+    BellyGuide.geoJson.forEach(function(obj) {
+      if(obj.geometry.coordinates[0] == coords[0] &&                                     obj.geometry.coordinates[1] == coords[1]) {
+           obj.properties['marker-color'] = color
+      }
+    })
+
+    BellyGuide.map.markerLayer.setGeoJSON(BellyGuide.geoJson)
+    restaurant.save({ completed: $(event.currentTarget).hasClass("unfinished")     })
   }
 });
