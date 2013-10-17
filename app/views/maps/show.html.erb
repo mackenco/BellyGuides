@@ -35,8 +35,12 @@
     markers.addLayer(marker)
 
     marker.on('click', function(e) {
-      marker.setStyle({'marker-color': '#fff'})
-      console.log(marker.getStyle)
+     // marker.setStyle({'marker-color': '#fff'})
+     // console.log(marker.getStyle)
+     console.log(marker)
+     console.log(marker._geojson.properties['marker-color'])
+     marker._geojson.properties['marker-color'] = '#fff'
+     console.log(marker._geojson.properties['marker-color'])
     })
   <% end %>
 
