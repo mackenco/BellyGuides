@@ -1,8 +1,38 @@
-<meta charset=utf-8 />
-<title></title>
-  <script src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
-  <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+<script type='text/javascript'>
 
-<style>
-    #map { width:95%; height: 250px; }
-</style>
+  var map = L.mapbox.map('map-canvas', 'examples.map-9ijuk24y')
+      .setView([0, 0], 12);
+
+  var markers = new L.featureGroup();
+
+  var geoJson = []
+
+  <% restaurants.each do |restaurant| %>
+    var details = {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [<%= restaurant.longitude %>,
+                      <%= restaurant.latitude %>]
+      },
+      properties: {
+        title: '<%= restaurant.name %>',
+        description: '<%= restaurant.address %>',
+        'marker-size': 'medium',
+        'marker-color': '<%= restaurant.completed ? '#009f5c' : '#ff8079' %>',
+        'marker-symbol': 'restaurant'
+      }
+    }
+    geoJson.push(details)
+    markers.addLayer(L.mapbox.markerLayer(details))
+
+  <% end %>
+  map.markerLayer.setGeoJSON(geoJson)
+  map.fitBounds(markers.getBounds()).zoomOut()
+
+  BellyGuide.map = map
+  BellyGuide.markers = markers
+  BellyGuide.center = map.getCenter()
+  BellyGuide.zoom = map.getZoom()
+  BellyGuide.geoJson = geoJson
+</script>

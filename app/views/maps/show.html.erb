@@ -1,6 +1,6 @@
 <head class="map">
 
-  <%= render "map", restaurants: @restaurants %>
+  <%= render "map_head" %>
 
 </head>
 
@@ -11,60 +11,8 @@
    <div id='map-canvas'></div>
   </section>
 
-  <script type='text/javascript'>
-  var map = L.mapbox.map('map-canvas', 'examples.map-9ijuk24y')
-      .setView([0, 0], 12);
-  var markers = new L.featureGroup();
+  <%= render "map", restaurants: @restaurants %>
 
-  var geoJson = []
-
-  <% @restaurants.each do |restaurant| %>
-    var details = {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [<%= restaurant.longitude %>,
-                      <%= restaurant.latitude %>]
-      },
-      properties: {
-        title: '<%= restaurant.name %>',
-        description: '<%= restaurant.address %>',
-        'marker-size': 'medium',
-        'marker-color': '<%= restaurant.completed ? '#009f5c' : '#ff8079' %>',
-        'marker-symbol': 'restaurant'
-      }
-    }
-    geoJson.push(details)
-    markers.addLayer(L.mapbox.markerLayer(details))
-
-  <% end %>
-  map.markerLayer.setGeoJSON(geoJson)
-  map.fitBounds(markers.getBounds()).zoomOut()
-
-  BellyGuide.map = map
-  BellyGuide.markers = markers
-  BellyGuide.center = map.getCenter()
-  BellyGuide.zoom = map.getZoom()
-  BellyGuide.geoJson = geoJson
-
-  // function toggleColors() {
-  //   for (var i=0; i < geoJson.length; i++) {
-  //     geoJson[i].properties['marker-color'] =                                                   geoJson[i].properties['clicked-color']
-  //            || geoJson[i].properties['marker-color'];
-  //   }
-  //   map.markerLayer.setGeoJSON(geoJson)
-  // }
-
-  //
-  // map.markerLayer.on('mouseover', function(e) {
-  //   toggleColors();
-  //   e.layer.feature.properties['clicked-color'] =                                    e.layer.feature.properties['marker-color']
-  //   e.layer.feature.properties['marker-color'] = '#000';
-  //   map.markerLayer.setGeoJSON(geoJson)
-  // });
-  //
-  // map.on('click', toggleColors);
-  </script>
 
   <script type="application/javascript">
     $(function () {

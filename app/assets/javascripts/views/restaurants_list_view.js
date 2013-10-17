@@ -66,8 +66,6 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
     var coords = [restaurant.get('longitude'), restaurant.get('latitude')]
     var color = restaurant.get('completed') ? '#ff8079' : '#009f5c'
 
-    console.log(BellyGuide.geoJson)
-
     BellyGuide.geoJson.forEach(function(obj) {
       if(obj.geometry.coordinates[0] == coords[0] &&                                     obj.geometry.coordinates[1] == coords[1]) {
            obj.properties['marker-color'] = color

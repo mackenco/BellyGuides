@@ -1,10 +1,15 @@
-<%= render "maps/map", restaurants: current_user.restaurants,
- lat: current_user.restaurants.average('latitude'),
- long: current_user.restaurants.average('longitude'), zoom:13 %>
+<head class="map">
+
+<%= render "maps/map_head" %>
+
+</head>
 
 <section class="global-map">
-  <div id="map-canvas"></div>
+ <div id='map-canvas'></div>
 </section>
+
+  <%= render "maps/map", restaurants: @user.restaurants %>
+
 <br>
 
 <section class="explore user">
