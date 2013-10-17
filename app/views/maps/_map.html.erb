@@ -28,7 +28,7 @@
 
   <% end %>
   map.markerLayer.setGeoJSON(geoJson)
-  map.fitBounds(markers.getBounds()).zoomOut()
+  map.fitBounds(markers.getBounds())
 
   BellyGuide.map = map
   BellyGuide.markers = markers

@@ -43,7 +43,7 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
     $li.append(restaurantDetailView.render().$el)
 
     var pos = new L.LatLng(restaurant.get("latitude"),                                                    restaurant.get("longitude"))
-    BellyGuide.map.setView(pos, BellyGuide.zoom + 1)
+    BellyGuide.map.setView(pos, BellyGuide.zoom + 2)
   },
 
   removeDetail: function (event) {
@@ -54,7 +54,7 @@ BellyGuide.Views.RestaurantListView = Backbone.View.extend({
       .find('.detail-view')
       .remove();
 
-    BellyGuide.map.setView(BellyGuide.center, BellyGuide.zoom - 1)
+    BellyGuide.map.setView(BellyGuide.center, BellyGuide.zoom)
   },
 
   status: function (event) {

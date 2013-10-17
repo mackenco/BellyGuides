@@ -75,7 +75,7 @@ BellyGuide.Views.RestaurantDetailView = Backbone.View.extend({
     BellyGuide.geoJson.splice(foundIndex, 1)
 
     BellyGuide.map.markerLayer.setGeoJSON(BellyGuide.geoJson)
-    BellyGuide.map.fitBounds(BellyGuide.markers.getBounds()).zoomOut();
+    BellyGuide.map.fitBounds(BellyGuide.markers.getBounds())
 
     this.collection.remove(this.model)
     this.model.destroy( {wait: true} );
