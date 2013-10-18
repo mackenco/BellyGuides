@@ -9,7 +9,7 @@ class Restaurant < ActiveRecord::Base
     'fast-food', 'Fast Food',
     'grocery', 'Grocery',
     'restaurant', 'Restaurant',
-    'slaughterhouse', 'Steakhouse'
+    'slaughterhouse', 'Barbecue'
   ]
 
   attr_accessible :completed, :latitude, :longitude, :map_id, :name,

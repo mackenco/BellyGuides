@@ -39,6 +39,8 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
               }
             }
 
+      Backbone.history.navigate("#/");
+
       BellyGuide.geoJson.push(details)
       BellyGuide.markers.addLayer(L.mapbox.markerLayer(details))
 
@@ -47,7 +49,7 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
 
       that.collection.add(restaurant)
 
-      Backbone.history.navigate("#/");
+
       }
     });
   }

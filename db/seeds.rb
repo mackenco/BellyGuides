@@ -22,6 +22,8 @@ map3 = Map.create({ title: "Woody Allen Hot Spots", owner: laura,
       description: "Spots from diff. movies"})
 map4 = Map.create({ title: "New York Michelin Restaurants", owner: guest,
       description: "These New York restaurants received 3 stars in the upcoming 2014 Michelin Guide. Wow!"})
+map5 = Map.create({ title: "Where to eat in Atlanta", owner: triage,
+      description: "Colin's picks for the best Atl eats"})
 
 Restaurant.create([
   { name: "Russ & Daughters", completed: false, note: "Delicious bagels",
@@ -64,7 +66,7 @@ Restaurant.create([
     source_url: "http://www.yelp.com/biz/briskettown-brooklyn-3",
     map: map2, latitude: 40.7115, longitude: -73.9629,
     address: "359 Bedford Ave Brooklyn, NY 11211",
-    place_type: "slaughterhouse", place_type_display: "Steakhouse" },
+    place_type: "slaughterhouse", place_type_display: "Barbecue" },
 
   { name: "Saltie", completed: false, note: "Delicious sandwiches",
     source_url: "http://www.yelp.com/biz/saltie-brooklyn",
@@ -143,5 +145,81 @@ Restaurant.create([
     source_url:                                                                         "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
     map: map4, latitude: 40.7669119, longitude: -73.9676797,
     address: "48-98 East 65th Street, New York, NY 10065, USA",
-    place_type: "restaurant", place_type_display: "Restaurant"}
-])
+    place_type: "restaurant", place_type_display: "Restaurant"},
+
+  { name: "Cypress Street Pint & Plate", completed: false,
+    note: "Atl's most underrated bar - tons of weird beers on taps that               turnover seemingly weekly. Also once I won trivia, #neverforget",
+    source_url: "http://cypressbar.com/",
+    map: map5, latitude: 33.7769474, longitude: -84.3872833,
+    address:
+      "817 West Peachtree Street Northwest a100, Atlanta, GA 30308, USA",           place_type: "bar", place_type_display: "Bar"},
+
+  { name: "Heirloom Market BBQ", completed: false,
+    note: "I will fight anyone who disagrees that this is the bet BBQ in Atl",      source_url: "http://www.heirloommarketbbq.com/", map: map5,
+    latitude: 33.898726, longitude: -84.447102,
+    address: "2243 Akers Mill Road Southeast, Atlanta, GA 30339, USA",              place_type: "slaughterhouse", place_type_display: "Barbecue"},
+
+  { name: "Antico Pizza", completed: true,
+    note:
+      "Not breaking any ground with this pick but...whatever, it's amazing",
+    source_url: "http://www.anticoatl.com/", map: map5,
+    latitude: 33.784655, longitude: -84.405647,
+    address: "1093 Hemphill Avenue Northwest, Atlanta, GA 30318, USA",              place_type: "restaurant", place_type_display: "Restaurant"},
+
+  { name: "Woody's Cheesesteak ", completed: true,
+    note: "The cheesesteaks are good and reportedly taste better when you             drink? I can't comment. ",
+    source_url: "https://www.facebook.com/WoodysCheesesteaks", map: map5,           latitude: 33.780946, longitude: -84.368634,
+    address: "981 Monroe Drive Northeast, Atlanta, GA 30308, USA",
+    place_type: "fast-food", place_type_display: "Fast Food"},
+
+  { name: "Crawfish Shack Seafood", completed: true,
+    note: "Your hands will smell like shrimp for days, but it's worth it",          source_url: "http://www.crawfishshackseafood.com/", map: map5,
+    latitude: 33.868231, longitude: -84.299858,
+    address: "4337 Buford Highway, Atlanta, GA 30341, USA",
+    place_type: "restaurant", place_type_display: "Restaurant"},
+
+  { name: "Brick Store Pub", completed: false,
+    note: "Consistently rated as one of the best bars in America for a reason",     source_url: "http://www.brickstorepub.com/home/", map: map5,
+    latitude: 33.774984, longitude: -84.296174,
+    address: "125 E Court Square, Decatur, GA 30030, USA",
+    place_type: "alcohol-shop", place_type_display: "Brewery"},
+
+  { name: "The Optimist", completed: false,
+    note: "Prices not for the faint of heart, but possibly the best yeast rolls       around ",
+    source_url: "http://theoptimistrestaurant.com/", map: map5,
+    latitude: 33.7797192, longitude: -84.410287,
+    address: "910-914 Howell Mill Road Northwest, Atlanta, GA 30318, USA",          place_type: "restaurant", place_type_display: "Restaurant"},
+
+  { name: "Gu's Bistro", completed: true,
+    note: "Might I suggest you bring 40 friends and order everything?",             source_url: "http://gusbistro.com/", map: map5,
+    latitude: 33.9076758, longitude: -84.2683332,
+    address: "5644-5778 Georgia 13, Doraville, GA 30340, USA",
+    place_type: "restaurant", place_type_display: "Restaurant"},
+
+  { name: "Taqueria el Rey del Taco", completed: true,
+    note: "Authentic, amazing, grungy, grimy tacos ",
+    source_url: "http://www.taqueriaelreydeltaco.com/", map: map5,
+    latitude: 33.897138, longitude: -84.282098,
+    address: "5288 Buford Highway Northeast, Pinetree West Shopping Center,           Doraville, GA 30340, USA",
+    place_type: "restaurant", place_type_display: "Restaurant"},
+
+  { name: "Taco Bell", completed: false,
+    note: "This Mexican-American gem often slips under peoples' radars!",           source_url: "http://www.yelp.com/biz/taco-bell-atlanta-4", map: map5,           latitude: 33.772579, longitude: -84.373073,
+    address: "429 Ponce De Leon Avenue Northeast, Atlanta, GA 30308, USA",          place_type: "fast-food", place_type_display: "Fast Food"},
+
+  { name: "Your Dekalb Farmer's Market", completed: false, note: "Worth the           trek for 25 varieties of mushrooms and dirt cheap bulk spices ",
+    source_url: "http://www.dekalbfarmersmarket.com/", map: map5,
+    latitude: 33.7866148, longitude: -84.2696257,
+    address: "3000 East Ponce De Leon Avenue, Decatur, GA 30030, USA",              place_type: "grocery", place_type_display: "Grocery"},
+
+  { name: "Star Provisions", completed: true,
+    note: "Amazing sandwiches and (controversial statement alert) best fried          chicken in town",
+    source_url: "http://www.starprovisions.com/star-provisions.php", map: map5,     latitude: 33.7869401, longitude: -84.411763,
+    address: "1196-1200 Howell Mill Road Northwest, Atlanta, GA 30318, USA",        place_type: "bakery", place_type_display: "Bakery"},
+
+  { name: "Morelli's Ice Cream", completed: false,
+    note: "Atl's best ice cream",
+    source_url: "http://www.morellisicecream.com/", map: map5,
+    latitude: 33.733595, longitude: -84.349975,
+    address: "749 Moreland Avenue Southeast, Atlanta, GA 30316, USA",               place_type: "cafe", place_type_display: "Cafe"}
+  ])
