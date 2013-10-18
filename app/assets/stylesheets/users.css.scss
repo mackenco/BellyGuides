@@ -2,14 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.landing{
+.pic {
   position: relative;
   padding: 0px;
   margin: auto;
   width: 1000px;
 }
 
-.landing > img{
+.pic > img{
   margin: auto;
   width: 100%;
   z-index: 2;
