@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
     big: "600x600>",
     small: "50x50#",
     very_small: "30x30#"
-  }
+    }, default_url: {'public/images/seeds/Michelin-man.jpg'}
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

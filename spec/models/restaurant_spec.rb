@@ -10,5 +10,12 @@ describe Restaurant do
     expect(restaurant.longitude).to eq(-97.731262)
   end
 
+  it "restaurant#place_type_display should return a displayable place type" do
+    restaurant = Restaurant.new(name: "Franklin Barbecue", address: "900 E 11th St  Austin, TX 78702", place_type: "fast-food")
+    restaurant.place_type_display()
+
+    expect(restaurant.place_type_display).to eq("Fast Food")
+  end
+
   it { should belong_to(:map) }
 end
