@@ -1,10 +1,10 @@
-colin = User.create({ username: "Colin", password: "pw",
+colin = User.create({ username: "Colin", password: "password",
                       email: "colinwmackenzie@gmail.com",
                       profile_pic:                                                                    File.new("public/images/seeds/colin-mackenzie.jpg") })
-colin2 = User.create({ username: "Colin2", password: "pw",
+colin2 = User.create({ username: "Colin2", password: "password",
                        email: "colinwmackenzie@gmail.com",
                        profile_pic:                                                                    File.new("public/images/seeds/colin-mackenzie.jpg") })
-laura = User.create({ username: "Laura", password: "pw",
+laura = User.create({ username: "Laura", password: "password",
                       email: "colinwmackenzie@gmail.com",
                       profile_pic: File.new("public/images/seeds/laura.png") })
 guest = User.create({ username: "Guest", password: "guest_password",
@@ -18,12 +18,21 @@ map1 = Map.create({ title: "App Academy Lunch Spots", owner: colin,
       description: "Some places to eat around App Academy."})
 map2 = Map.create({ title: "Where to eat in Williamsburg", owner: colin,
       description: "Here are some places to eat in Williamsburg." })
-map3 = Map.create({ title: "Woody Allen Hot Spots", owner: laura,
-      description: "Spots from diff. movies"})
 map4 = Map.create({ title: "New York Michelin Restaurants", owner: guest,
-      description: "These New York restaurants received 3 stars in the upcoming 2014 Michelin Guide. Wow!"})
+      description: "These New York restaurants received 3 stars in the upcoming                     2014 Michelin Guide. Wow!"})
 map5 = Map.create({ title: "Where to eat in Atlanta", owner: triage,
-      description: "Colin's picks for the best Atl eats"})
+      description: "Colins picks the best Atl eats"})
+
+Favorite.create([{ user: colin, map: map4}, { user: colin, map: map5},
+                 { user: colin2, map: map1},
+                 { user: colin2, map: map5}, { user: guest, map: map2},
+                 { user: guest, map: map5},  { user: laura, map: map5},
+                 { user: laura, map: map1}, { user: colin, map: map4}])
+
+Comment.create([{ author: colin , map: map5, text: "What a great map"},
+  { author: colin , map: map4, text: "Hoping to check these places out!"},
+  { author: colin , map: map1, text: "Luke's lobster is great"},
+  { author: colin , map: map2, text: "Oddfellows is amazing"}])
 
 Restaurant.create([
   { name: "Russ & Daughters", completed: false, note: "Delicious bagels",
@@ -45,7 +54,7 @@ Restaurant.create([
     place_type: "restaurant", place_type_display: "Restaurant" },
 
   { name: "Veniero's Pastry Shop", completed: true, note: "Delicious cookies!",
-    source_url: "http://www.yelp.com/biz/venieros-pastry-shop-new-yo...",
+    source_url: "http://www.venierospastry.com/",
     map: map1, latitude: 40.7295, longitude: -73.9845,
     address: "342 E 11th St New York, NY 10003",
     place_type: "bakery", place_type_display: "Bakery" },
@@ -57,7 +66,7 @@ Restaurant.create([
     place_type: "restaurant", place_type_display: "Restaurant" },
 
   { name: "Kati Roll", completed: false, note: "Delicious rolls",
-    source_url: "http://www.yelp.com/biz/the-kati-roll-company-new-y...",
+    source_url: "http://www.yelp.com/biz/the-kati-roll-company-new-york",
     map: map1, latitude: 40.7298, longitude: -74.0007,
     address: "99 MacDougal St New York, NY 10012",
     place_type: "fast-food", place_type_display: "Fast Food" },
@@ -76,31 +85,17 @@ Restaurant.create([
 
   { name: "OddFellows Ice Cream Co.", completed: false,
     note: "Delicious ice cream",
-    source_url: "http://www.yelp.com/biz/oddfellows-ice-cream-co-bro...",
+    source_url: "http://www.yelp.com/biz/oddfellows-ice-cream-co-brooklyn-2",
     map: map2, latitude: 40.7181, longitude: -73.9637,
     address: "175 Kent Ave Brooklyn, NY 11249",
     place_type: "cafe", place_type_display: "Restaurant" },
 
   { name: "Radegast Hall and Biergarten", completed: true,
     note: "Delicious beer",
-    source_url: "http://www.yelp.com/biz/radegast-hall-and-biergarte...",
+    source_url: "http://www.yelp.com/biz/radegast-hall-and-biergarten-brooklyn",
     map: map2, latitude: 40.7165, longitude: -73.9616,
     address: "113 N 3rd St Brooklyn, NY 11249",
     place_type: "alcohol-shop", place_type_display: "Brewery" },
-
-  { name: "Hayden Planetarium", completed: false, note: "Manhattan - In
-    Manhattan the planetarium serves as a much needed source of shelter for
-    Woody Allen and Diane Keaton from the down pour outside.",
-    source_url: "http://www.amnh.org/our-research/hayden-planetarium",
-    map: map3, latitude: 40.782032, longitude: -73.9717188,
-    address: "Central Park West at 79th Street, New York, NY 1002...",
-    place_type: "bar", place_type_display: "Bar"},
-
-  { name: "Pomander Walk", completed: false, note: "",
-    source_url: "http://en.wikipedia.org/wiki/Pomander_Walk",
-    map: map3, latitude: 40.7936606, longitude: -73.97344,
-    address: "260 W 94 Street, New York, NY 10025 ",
-    place_type: "bar", place_type_display: "Bar"},
 
   { name: "Chef's Table at Brooklyn Fare", completed: false,
     note: "24 course set menu\r\n No cellphones allowed!",
@@ -110,7 +105,7 @@ Restaurant.create([
 
     place_type: "restaurant", place_type_display: "Restaurant"},
   { name: "Masa", completed: true,
-    note: "One of the most expensive restaurants in the world...",
+    note: "One of the most expensive restaurants in the world.",
     source_url:                                                                       "http://ny.eater.com/archives/2013/10/michelin_stars_new_york_2014.php",
     map: map4, latitude: 40.7684153, longitude: -73.9827069,
     address: "10 Columbus Circle, New York, NY 10019, USA",

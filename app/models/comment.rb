@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :map_id, :owner_id, :text
+  attr_accessible :map_id, :owner_id, :text, :map, :author
 
   validates :map_id, :owner_id, :text, presence: true
 
