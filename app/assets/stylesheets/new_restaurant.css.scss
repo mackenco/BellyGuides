@@ -67,4 +67,25 @@
 .new-restaurant > input[type=submit]:hover {
   background: #fff;
   color: #5F84CB;
-};
+}
+
+.select > select, #map_restaurants_attributes_0_place_type > option {
+  width: 375px;
+  height: 25px;
+  font-size: 18px;
+  background: #f8f8f8;
+  line-height: 1px;
+  border: 1px solid #999;
+  display: block;
+  margin-left: 10px;
+  appearance: none;
+}
+
+.select > option, #map_restaurants_attributes_0_place_type > option {
+  background-color: blue;
+}
+
+.select > select:focus{
+  outline: none;
+  border: 2px solid #5F84CB;
+}
