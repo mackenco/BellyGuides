@@ -99,8 +99,7 @@
   display: block;
 }
 
-
-#map-ui a:hover {
+#expand > li >  a:hover {
     background: #ECF5FA;
 }
 
@@ -110,13 +109,23 @@
     border-radius: 0 0 3px 3px;
 }
 
-#map-ui li:first-child a {
-    -webkit-border-radius: 3px 3px 0 0;
-    border-radius: 3px 3px 0 0;
+#compress li:first-child a{
+      -webkit-border-radius: 3px 3px 0 0;
+      border-radius: 3px 3px 0 0;
 }
 
-#map-ui a.active {
+#map-ui a.active, #compress > li > a {
     background: #3887BE;
     border-color: #3887BE;
     color: #FFF;
+}
+
+#map-ui a.active:hover{
+  background: #3887BE;
+  border-color: #3887BE;
+  color: #FFF;
+}
+
+#compress > li {
+  margin-bottom: 0px;
 }
