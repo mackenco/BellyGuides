@@ -74,4 +74,11 @@
       return false;
   };
 
+  var compress = document.getElementById('compress')
+  compress.onclick = function(e) {
+    $item = $(e.currentTarget)
+    $item.siblings().toggleClass('hide')
+  }
+
+
 </script>
