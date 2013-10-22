@@ -27,7 +27,7 @@ Favorite.create([{ user: colin, map: map4}, { user: colin, map: map5},
                  { user: colin2, map: map1},
                  { user: colin2, map: map5}, { user: guest, map: map2},
                  { user: guest, map: map5},  { user: laura, map: map5},
-                 { user: laura, map: map1}, { user: colin, map: map4}])
+                 { user: laura, map: map1}])
 
 Comment.create([{ author: colin , map: map5, text: "What a great map"},
   { author: colin , map: map4, text: "Hoping to check these places out!"},

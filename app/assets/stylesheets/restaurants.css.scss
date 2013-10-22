@@ -34,11 +34,12 @@
 }
 
 .checkbox {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  display: inline-block;
   width: 20px;
   height: 20px;
-  border: 1px solid black;
-  display: inline-block;
-  background: #C8EAFF;
 }
 
 .owner {
@@ -46,21 +47,12 @@
 }
 
 .unfinished {
+  background: #fff image-url('unchecked.png');
 }
 
 .finished {
-  position: relative;
+  background: image-url('checked.png');
 }
-
-.finished:after {
-  content: "\d7";
-  color: #323A40;
-  font-weight: bold;
-  position: absolute;
-  font-size: 38px;
-  top: -45%;
-  left: -9%;
-};
 
 .restaurant {
   position: relative;

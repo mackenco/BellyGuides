@@ -1,12 +1,12 @@
 <div class="fields">
 
-  <%= f.label :name, "Restaurant Name" %>
+  <%= f.label :name, "Restaurant Name (Required)" %>
   <%= f.text_field :name %>
 
   <%= f.label :source_url, "URL" %>
   <%= f.text_field :source_url %>
 
-  <%= f.label :address, "Restaurant Address. NOTE: Make sure the address is in the correct format (Number Street, City, State, Zip)" %>
+  <%= f.label :address, "Restaurant Address. (Required - NOTE: Make sure the address is in the correct format (Number Street, City, State, Zip)" %>
   <%= f.text_field :address %>
 
   <%= f.label :place_type, "Type", {class: 'select'} %>
