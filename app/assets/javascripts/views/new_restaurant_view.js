@@ -65,10 +65,16 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
   },
 
   autoPopulate: function(event) {
-    console.log($(event.currentTarget).parent())
     var $form = $(event.currentTarget).parent();
-    console.log($form.nth-child(1))
+    $form.children('.restaurant-name').children().val("Franklin BBQ")
+    $form.children('.restaurant-source-url').children()                                   .val("http://franklinbarbecue.com/menu/")
+    $form.children('.restaurant-address').children()
+         .val("900 E. 11th, Austin, TX 78702")
+    $form.children('.restaurant-place-type').children()
+         .val("restaurant").removeAttr('selected')
+   $form.children('.restaurant-type').children()
+        .val("slaughterhouse").attr('selected')
+    $form.children('.restaurant-note').children()
+         .val("America's best BBQ restuarnat")
   }
-
-
 });

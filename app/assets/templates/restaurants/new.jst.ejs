@@ -1,23 +1,25 @@
 
 <form class="new-restaurant">
-<h1>New Restaurant</h1><a href="#/">Back</a><br>
+  <h1>New Restaurant</h1>
+  <a href="#/">Back</a>
+  <br>
 
-<button class="fill">Sample Restaurant</button>
+  <div class="fill">Sample Restaurant</div>
 
-  <label>Name (Required)
+  <label class="restaurant-name">Name (Required)
     <input name="restaurant[name]">
   </label><br>
 
-  <label>URL
+  <label class="restaurant-source-url">URL
     <input name="restaurant[source_url]">
   </label><br>
 
-  <label>Address <br class="return">
+  <label class="restaurant-address">Address <br class="return">
   <span class="help">(Required - Make sure the address is in the correct format: Number Street, City, State, Zip)</span>
     <input name="restaurant[address]">
   </label><br>
 
-  <label class="select">Type
+  <label class="select restaurant-type">Type
     <select name="restaurant[place_type]">
       <option value="bakery">Bakery</option>
       <option value="bar">Bar</option>
@@ -30,7 +32,7 @@
     </select>
   </label><br>
 
-  <label>Note
+  <label class="restaurant-note">Note
     <textarea name="restaurant[note]"
               id="restaurant_note"
               rows=4 cols=33></textarea>

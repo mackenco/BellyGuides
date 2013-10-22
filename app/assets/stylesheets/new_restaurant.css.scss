@@ -21,7 +21,7 @@
   margin-right: 5px;
 }
 
-.new-restaurant > button {
+.fill {
   display: block;
   float: right;
   width:150px;
@@ -31,8 +31,10 @@
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
-  border: 1p solid #999;
-  font-size: 12px;
+  border: 1px solid #999;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
 }
 
 .new-restaurant > a {
@@ -78,7 +80,7 @@
   font-size: 14px;
 }
 
-.new-restaurant > input[type=submit]:hover, .new-restaurant > button:hover {
+.new-restaurant > input[type=submit]:hover, .fill:hover {
   background: #fff;
   color: #5F84CB;
 }
