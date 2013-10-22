@@ -12,7 +12,9 @@
 * Filter your map's restaurants by category to find exactly what you want to eat. 
 
 ###Explore
- * Check out other users' maps and their eating accomplishments, add their restaurants to your maps, or even clone their entire map and set out on your own eating quest.
+ * Check out other users' maps and their eating accomplishments
+ * If you see a restaurant you want to try, add it to one of your maps
+ * Even clone a friend's entire map and set out on your own eating quest.
 
 ##Technologies Used
 The following technologies were used to build BellyGuide:
@@ -20,6 +22,7 @@ The following technologies were used to build BellyGuide:
  * Ruby on Rails
  * Backbone.js
  * MapBox API
+ * Leaflet JavaScript library
  * jQuery
  * AJAX
  * SQL
@@ -40,4 +43,4 @@ The following technologies were used to build BellyGuide:
  * Nokogiri
 
 ##Talk to me!
-BellyGuide is always a work in progress. Please feel free to send comments or suggestions to colinwmackenzie [at] gmail [dot] com.
+BellyGuide is always a work in progress. Please feel free to send comments or suggestions to colinwmackenzie[at]gmail[dot]com.
