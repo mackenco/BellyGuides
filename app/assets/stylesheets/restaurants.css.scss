@@ -48,11 +48,13 @@
 }
 
 .unfinished {
-  background-image: asset-url('unchecked.png', image);
+//  background-image: asset-url('unchecked.png', image);
+  background:url(image_path("unchecked.png"));
 }
 
 .finished {
-  background-image: asset-url('checked.png', image);
+  background:url(image_path("checked.png"));
+//  background-image: asset-url('checked.png', image);
 }
 
 .restaurant {
