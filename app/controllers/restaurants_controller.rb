@@ -4,14 +4,14 @@ class RestaurantsController < ApplicationController
   def create
     restaurant = Restaurant.new(params[:restaurant])
 
-    restaurant.convert_address()
+    restaurant.convert_address() unless restaurant.address == ""
     restaurant.place_type_display()
     restaurant.map = Map.find(params[:map_id])
 
     if restaurant.save
       render json: restaurant, status: :ok
     else
-      render json: restaurant.errors, status: 422
+      render json: restaurant.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -20,10 +20,9 @@ class RestaurantsController < ApplicationController
 
     if restaurant.update_attributes(params[:restaurant])
       restaurant.place_type_display()
-
       head :ok
     else
-      render json: restaurant.errors, status: 422
+      render json: restaurant.errors.full_messages, status: 422
     end
   end
 

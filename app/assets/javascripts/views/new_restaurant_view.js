@@ -21,12 +21,12 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
     var formData = $(event.currentTarget.form).serializeJSON();
     var restaurant = new BellyGuide.Models.Restaurant(formData.restaurant)
     restaurant.set("map_id", BellyGuide.mapID);
-
     restaurant.save({wait: true},
       {
         beforeSend: function() {
           document.body.style.cursor = 'wait';
         },
+
         success: function(model, response) {
 
         var details = {
@@ -54,8 +54,12 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
       that.collection.add(restaurant)
       },
 
-      error: function() {
-        console.log("something went wrong")
+      error: function(model, xhr) {
+        $('.errors').html('')
+        xhr.responseJSON.forEach(function (error) {
+          $('.errors').append(error)
+          $('.errors').append('<br>')
+        })
       },
 
       complete: function () {
@@ -75,6 +79,6 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
    $form.children('.restaurant-type').children()
         .val("slaughterhouse").attr('selected')
     $form.children('.restaurant-note').children()
-         .val("America's best BBQ restuarnat")
+         .val("America's best BBQ restaurant")
   }
 });

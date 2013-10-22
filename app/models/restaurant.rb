@@ -15,8 +15,6 @@ class Restaurant < ActiveRecord::Base
   attr_accessible :completed, :latitude, :longitude, :map_id, :name,
                     :note, :source_url, :address, :map, :place_type,                                :place_type_display
 
-  validates :name, :address, presence: true
-
   validates :name, presence: { message: "Restaurant name can't be blank" }
   validates :address, presence: { message: "Restaurant address can't be blank" }
 
