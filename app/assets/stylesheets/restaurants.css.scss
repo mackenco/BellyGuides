@@ -40,6 +40,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
+  background-color: #f9f9f9;
 }
 
 .owner {
@@ -47,11 +48,11 @@
 }
 
 .unfinished {
-  background: #f9f9f9 image-url('unchecked.png');
+  background-image: asset-url('unchecked.png', image);
 }
 
 .finished {
-  background: image-url('checked.png');
+  background-image: asset-url('checked.png', image);
 }
 
 .restaurant {
