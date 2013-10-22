@@ -2,7 +2,8 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
   template: JST["restaurants/new"],
 
   events: {
-    "click input[type=submit]": "submit"
+    "click input[type=submit]": "submit",
+    "click .fill": "autoPopulate"
   },
 
   render: function () {
@@ -22,7 +23,11 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
     restaurant.set("map_id", BellyGuide.mapID);
 
     restaurant.save({wait: true},
-      { success: function(model, response) {
+      {
+        beforeSend: function() {
+          document.body.style.cursor = 'wait';
+        },
+        success: function(model, response) {
 
         var details = {
               type: 'Feature',
@@ -38,7 +43,6 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
                 'marker-symbol': restaurant.get('place_type')
               }
             }
-
       Backbone.history.navigate("#/");
 
       BellyGuide.geoJson.push(details)
@@ -48,9 +52,23 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
       BellyGuide.map.fitBounds(BellyGuide.markers.getBounds())
 
       that.collection.add(restaurant)
+      },
 
+      error: function() {
+        console.log("something went wrong")
+      },
 
+      complete: function () {
+        document.body.style.cursor = 'default'
       }
     });
+  },
+
+  autoPopulate: function(event) {
+    console.log($(event.currentTarget).parent())
+    var $form = $(event.currentTarget).parent();
+    console.log($form.nth-child(1))
   }
+
+
 });

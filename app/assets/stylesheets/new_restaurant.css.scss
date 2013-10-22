@@ -21,6 +21,20 @@
   margin-right: 5px;
 }
 
+.new-restaurant > button {
+  display: block;
+  float: right;
+  width:150px;
+  background:#5F84CB;
+  color:#fff;
+  height:30px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: 1p solid #999;
+  font-size: 12px;
+}
+
 .new-restaurant > a {
   font-size: 16px;
   border-left: 1px solid black;
@@ -64,7 +78,7 @@
   font-size: 14px;
 }
 
-.new-restaurant > input[type=submit]:hover {
+.new-restaurant > input[type=submit]:hover, .new-restaurant > button:hover {
   background: #fff;
   color: #5F84CB;
 }
@@ -85,4 +99,14 @@
 .select > select:focus, #map_restaurants_attributes_0_place_type:focus{
   outline: none;
   border: 2px solid #5F84CB;
+}
+
+.help {
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.return {
+  margin: 0;
+  padding: 0;
 }

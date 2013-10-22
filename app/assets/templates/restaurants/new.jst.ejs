@@ -1,7 +1,10 @@
 
 <form class="new-restaurant">
 <h1>New Restaurant</h1><a href="#/">Back</a><br>
-  <label>Name
+
+<button class="fill">Sample Restaurant</button>
+
+  <label>Name (Required)
     <input name="restaurant[name]">
   </label><br>
 
@@ -9,7 +12,8 @@
     <input name="restaurant[source_url]">
   </label><br>
 
-  <label>Address
+  <label>Address <br class="return">
+  <span class="help">(Required - Make sure the address is in the correct format: Number Street, City, State, Zip)</span>
     <input name="restaurant[address]">
   </label><br>
 
