@@ -9,7 +9,7 @@
 
 ###Eat
 * Check off restaurants as you visit them and take notes on your meals. 
-* Filter your a map's restaurants by category to find exactly what you want to eat. 
+* Filter your map's restaurants by category to find exactly what you want to eat. 
 
 ###Explore
  * Check out other users' maps and their eating accomplishments, add their restaurants to your maps, or even clone their entire map and set out on your own eating quest.
