@@ -22,3 +22,10 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+$(document).ready(function() {
+
+  $("#comment-form").on("ajax:success", function(event, data){
+        $(".comments").prepend(data);
+        $("#comment-form textarea").val("");
+  })
+})

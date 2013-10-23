@@ -5,6 +5,7 @@
 </head>
 
 <body class="map">
+  <%= @favorites %>
   <%= render "header", map: @map, favorite: @favorite %>
 
   <section class="show-map">
@@ -45,15 +46,6 @@
   <hr>
 
   <%= render "comments", map: @map, comment: @comment, comments: @comments%>
-
-  <script type="application/javascript">
-    $(document).ready(function () {
-      $("#comment-form").on("ajax:success", function(event, data){
-        //$(".comments").prepend(data);
-        $("#comment-form textarea").val("");
-      })
-    })
-  </script>
 
 </body>
 

@@ -5,6 +5,7 @@ class MapsController < ApplicationController
     @map = Map.includes(:restaurants, :favorites).find(params[:id])
     @restaurants = @map.restaurants
     @favorite = @map.favorites.where(user_id:current_user.id).length == 0 ? true : false
+    @favorites = @map.favorites.map{ |f| f.user.username }
     @comment = Comment.new
     @comments = @map.comments.order("id DESC")
 
