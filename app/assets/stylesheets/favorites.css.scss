@@ -1,3 +1,23 @@
 // Place all the styles related to the favorites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fav-list {
+  position: absolute;
+  z-index: 10;
+  background-color: #F5F3A8;
+  padding: 10px 20px;
+  left: 100px;
+  top: 90px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.fav-list > li {
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.fav-count {
+  cursor: pointer;
+}

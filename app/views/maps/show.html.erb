@@ -5,8 +5,7 @@
 </head>
 
 <body class="map">
-  <%= @favorites %>
-  <%= render "header", map: @map, favorite: @favorite %>
+  <%= render "header", map: @map, favorite: @favorite, favorites: @favorites %>
 
   <section class="show-map">
     <div id='show-map-ui'>

@@ -2,7 +2,7 @@
   <h1><%= @map.title %> by <%= @map.owner.username %></h1>
 
   <p><%= map.description %> </p>
-  <p> <%=pluralize(map.favorites.count, 'Like')%> |
+  <p class="fav-count"> <%=pluralize(map.favorites.count, 'Like')%> |
 
   <% if map.owner == current_user%>
     <%= link_to "Edit Map", edit_map_url(map) %> |
@@ -21,4 +21,9 @@
          confirm: "This will create a new map for you with all current restaurants." %>
   <% end %>
   </p>
+  <ul class="fav-list hide">Likers:
+    <% favorites.each do |f| %>
+      <li><%= f %></li>
+    <% end %>
+  </ul>
 </section>

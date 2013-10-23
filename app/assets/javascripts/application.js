@@ -28,4 +28,8 @@ $(document).ready(function() {
         $(".comments").prepend(data);
         $("#comment-form textarea").val("");
   })
+
+ $(".fav-count").on("click", function() {
+   $('.fav-list').toggleClass('hide');
+ })
 })
