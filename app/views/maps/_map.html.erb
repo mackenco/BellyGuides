@@ -36,43 +36,44 @@
   BellyGuide.zoom = map.getZoom()
   BellyGuide.geoJson = geoJson
 
-  var bakery = document.getElementById('filter-bakery');
-  var bar = document.getElementById('filter-bar');
-  var alcohol_shop = document.getElementById('filter-alcohol-shop');
-  var cafe = document.getElementById('filter-cafe');
-  var fast_food = document.getElementById('filter-fast-food');
-  var grocery = document.getElementById('filter-grocery');
-  var restaurant = document.getElementById('filter-restaurant');
-  var slaughterhouse = document.getElementById('filter-slaughterhouse');
+  var bakery = $('#filter-bakery')
+  var bar = $('#filter-bar')
+  var alcohol_shop = $('#filter-alcohol-shop')
+  var cafe = $('#filter-cafe')
+  var fast_food = $('#filter-fast-food')
+  var grocery = $('#filter-grocery')
+  var restaurant = $('#filter-restaurant')
+  var slaughterhouse = $('#filter-slaughterhouse')
 
   var items = [bakery, bar, alcohol_shop, cafe,
                fast_food, grocery, restaurant, slaughterhouse]
   var symbols = ['bakery', 'bar', 'alcohol-shop', 'cafe',
               'fast-food', 'grocery', 'restaurant', 'slaughterhouse']
 
-  var all = document.getElementById('filter-all');
+  var all = $('#filter-all')
 
+  console.log(all)
 
   _(items).each(function (item, index) {
-    item.onclick = function(e) {
-      all.className = '';
-      _(items).each(function(item){ item.className = ''; })
-      this.className = 'active';
+    item.on('click', function(e) {
+      all.removeClass();
+      _(items).each(function(item){ item.removeClass() })
+      item.addClass('active')
       map.markerLayer.setFilter(function(f) {
         return f.properties['marker-symbol'] === symbols[index]
       });
       return false
-    };
+    })
   })
 
-  all.onclick = function() {
-      _(items).each(function(item){ item.className = ''; })
-      this.className = 'active';
-      map.markerLayer.setFilter(function(f) {
-          return true;
-      });
-      return false;
-  };
+  all.on('click', function() {
+    _(items).each(function(item) { item.removeClass() })
+    all.addClass('active')
+    map.markerLayer.setFilter(function(f) {
+      return true;
+    });
+    return false;
+  });
 
   var compress = document.getElementById('compress')
   compress.onclick = function(e) {
