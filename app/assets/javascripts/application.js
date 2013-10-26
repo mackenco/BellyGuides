@@ -70,10 +70,17 @@ $(document).ready(function() {
    return false;
  });
 
- var compress = document.getElementById('compress')
- compress.onclick = function(e) {
+ var compress = $('#compress')
+ compress.on('click', function(e) {
    $item = $(e.currentTarget)
    $item.siblings().toggleClass('hide')
- }
+ })
 
+ if ($(".flash-notice p").html() !== "") {
+     $(".flash-notice").slideDown("slow", function() {
+       setTimeout(function() {
+         $(".flash-notice").slideToggle("slow");
+       }, 2000);
+     });
+   }
 })
