@@ -82,5 +82,14 @@ $(document).ready(function() {
          $(".flash-notice").slideToggle("slow");
        }, 2000);
      });
-   }
+  }
+
+  $("#nearby-form").on("ajax:success", function(event, data){
+    $(".nearby-list").html(data);
+    $("#nearby-form input[type=text]").val("");
+  })
+
+  $(".nearby").children().filter('a').on("click", function(event){
+    $(event.currentTarget).siblings().filter('form').toggleClass("hide");
+  });
 })

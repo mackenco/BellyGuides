@@ -1,9 +1,3 @@
-<head class="map">
-
-<%= render "maps/map_head" %>
-
-</head>
-
 <section class="global-map">
   <div id='map-ui'>
     <ul id='compress'>
@@ -38,16 +32,3 @@
   <a href="#">Find Near Me</a>
     <%= render "nearby", restaurants: @restaurants %>
 </section>
-
-<script type="application/javascript">
-  $(document).ready(function () {
-    $("#nearby-form").on("ajax:success", function(event, data){
-      $(".nearby-list").html(data);
-      $("#nearby-form input[type=text]").val("");
-    })
-
-    $(".nearby").children().filter('a').on("click", function(event){
-      $(event.currentTarget).siblings().filter('form').toggleClass("hide");
-    });
-  })
-</script>
