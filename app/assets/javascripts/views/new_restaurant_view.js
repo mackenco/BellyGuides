@@ -70,15 +70,16 @@ BellyGuide.Views.NewRestaurantView = Backbone.View.extend({
 
   autoPopulate: function(event) {
     var $form = $(event.currentTarget).parent();
-    $form.children('.restaurant-name').children().val("Franklin BBQ")
-    $form.children('.restaurant-source-url').children()                                   .val("http://franklinbarbecue.com/menu/")
+    $form.children('.restaurant-name').children().val("Brooklyn Brewery")
+    $form.children('.restaurant-source-url').children()
+        .val("http://brooklynbrewery.com/")
     $form.children('.restaurant-address').children()
-         .val("900 E. 11th, Austin, TX 78702")
+         .val("79 N 11th St, New York, NY 11249")
     $form.children('.restaurant-place-type').children()
          .val("restaurant").removeAttr('selected')
    $form.children('.restaurant-type').children()
-        .val("slaughterhouse").attr('selected')
+        .val("alcohol-shop").attr('selected')
     $form.children('.restaurant-note').children()
-         .val("America's best BBQ restaurant")
+         .val("Williamsburg's finest beer")
   }
 });
