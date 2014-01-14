@@ -1,6 +1,6 @@
 BellyGuide::Application.routes.draw do
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit]
   resource :session, only: [:create, :destroy, :new]
   resources :maps do
       get 'clone', on: :member
